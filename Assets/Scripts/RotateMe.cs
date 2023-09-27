@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class RotateMe : MonoBehaviour
 {
-    public Vector3 targetAngle = new Vector3(0f, 345f, 0f);
-
+    public Vector3 targetAngle;
     private Vector3 currentAngle;
-
     public bool atRest = false;
 
     public void Start()
@@ -20,9 +18,9 @@ public class RotateMe : MonoBehaviour
         if (atRest == true)
         {
             currentAngle = new Vector3(
-           Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime),
-           Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime),
-           Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime));
+           Mathf.Lerp(currentAngle.x, targetAngle.x, Time.deltaTime * 4),
+           Mathf.Lerp(currentAngle.y, targetAngle.y, Time.deltaTime * 4),
+           Mathf.Lerp(currentAngle.z, targetAngle.z, Time.deltaTime * 4));
 
             transform.eulerAngles = currentAngle;
         }

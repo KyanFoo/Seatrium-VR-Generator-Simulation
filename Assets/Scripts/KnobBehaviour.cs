@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,13 @@ public class KnobBehaviour : MonoBehaviour
     public CircularDrive circulardrive;
     public KnobData knobdata;
 
-    public GameObject gameObj;
-    public float linearvalue;
+    private float linearvalue;
     public int intlinearvalue;
     public bool atRest = false;
 
-    public Vector3 targetAngle = new Vector3(0f, 0f, 0f);
+    public Vector3 targetAngle;
     private Vector3 currentAngle;
+
 
 
     // Vessel Engine Control Details//
@@ -48,10 +49,6 @@ public class KnobBehaviour : MonoBehaviour
         //Actions whether the player got properly interact the knob.//
         Debug.Log(intlinearvalue);
         Debug.Log("Increase");
-
-        atRest = true;
-        Debug.Log("Rotate to Rest");
-        atRest = false;
     }
     public void DecreaseValue()
     {
@@ -63,9 +60,5 @@ public class KnobBehaviour : MonoBehaviour
         //Actions whether the player got properly interact the knob.//
         Debug.Log(intlinearvalue);
         Debug.Log("Decrease");
-
-        atRest = true;
-        Debug.Log("Rotate to Rest");
-        atRest = false;
     }
 }

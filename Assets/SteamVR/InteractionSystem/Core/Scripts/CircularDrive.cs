@@ -105,8 +105,9 @@ namespace Valve.VR.InteractionSystem
 
         private Interactable interactable;
 
-		//-------------------------------------------------
-		private void Freeze( Hand hand )
+
+        //-------------------------------------------------
+        private void Freeze( Hand hand )
 		{
 			frozen = true;
 			frozenAngle = outAngle;
@@ -235,6 +236,9 @@ namespace Valve.VR.InteractionSystem
 			}
 
 			driving = false;
+			outAngle= 0.0f;
+			Debug.Log("OutAngle Changed");
+			UpdateAll();
 			handHoverLocked = null;
 		}
 
@@ -394,6 +398,8 @@ namespace Valve.VR.InteractionSystem
 			{
 				// Map it to a [0, 1] value
 				linearMapping.value = ( outAngle - minAngle ) / ( maxAngle - minAngle );
+
+				//Debug.Log(linearMapping.value + " LinearMapping");
 			}
 			else
 			{
@@ -433,7 +439,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		// Updates the Debug TextMesh with the linear mapping value and the angle
 		//-------------------------------------------------
-		private void UpdateAll()
+		public void UpdateAll()
 		{
 			UpdateLinearMapping();
 			UpdateGameObject();
