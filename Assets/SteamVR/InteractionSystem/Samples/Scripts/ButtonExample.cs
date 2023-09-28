@@ -9,6 +9,9 @@ namespace Valve.VR.InteractionSystem.Sample
 
         public GameObject prefab;
 
+        public AudioSource source;
+        public AudioClip clip;
+
         private void Start()
         {
             hoverButton.onButtonDown.AddListener(OnButtonDown);
@@ -17,6 +20,8 @@ namespace Valve.VR.InteractionSystem.Sample
         private void OnButtonDown(Hand hand)
         {
             StartCoroutine(DoPlant());
+            EngineStart();
+            
         }
 
         private IEnumerator DoPlant()
@@ -48,6 +53,12 @@ namespace Valve.VR.InteractionSystem.Sample
 
             if (rigidbody != null)
                 rigidbody.isKinematic = false;
+        }
+
+        private void EngineStart()
+        {
+            source.clip = clip;
+            source.Play();
         }
     }
 }
