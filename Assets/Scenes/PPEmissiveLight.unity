@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 109799802}
   - component: {fileID: 109799801}
   - component: {fileID: 109799805}
+  - component: {fileID: 109799806}
   m_Layer: 0
   m_Name: TestingCube
   m_TagString: Untagged
@@ -176,7 +177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 51b941f28b5be0e4b99c2984fcc83855, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,8 +237,23 @@ MonoBehaviour:
   emissiveMaterial: {fileID: 2100000, guid: 00a1ef75b0f9c804f876ca252277af7f, type: 2}
   objCube: {fileID: 109799799}
   color: {r: 1, g: 0, b: 0, a: 0}
-  endIntensity: 10
+  endIntensity: 5
   lerpDuration: 2
+  StartOnLight: 1
+  StartOffLight: 1
+  speed: 0
+--- !u!114 &109799806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109799799}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a110aee063e8f74409cf540a8063b72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &166314280
 GameObject:
   m_ObjectHideFlags: 0
