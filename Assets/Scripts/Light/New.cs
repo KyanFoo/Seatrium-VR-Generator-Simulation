@@ -8,7 +8,7 @@ public class New : MonoBehaviour
     private Renderer _RenderCube;
     public GameObject objCube;
 
-    private Color color;
+    public Color color;
     private float intensity;
 
     // Start is called before the first frame update
@@ -25,7 +25,6 @@ public class New : MonoBehaviour
         if (Input.GetKeyDown("up"))
         {
             emissiveMaterial.EnableKeyword("_EMISSION");
-            color = Color.red;
             intensity = 5.0f;
             emissiveMaterial.SetColor("_EmissionColor", color * intensity);
         }

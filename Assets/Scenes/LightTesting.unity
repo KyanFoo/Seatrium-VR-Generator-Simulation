@@ -867,6 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emissiveMaterial: {fileID: 2100000, guid: f4684de6321527a40826d6b06e8c50b4, type: 2}
   objCube: {fileID: 725213410}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &731520173
 GameObject:
   m_ObjectHideFlags: 0
