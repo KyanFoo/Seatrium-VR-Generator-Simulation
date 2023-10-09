@@ -27,7 +27,7 @@ public class NewLerpEmission : MonoBehaviour
 
     //Duration of Lerping from start to end//
     private float lerpStartTime;
-    private float lerpTime;
+    public float lerpTime;
     public float lerpDuration = 2.0f;
 
     [Header("Bool Testing")]
