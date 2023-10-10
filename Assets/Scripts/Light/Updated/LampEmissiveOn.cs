@@ -30,7 +30,16 @@ public class LampEmissiveOn : MonoBehaviour
         emissiveMaterial.EnableKeyword("_EMISSION");
         intensity = 0;
         emissiveMaterial.SetColor("_EmissionColor", color * intensity);
-        onLight= true;
+
+        //onLight = true;
+        //StartCoroutine(OnCoroutine());
+
+        lerpTime = 0f;
+    }
+    public void CallCoroutine()
+    {
+        onLight = true;
+        lerpTime = 0;
         StartCoroutine(OnCoroutine());
     }
 
@@ -47,7 +56,7 @@ public class LampEmissiveOn : MonoBehaviour
     {
         while (onLight == true)
         {
-            lerpTime = Time.time - lerpStartTime;
+            lerpTime += Time.deltaTime;
 
             emissiveMaterial.EnableKeyword("_EMISSION");
 
@@ -61,6 +70,5 @@ public class LampEmissiveOn : MonoBehaviour
     {
         onLight = false;
         StopCoroutine(OnCoroutine());
-        enabled = false;
     }
 }

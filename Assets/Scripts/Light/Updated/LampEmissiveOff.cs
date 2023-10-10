@@ -30,8 +30,17 @@ public class LampEmissiveOff : MonoBehaviour
         emissiveMaterial.EnableKeyword("_EMISSION");
         intensity = 0;
         emissiveMaterial.SetColor("_EmissionColor", color * intensity);
+
+        //offLight = true;
+        //StartCoroutine(OffCoroutine());
+
+        lerpTime = 0f;
+    }
+    public void CallCoroutine()
+    {
         offLight = true;
-        StartCoroutine(OnCoroutine());
+        lerpTime = 0;
+        StartCoroutine(OffCoroutine());
     }
 
     // Update is called once per frame
@@ -43,11 +52,11 @@ public class LampEmissiveOff : MonoBehaviour
             StopCoroutineAndExitLoop();
         }
     }
-    IEnumerator OnCoroutine()
+    IEnumerator OffCoroutine()
     {
         while (offLight == true)
         {
-            lerpTime = Time.time - lerpStartTime;
+            lerpTime += Time.deltaTime;
 
             emissiveMaterial.EnableKeyword("_EMISSION");
 
@@ -60,7 +69,6 @@ public class LampEmissiveOff : MonoBehaviour
     private void StopCoroutineAndExitLoop()
     {
         offLight = false;
-        StopCoroutine(OnCoroutine());
-        enabled = false;
+        StopCoroutine(OffCoroutine());
     }
 }
