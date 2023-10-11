@@ -15,15 +15,15 @@ public class SynchroscopeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("up"))
+       // if (Input.GetKeyDown("up"))
         {
-            Debug.Log("up");
-            onScript.CallCoroutine();
+            //Debug.Log("up");
+            //onScript.CallOnCoroutine();
         }
-        if (Input.GetKeyDown("down"))
+        //if (Input.GetKeyDown("down"))
         {
-            Debug.Log("down");
-            offScript.CallCoroutine();
+            //Debug.Log("down");
+            //offScript.CallOffCoroutine();
         }
     }
 }

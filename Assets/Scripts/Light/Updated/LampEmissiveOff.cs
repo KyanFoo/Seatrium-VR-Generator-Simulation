@@ -28,15 +28,12 @@ public class LampEmissiveOff : MonoBehaviour
         _renderCube = objCube.GetComponent<Renderer>();
         _renderCube.material = emissiveMaterial;
         emissiveMaterial.EnableKeyword("_EMISSION");
-        intensity = 0;
         emissiveMaterial.SetColor("_EmissionColor", color * intensity);
-
+        lerpTime = 0f;
         //offLight = true;
         //StartCoroutine(OffCoroutine());
-
-        lerpTime = 0f;
     }
-    public void CallCoroutine()
+    public void CallOffCoroutine()
     {
         offLight = true;
         lerpTime = 0;
@@ -49,7 +46,7 @@ public class LampEmissiveOff : MonoBehaviour
         if (lerpTime / lerpDuration >= 1.0f)
         {
             // Disable "LightOnCoroutine" Coroutine.//
-            StopCoroutineAndExitLoop();
+            StopOffCoroutineAndExitLoop();
         }
     }
     IEnumerator OffCoroutine()
@@ -66,7 +63,7 @@ public class LampEmissiveOff : MonoBehaviour
         }
         Debug.Log("Finish Lighting Up");
     }
-    private void StopCoroutineAndExitLoop()
+    private void StopOffCoroutineAndExitLoop()
     {
         offLight = false;
         StopCoroutine(OffCoroutine());

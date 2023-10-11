@@ -234,9 +234,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emissiveMaterial: {fileID: 2100000, guid: 00a1ef75b0f9c804f876ca252277af7f, type: 2}
+  _RenderCube: {fileID: 0}
   objCube: {fileID: 109799799}
-  color: {r: 1, g: 0, b: 0, a: 0}
+  color:
+    r: 1
+    g: 0
+    b: 0
+    a: 0
+  startIntensity: 0
   endIntensity: 5
+  intensity: 0
+  setIntensity: 0
+  originalStartIntensity: 0
+  originalEndIntensity: 0
+  lerpStartTime: 0
   lerpTime: 0
   lerpDuration: 2
   StartOnLight: 1
@@ -545,6 +556,7 @@ GameObject:
   - component: {fileID: 1490382816}
   - component: {fileID: 1490382815}
   - component: {fileID: 1490382818}
+  - component: {fileID: 1490382819}
   m_Layer: 0
   m_Name: SynchroscopeManager
   m_TagString: Untagged
@@ -559,7 +571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490382814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 778712af7af83f44fa2e094d3c413f20, type: 3}
   m_Name: 
@@ -581,7 +593,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490382814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d05e17f3e66aed4e8ff76abf356eb1f, type: 3}
   m_Name: 
@@ -618,13 +630,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490382814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01ffdb93d6d484e49b1bcbb2342b2a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onScript: {fileID: 1490382815}
   offScript: {fileID: 1490382816}
+--- !u!114 &1490382819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490382814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca7b8831bc28134eaff0fc4dbc2eeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissiveMaterial: {fileID: 2100000, guid: 00a1ef75b0f9c804f876ca252277af7f, type: 2}
+  objCube: {fileID: 109799799}
+  color: {r: 0, g: 1, b: 0.34260058, a: 0}
+  startIntensity: 0
+  endIntensity: 5
+  savedStartIntensity: 0
+  savedEndIntensity: 0
+  lerpTime: 0
+  lerpDuration: 2
+  onLight: 0
+  offLight: 0
 --- !u!1 &2000919990
 GameObject:
   m_ObjectHideFlags: 0
