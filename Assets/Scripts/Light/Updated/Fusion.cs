@@ -32,7 +32,7 @@ public class Fusion : MonoBehaviour
         emissiveMaterial.SetColor("_EmissionColor", color * intensity);
         lerpTime = 0f;
 
-        CallOnCoroutine();
+        //CallOnCoroutine();
     }
     public void CallOnCoroutine()
     {
@@ -42,6 +42,7 @@ public class Fusion : MonoBehaviour
     }
     public void CallOffCoroutine()
     {
+        
         offLight = true;
         lerpTime = 0;
         StartCoroutine(OffCoroutine());
@@ -101,12 +102,12 @@ public class Fusion : MonoBehaviour
             emissiveMaterial.SetColor("_EmissionColor", color * intensity);
             yield return null;
         }
-        Debug.Log("Finish Lighting Up");
+        Debug.Log("Finish Lighting Down");
     }
     private void StopOffCoroutineAndExitLoop()
     {
         offLight = false;
         StopCoroutine(OffCoroutine());
-        CallOnCoroutine();
+        //CallOnCoroutine();
     }
 }
