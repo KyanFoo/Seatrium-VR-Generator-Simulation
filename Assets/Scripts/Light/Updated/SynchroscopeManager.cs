@@ -12,7 +12,8 @@ public class SynchroscopeManager : MonoBehaviour
     public bool nextLamp1 = false;
     public bool nextLamp2 = false;
 
-    public bool SynActive = true;
+    public bool synActive = true;
+    public bool reverseLoop = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,32 +22,71 @@ public class SynchroscopeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.A))
+        if (synActive == true)
         {
+            ActiveSync();
         }
-            if (SynActive == true)
+    }
+    public void ActiveSync()
+    {
+        if (reverseLoop == false)
         {
             if (!nextLamp0)
             {
-                lamp0Script.CallOnCoroutine();
-                nextLamp0 = true;
+                CallLamp0Script();
             }
             if (nextLamp0 == true && !nextLamp1 && lamp0Script.onLight == false)
             {
-                lamp1Script.CallOnCoroutine();
-                nextLamp1 = true;
+                CallLamp1Script();
             }
             if (nextLamp0 == true && nextLamp1 == true && !nextLamp2 && lamp1Script.onLight == false)
             {
-                lamp2Script.CallOnCoroutine();
-                nextLamp2 = true;
+                CallLamp2Script();
             }
-            if (nextLamp1 == true && nextLamp2 == true && lamp2Script.onLight == false)
+            if (nextLamp0 == true && nextLamp1 == true && nextLamp2 == true && lamp2Script.onLight == false)
             {
-                nextLamp0 = false;
-                nextLamp1 = false;
-                nextLamp2 = false;
+                ResetBool();
             }
         }
+        if (reverseLoop == true)
+        {
+            if (!nextLamp0 && reverseLoop == true)
+            {
+                CallLamp0Script();
+            }
+            if (nextLamp0 == true && !nextLamp2 && lamp0Script.onLight == false && reverseLoop == true)
+            {
+                CallLamp2Script();
+            }
+            if (nextLamp0 == true && nextLamp2 == true && !nextLamp1 && lamp2Script.onLight == false && reverseLoop == true)
+            {
+                CallLamp1Script();
+            }
+            if (nextLamp0 == true && nextLamp1 == true && nextLamp2 == true && lamp1Script.onLight == false && reverseLoop == true)
+            {
+                ResetBool();
+            }
+        }
+    }
+    public void CallLamp0Script()
+    {
+        lamp0Script.CallOnCoroutine();
+        nextLamp0 = true;
+    }
+    public void CallLamp1Script()
+    {
+        lamp1Script.CallOnCoroutine();
+        nextLamp1 = true;
+    }
+    public void CallLamp2Script()
+    {
+        lamp2Script.CallOnCoroutine();
+        nextLamp2 = true;
+    }
+    public void ResetBool()
+    {
+        nextLamp0 = false;
+        nextLamp1 = false;
+        nextLamp2 = false;
     }
 }
