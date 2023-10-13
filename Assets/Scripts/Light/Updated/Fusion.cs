@@ -61,14 +61,6 @@ public class Fusion : MonoBehaviour
             // Disable "LightOnCoroutine" Coroutine.//
             StopOffCoroutineAndExitLoop();
         }
-        if (Input.GetKeyDown("up"))
-        {
-            lerpDuration = lerpDuration + 1;
-        }
-        if (Input.GetKeyDown("down"))
-        {
-            lerpDuration = lerpDuration - 1;
-        }
     }
     IEnumerator OnCoroutine()
     {

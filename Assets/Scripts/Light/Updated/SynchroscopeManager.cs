@@ -26,6 +26,19 @@ public class SynchroscopeManager : MonoBehaviour
         {
             ActiveSync();
         }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            lamp0Script.lerpDuration = lamp0Script.lerpDuration + 1;
+            lamp1Script.lerpDuration = lamp1Script.lerpDuration + 1;
+            lamp2Script.lerpDuration = lamp2Script.lerpDuration + 1;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            lamp0Script.lerpDuration = lamp0Script.lerpDuration - 1;
+            lamp1Script.lerpDuration = lamp1Script.lerpDuration - 1;
+            lamp2Script.lerpDuration = lamp2Script.lerpDuration - 1;
+        }
     }
     public void ActiveSync()
     {
