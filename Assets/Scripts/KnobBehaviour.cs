@@ -17,7 +17,6 @@ public class KnobBehaviour : MonoBehaviour
     private Vector3 currentAngle;
 
 
-
     // Vessel Engine Control Details//
     //Right = Raise = 1//
     //Middle = Rest = 0.5//
@@ -45,7 +44,6 @@ public class KnobBehaviour : MonoBehaviour
         linearvalue = circulardrive.linearMapping.value;
         //Round up from float value to int.//
         intlinearvalue = (Mathf.RoundToInt(linearvalue));
-
         //Actions whether the player got properly interact the knob.//
         Debug.Log(intlinearvalue);
         Debug.Log("Increase");
@@ -56,7 +54,6 @@ public class KnobBehaviour : MonoBehaviour
         linearvalue = circulardrive.linearMapping.value;
         //Round up from float value to int.//
         intlinearvalue = (Mathf.RoundToInt(linearvalue));
-
         //Actions whether the player got properly interact the knob.//
         Debug.Log(intlinearvalue);
         Debug.Log("Decrease");

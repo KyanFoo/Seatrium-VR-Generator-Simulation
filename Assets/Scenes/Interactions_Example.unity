@@ -20225,6 +20225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverButton: {fileID: 1787725978}
   prefab: {fileID: 1000011210241306, guid: 8a2487c189a464148aadc3af2effa7c8, type: 3}
+  source: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1 &1428965057
 GameObject:
   m_ObjectHideFlags: 0
