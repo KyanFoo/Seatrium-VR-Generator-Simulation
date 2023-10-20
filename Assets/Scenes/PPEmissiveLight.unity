@@ -971,7 +971,7 @@ MonoBehaviour:
   nextLamp1: 0
   nextLamp2: 0
   synActive: 1
-  reverseLoop: 1
+  reverseLoop: 0
 --- !u!1 &2000919990
 GameObject:
   m_ObjectHideFlags: 0
