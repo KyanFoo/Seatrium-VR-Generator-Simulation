@@ -23,6 +23,13 @@ public class SnapKnob : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Automatic notify the "Circular Drive" Script to enable limited.//
+        snapcirculardrive.limited = true;
+
+        //Set your Maximum & Minium Angle 
+        snapcirculardrive.minAngle = -1.0f;
+        snapcirculardrive.maxAngle = 361.0f;
+
         //Creating the interval points of the knobs//
         //If there are "4" interval points, the angles of the points are 90, 180, 270, 360//
         myArray = new float[intervalPoint];
