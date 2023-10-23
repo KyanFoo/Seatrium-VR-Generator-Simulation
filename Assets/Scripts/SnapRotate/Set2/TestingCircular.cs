@@ -13,7 +13,7 @@ namespace Valve.VR.InteractionSystem
 
     //-------------------------------------------------------------------------
     [RequireComponent(typeof(Interactable))]
-    public class FlipCircularDrive : MonoBehaviour
+    public class TestingCircular : MonoBehaviour
     {
         public enum Axis_t
         {
@@ -104,7 +104,6 @@ namespace Valve.VR.InteractionSystem
         private Hand handHoverLocked = null;
 
         private Interactable interactable;
-
 
         //-------------------------------------------------
         private void Freeze(Hand hand)
@@ -236,11 +235,6 @@ namespace Valve.VR.InteractionSystem
             }
 
             driving = false;
-            ///////////////////////////////////////////////////////////////////////
-            outAngle = 0.0f;
-            Debug.Log("OutAngle Changed");
-            UpdateAll();
-            ///////////////////////////////////////////////////////////////////////
             handHoverLocked = null;
         }
 
@@ -400,8 +394,6 @@ namespace Valve.VR.InteractionSystem
             {
                 // Map it to a [0, 1] value
                 linearMapping.value = (outAngle - minAngle) / (maxAngle - minAngle);
-
-                //Debug.Log(linearMapping.value + " LinearMapping");
             }
             else
             {
@@ -441,7 +433,7 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         // Updates the Debug TextMesh with the linear mapping value and the angle
         //-------------------------------------------------
-        public void UpdateAll()
+        private void UpdateAll()
         {
             UpdateLinearMapping();
             UpdateGameObject();
