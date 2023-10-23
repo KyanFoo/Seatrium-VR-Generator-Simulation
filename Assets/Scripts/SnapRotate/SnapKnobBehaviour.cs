@@ -19,15 +19,15 @@ public class SnapKnobBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        snapToPoint = false;
+        //snapToPoint = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float zRotation = transform.rotation.eulerAngles.z;
-        linearvalue = circulardrivesnapScript.linearMapping.value;
-        floatlinearvalue = Mathf.Round(linearvalue * 10) / 10.0f;
+        //float zRotation = transform.rotation.eulerAngles.z;
+        //linearvalue = circulardrivesnapScript.linearMapping.value;
+        //floatlinearvalue = Mathf.Round(linearvalue * 10) / 10.0f;
         outAngle = circulardrivesnapScript.outAngle;
         if (outAngle >= 60)
         {

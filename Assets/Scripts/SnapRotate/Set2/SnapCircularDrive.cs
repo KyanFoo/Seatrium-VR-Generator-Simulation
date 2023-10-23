@@ -13,7 +13,7 @@ namespace Valve.VR.InteractionSystem
 
     //-------------------------------------------------------------------------
     [RequireComponent(typeof(Interactable))]
-    public class TestingCircular : MonoBehaviour
+    public class SnapCircularDrive : MonoBehaviour
     {
         public enum Axis_t
         {
@@ -433,7 +433,7 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         // Updates the Debug TextMesh with the linear mapping value and the angle
         //-------------------------------------------------
-        private void UpdateAll()
+        public void UpdateAll()
         {
             UpdateLinearMapping();
             UpdateGameObject();
