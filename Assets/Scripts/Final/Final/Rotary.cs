@@ -21,12 +21,12 @@ public class Rotary : MonoBehaviour
     public int intervalPoint;
     //An Array that would be filled with interval points//
     public int[] myArray;
-    public int num;
+    private int num;
 
     //public Vector3 currentAngle;
     private int targetRotation;
 
-    private float allowedDeviation = 3.0f;
+    public float allowedDeviation = 5;
 
     public int numberOfVariables;
     public int numberPlace = 0;
@@ -34,6 +34,8 @@ public class Rotary : MonoBehaviour
     public bool isIncrease;
     public bool isDecrease;
     public bool oneTime = false;
+
+    public float rotationDifference;
 
     // Start is called before the first frame update
     void Start()
@@ -73,13 +75,13 @@ public class Rotary : MonoBehaviour
         {
             if (currentZRotation > previousZRotation)
             {
-                Debug.Log("Z rotation is increasing.");
+                //Debug.Log("Z rotation is increasing.");
                 isIncrease = true;
             }
             // Check if the Z rotation is decreasing.
             else if (currentZRotation < previousZRotation)
             {
-                Debug.Log("Z rotation is decreasing.");
+                //Debug.Log("Z rotation is decreasing.");
                 isDecrease = true;
             }
         }
@@ -90,7 +92,7 @@ public class Rotary : MonoBehaviour
             rotarycirculardrive.outAngle = currentZRotation;
             previousZRotation = transform.eulerAngles.z;
 
-            if (isIncrease == true)
+            if (isIncrease == true && isDecrease == false)
             {
                 if (oneTime == false)
                 {
@@ -100,7 +102,8 @@ public class Rotary : MonoBehaviour
             }
             isIncrease = false;
 
-            if (isDecrease == false)
+
+            if (isDecrease == true && isIncrease == false)
             {
                 if (oneTime == false)
                 {
@@ -109,6 +112,17 @@ public class Rotary : MonoBehaviour
                 oneTime = true;
             }
             isDecrease= false;
+        }
+        oneTime = false;
+
+        rotationDifference = Mathf.Abs(currentZRotation - myArray[numberPlace]);
+        Debug.Log(rotationDifference);
+
+        if (rotationDifference <= allowedDeviation && rotationDifference > 0)
+        {
+            //Debug.Log("Reach");
+            targetRotation = myArray[numberPlace];
+            SnapRotate();
         }
     }
     void SnapRotate()

@@ -597,14 +597,15 @@ MonoBehaviour:
   outAngleValue: 0
   currentZRotation: 0
   previousZRotation: 0
-  intervalPoint: 4
+  intervalPoint: 5
   myArray: 
-  num: 0
+  allowedDeviation: 45
   numberOfVariables: 0
   numberPlace: 0
   isIncrease: 0
   isDecrease: 0
   oneTime: 0
+  rotationDifference: 0
 --- !u!114 &137778256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,12 +627,12 @@ MonoBehaviour:
   onFrozenDistanceThreshold:
     m_PersistentCalls:
       m_Calls: []
-  minAngle: -1
+  minAngle: 0
   freezeOnMin: 0
   onMinAngle:
     m_PersistentCalls:
       m_Calls: []
-  maxAngle: 361
+  maxAngle: 360
   freezeOnMax: 0
   onMaxAngle:
     m_PersistentCalls:
