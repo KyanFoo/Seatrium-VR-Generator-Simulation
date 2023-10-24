@@ -237,6 +237,7 @@ namespace Valve.VR.InteractionSystem
 
             driving = false;
             ///////////////////////////////////////////////////////////////////////
+            //Change the outAngle to 0" so tht the knob will return to the rest positoon and not get a random position//
             outAngle = 0.0f;
             Debug.Log("OutAngle Changed");
             UpdateAll();
@@ -437,7 +438,8 @@ namespace Valve.VR.InteractionSystem
             }
         }
 
-
+        ///////////////////////////////////////////////////////////////////////
+        //Change "UpdateAll" from private to public//
         //-------------------------------------------------
         // Updates the Debug TextMesh with the linear mapping value and the angle
         //-------------------------------------------------
@@ -447,7 +449,7 @@ namespace Valve.VR.InteractionSystem
             UpdateGameObject();
             UpdateDebugText();
         }
-
+        ///////////////////////////////////////////////////////////////////////
 
         //-------------------------------------------------
         // Computes the angle to rotate the game object based on the change in the transform
