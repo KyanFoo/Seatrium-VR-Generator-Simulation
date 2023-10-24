@@ -223,8 +223,6 @@ namespace Valve.VR.InteractionSystem
         private void OnHandHoverBegin(Hand hand)
         {
             hand.ShowGrabHint();
-            handHold = true;
-            handRelease = false;
         }
 
 
@@ -232,8 +230,6 @@ namespace Valve.VR.InteractionSystem
         private void OnHandHoverEnd(Hand hand)
         {
             hand.HideGrabHint();
-            handHold = false;
-            handRelease = true;
 
             if (driving && hand)
             {
@@ -258,14 +254,13 @@ namespace Valve.VR.InteractionSystem
                 // Trigger was just pressed
                 lastHandProjected = ComputeToTransformProjected(hand.hoverSphereTransform);
 
-                handHold = true;
-                handRelease = false;
-
                 if (hoverLock)
                 {
                     hand.HoverLock(interactable);
                     handHoverLocked = hand;
                 }
+                handHold = true;
+                handRelease = false;
 
                 driving = true;
 
@@ -282,6 +277,8 @@ namespace Valve.VR.InteractionSystem
                     hand.HoverUnlock(interactable);
                     handHoverLocked = null;
                 }
+                handHold = false;
+                handRelease = true;
 
                 driving = false;
                 grabbedWithType = GrabTypes.None;
