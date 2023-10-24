@@ -4450,7 +4450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &919132149131523068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,7 +4466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1107335237875229174
 Transform:
   m_ObjectHideFlags: 0
@@ -4720,6 +4720,7 @@ GameObject:
   - component: {fileID: 8770955137895387515}
   - component: {fileID: 8770955137895387514}
   - component: {fileID: 8770955137895387513}
+  - component: {fileID: 8770955137895387518}
   m_Layer: 0
   m_Name: SynchroscopeS_Switch
   m_TagString: Untagged
@@ -4898,6 +4899,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4470776374661390316, guid: e47e59b3ed16fe042aa461e56dc4194d, type: 3}
+--- !u!114 &8770955137895387518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607337004607798528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee9cba911d416749807c768281feec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotaryknobbehaviour: {fileID: 8770955137895387513}
+  numInterval: 0
 --- !u!1 &9175610218783145313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4920,7 +4935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &9175610218783145314
 MonoBehaviour:
   m_ObjectHideFlags: 0

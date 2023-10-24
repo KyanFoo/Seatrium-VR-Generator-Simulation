@@ -66,10 +66,10 @@ public class RotaryKnobBehaviour : MonoBehaviour
         numberPlace = 0;
 
         //Set your Maximum & Minium Angle//
-        rotarycirculardrive.minAngle = -3.0f;
+        rotarycirculardrive.minAngle = -2.0f;
 
         //Maximum Angles can varied based on the gameobject's interval points//
-        rotarycirculardrive.maxAngle = myArray[numberOfVariables - 2] + 3;
+        rotarycirculardrive.maxAngle = myArray[numberOfVariables - 2] + 2;
 
         //Rotation value before reaching the interval points//
         //For example, if the interval points are (0, 90, 180, 270)//
@@ -156,5 +156,10 @@ public class RotaryKnobBehaviour : MonoBehaviour
     {
         //Snap the GameObject to the rotation position of the "targetRotaion"//
         transform.rotation = Quaternion.Euler(0f, 0f, targetRotation);
+        CallFunction();
+    }
+    public void CallFunction()
+    {
+
     }
 }
