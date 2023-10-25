@@ -26,6 +26,7 @@ public class Fusion : MonoBehaviour
 
     public SynchroscopeManager synchromanager;
     public bool pauseSwitch;
+
     // Start is called before the first frame update
     void Start()
     {
