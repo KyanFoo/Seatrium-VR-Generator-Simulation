@@ -2583,6 +2583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc6e48706c13fa4a8f807ff0f16e9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emissiveMaterial: {fileID: 2100000, guid: 595f3baf27f7d7c4ca1ddb86faab1244, type: 2}
+  color: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 0}
+  intensity: 1
 --- !u!114 &1139712639
 MonoBehaviour:
   m_ObjectHideFlags: 0
