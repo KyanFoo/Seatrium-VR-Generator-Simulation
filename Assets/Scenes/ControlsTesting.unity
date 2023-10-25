@@ -5165,6 +5165,8 @@ MonoBehaviour:
   numberPlace: 0
   currentRotationX: 0
   currentRotationY: 0
+  lowerValue: 0
+  upperValue: 0
 --- !u!114 &8770955137895387514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5291,7 +5293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607337004607798528}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ee9cba911d416749807c768281feec9, type: 3}
   m_Name: 

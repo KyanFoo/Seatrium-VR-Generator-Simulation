@@ -46,6 +46,9 @@ public class RotaryKnobBehaviour : MonoBehaviour
     public float currentRotationX;
     public float currentRotationY;
 
+    public float lowerValue;
+    public float upperValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,56 +109,39 @@ public class RotaryKnobBehaviour : MonoBehaviour
                 isDecrease = true;
             }
         }
-        //When the user releae the knob//
-        if (rotarycirculardrive.handHold == false && rotarycirculardrive.handRelease == true)
+        foreach (int value in myArray)
         {
-            //Ensure that the outAngle is similar to the gameobject Z Rotation//
-            rotarycirculardrive.outAngle = currentZRotation;
-            previousZRotation = transform.eulerAngles.z;
-
-            if (isIncrease == true && isDecrease == false)
+            if (value <= currentZRotation)
             {
-                //Code is used one time when "oneTime" == false)
-                if (oneTime == false)
-                {
-                    //Increase the gameobject's interval numberplace//
-                    numberPlace = numberPlace + 1;
-                }
-                oneTime = true;
+                lowerValue = value;
             }
-            isIncrease = false;
-
-            if (isDecrease == true && isIncrease == false)
+            if (value >= currentZRotation)
             {
-                //Code is used one time when "oneTime" == false)
-                if (oneTime == false)
-                {
-                    //Decrease the gameobject's interval numberplace//
-                    numberPlace = numberPlace - 1;
-                }
-                oneTime = true;
+                upperValue = value;
+                break;
             }
-            isDecrease= false;
         }
-        //Allow the OneTime Code to be used again//
-        oneTime = false;
+        float lowerDifference = Mathf.Abs(currentZRotation - lowerValue);
+        float upperDifference = Mathf.Abs(upperValue - currentZRotation);
 
-        //Ensure that gameobject does not rotate too much//
-        //For example,//
-        //If the gameobject has intervals of (0, 90, 180, 270, 360)//
-        //This script prevent the gameobject to rotate to 360 interval as knobs does not turn 360 to off but rotate it back to 0 anti-clockwise//
-        numberPlace = Mathf.Clamp(numberPlace, 0, numberOfVariables - 2);
-
-        //Checking the rotation difference, checking to see if the GameObject is getting closer to the interval//
-        rotationDifference = Mathf.Abs(currentZRotation - myArray[numberPlace]);
-        if (rotationDifference <= allowedDeviation && rotationDifference > 0)
+        if (lowerDifference < upperDifference)
         {
-            //Fill in "targetRotation" with the closest interval//
-            targetRotation = myArray[numberPlace];
+            //Debug.Log("The closest value is: " + lowerValue);
+            numberPlace = (int)lowerValue;
+            targetRotation = numberPlace;
+            currentRotationX = transform.rotation.eulerAngles.x;
+            currentRotationY = transform.rotation.eulerAngles.y;
             SnapRotate();
         }
-        currentRotationX = transform.rotation.eulerAngles.x;
-        currentRotationY = transform.rotation.eulerAngles.y;
+        else
+        {
+            //Debug.Log("The closest value is: " + upperValue);
+            numberPlace = (int)upperValue;
+            targetRotation = numberPlace;
+            currentRotationX = transform.rotation.eulerAngles.x;
+            currentRotationY = transform.rotation.eulerAngles.y;
+            SnapRotate();
+        }
     }
     void SnapRotate()
     {
