@@ -14,6 +14,9 @@ public class SynchroscopeManager : MonoBehaviour
 
     public bool synActive = true;
     public bool reverseLoop = true;
+
+    public float speedValue;
+    public bool isolatorSwitch;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class SynchroscopeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speedValue = lamp0Script.lerpDuration;
         if (synActive == true)
         {
             ActiveSync();
@@ -29,15 +33,15 @@ public class SynchroscopeManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            lamp0Script.lerpDuration = lamp0Script.lerpDuration + 1;
-            lamp1Script.lerpDuration = lamp1Script.lerpDuration + 1;
-            lamp2Script.lerpDuration = lamp2Script.lerpDuration + 1;
+            lamp0Script.lerpDuration = lamp0Script.lerpDuration + 0.1f;
+            lamp1Script.lerpDuration = lamp1Script.lerpDuration + 0.1f;
+            lamp2Script.lerpDuration = lamp2Script.lerpDuration + 0.1f;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            lamp0Script.lerpDuration = lamp0Script.lerpDuration - 1;
-            lamp1Script.lerpDuration = lamp1Script.lerpDuration - 1;
-            lamp2Script.lerpDuration = lamp2Script.lerpDuration - 1;
+            lamp0Script.lerpDuration = lamp0Script.lerpDuration - 0.1f;
+            lamp1Script.lerpDuration = lamp1Script.lerpDuration - 0.1f;
+            lamp2Script.lerpDuration = lamp2Script.lerpDuration - 0.1f;
         }
     }
     public void ActiveSync()

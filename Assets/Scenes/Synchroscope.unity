@@ -505,6 +505,8 @@ MonoBehaviour:
   lerpDuration: 1
   onLight: 0
   offLight: 0
+  synchromanager: {fileID: 1490382818}
+  pauseSwitch: 0
 --- !u!65 &741551012
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -675,6 +677,8 @@ MonoBehaviour:
   lerpDuration: 1
   onLight: 0
   offLight: 0
+  synchromanager: {fileID: 1490382818}
+  pauseSwitch: 0
 --- !u!65 &951428964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -874,6 +878,8 @@ MonoBehaviour:
   lerpDuration: 1
   onLight: 0
   offLight: 0
+  synchromanager: {fileID: 1490382818}
+  pauseSwitch: 0
 --- !u!1 &1490382814
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +978,8 @@ MonoBehaviour:
   nextLamp2: 0
   synActive: 1
   reverseLoop: 0
+  value: 0
+  isolatorSwitch: 0
 --- !u!1 &2000919990
 GameObject:
   m_ObjectHideFlags: 0
