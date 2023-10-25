@@ -23,6 +23,9 @@ public class Fusion : MonoBehaviour
 
     public bool onLight;
     public bool offLight;
+
+    public SynchroscopeManager synchromanager;
+    public bool pauseSwitch;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class Fusion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pauseSwitch = synchromanager.isolatorSwitch;
         if (lerpTime / lerpDuration >= 1.0f && onLight == true)
         {
             // Disable "LightOnCoroutine" Coroutine.//
@@ -66,8 +70,10 @@ public class Fusion : MonoBehaviour
     {
         while (onLight == true)
         {
-            lerpTime += Time.deltaTime;
-
+            if (pauseSwitch == false)
+            {
+                lerpTime += Time.deltaTime;
+            }
             emissiveMaterial.EnableKeyword("_EMISSION");
 
             intensity = Mathf.Lerp(startIntensity, endIntensity, lerpTime / lerpDuration);
@@ -86,8 +92,10 @@ public class Fusion : MonoBehaviour
     {
         while (offLight == true)
         {
-            lerpTime += Time.deltaTime;
-
+            if (pauseSwitch == false)
+            {
+                lerpTime += Time.deltaTime;
+            }
             emissiveMaterial.EnableKeyword("_EMISSION");
 
             intensity = Mathf.Lerp(endIntensity, startIntensity, lerpTime / lerpDuration);
