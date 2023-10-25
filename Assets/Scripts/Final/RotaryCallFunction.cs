@@ -33,7 +33,7 @@ public class RotaryCallFunction : MonoBehaviour
         if (methodInfo != null)
         {
             // Call the method if it exists.
-            //methodInfo.Invoke(this, null);
+            methodInfo.Invoke(this, null);
         }
         else
         {

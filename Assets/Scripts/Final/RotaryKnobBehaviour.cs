@@ -43,6 +43,9 @@ public class RotaryKnobBehaviour : MonoBehaviour
     //Bool to ensure code was used once only in the Update Function//
     private bool oneTime = false;
 
+    public float currentRotationX;
+    public float currentRotationY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -151,11 +154,13 @@ public class RotaryKnobBehaviour : MonoBehaviour
             targetRotation = myArray[numberPlace];
             SnapRotate();
         }
+        currentRotationX = transform.rotation.eulerAngles.x;
+        currentRotationY = transform.rotation.eulerAngles.y;
     }
     void SnapRotate()
     {
         //Snap the GameObject to the rotation position of the "targetRotaion"//
-        transform.rotation = Quaternion.Euler(0f, 0f, targetRotation);
+        transform.rotation = Quaternion.Euler(currentRotationX, currentRotationY, targetRotation);
         CallFunction();
     }
     public void CallFunction()
