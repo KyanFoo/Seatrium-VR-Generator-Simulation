@@ -12,8 +12,6 @@ public class RotaryCallFunction : MonoBehaviour
     public RotaryKnobBehaviour rotaryknobbehaviour;
     public int numInterval;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,20 +40,20 @@ public class RotaryCallFunction : MonoBehaviour
     }
     public void Function0()
     {
-        Debug.Log("Called Function0");
+        //Debug.Log("Called Function0");
     }
     public void Function1()
     {
-        Debug.Log("Called Function1");
+        //Debug.Log("Called Function1");
     }
 
     public void Function2()
     {
-        Debug.Log("Called Function2");
+        //Debug.Log("Called Function2");
     }
     public void Function3()
     {
-        Debug.Log("Called Function3");
+        //Debug.Log("Called Function3");
     }
     // Add more functions as needed.
 }
