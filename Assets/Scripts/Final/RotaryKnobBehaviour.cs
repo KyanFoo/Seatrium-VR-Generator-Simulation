@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -141,6 +142,14 @@ public class RotaryKnobBehaviour : MonoBehaviour
             currentRotationX = transform.rotation.eulerAngles.x;
             currentRotationY = transform.rotation.eulerAngles.y;
             SnapRotate();
+        }
+
+        for (int i = 0; i < myArray.Length; i++)
+        {
+            if (myArray[i] == numberPlace)
+            {
+                numberPlace = i;
+            }
         }
     }
     void SnapRotate()
