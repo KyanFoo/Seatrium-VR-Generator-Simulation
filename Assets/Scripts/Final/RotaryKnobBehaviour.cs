@@ -28,21 +28,10 @@ public class RotaryKnobBehaviour : MonoBehaviour
     //public Vector3 currentAngle;
     public int targetRotation;
 
-    //Allow the knobs to be how close to the next interval to snap to the cloest position//
-    private float allowedDeviation = 0;
-
     //Variables to check how many intervals are there//
     public int numberOfVariables;
     //Variables to check which interval the knob is at//
     public int numberPlace = 0;
-    private float rotationDifference;
-
-    //Variables to check whether the knob is increasing or decreasig//
-    private bool isIncrease;
-    private bool isDecrease;
-
-    //Bool to ensure code was used once only in the Update Function//
-    private bool oneTime = false;
 
     public float currentRotationX;
     public float currentRotationY;
@@ -78,10 +67,6 @@ public class RotaryKnobBehaviour : MonoBehaviour
         //Maximum Angles can varied based on the gameobject's interval points//
         rotarycirculardrive.maxAngle = myArray[numberOfVariables - 2] + 2;
 
-        //Rotation value before reaching the interval points//
-        //For example, if the interval points are (0, 90, 180, 270)//
-        //The allowedDeviation would be "45", allow no space for the gameobject to hang between interval. Either snapping to "0" or "90"//
-        allowedDeviation = myArray[1] / 2;
     }
 
     // Update is called once per frame
@@ -93,23 +78,6 @@ public class RotaryKnobBehaviour : MonoBehaviour
         //Retreive data of the gameobject Z Rotation//
         currentZRotation = transform.rotation.eulerAngles.z;
 
-        //When the user holds the knob//
-        if (rotarycirculardrive.handHold == true && rotarycirculardrive.handRelease == false)
-        {
-            //Check to see if the gameobject's rotation increasing//
-            if (currentZRotation > previousZRotation)
-            {
-                //Debug.Log("Z rotation is increasing.");
-                isIncrease = true;
-            }
-
-            //Check to see if the gameobject's rotation decreasing//
-            else if (currentZRotation < previousZRotation)
-            {
-                //Debug.Log("Z rotation is decreasing.");
-                isDecrease = true;
-            }
-        }
         foreach (int value in myArray)
         {
             if (value <= currentZRotation)
