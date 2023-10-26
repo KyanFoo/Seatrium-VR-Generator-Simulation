@@ -9,21 +9,14 @@ namespace Valve.VR.InteractionSystem.Sample
 {
     public class ButtonEffect : MonoBehaviour
     {
-        public Material emissiveMaterial;
-        public Color color;
-        public float intensity;
         public void OnButtonDown(Hand fromHand)
         {
-            //ColorSelf(Color.yellow);
-            emissiveMaterial.EnableKeyword("_EMISSION");
-            emissiveMaterial.SetColor("_EmissionColor", color * intensity);
-            fromHand.TriggerHapticPulse(1000);
+            ColorSelf(Color.yellow);
         }
 
         public void OnButtonUp(Hand fromHand)
         {
-            emissiveMaterial.DisableKeyword("_EMISSION");
-            //ColorSelf(Color.red);
+            ColorSelf(Color.red);
         }
 
         private void ColorSelf(Color newColor)
