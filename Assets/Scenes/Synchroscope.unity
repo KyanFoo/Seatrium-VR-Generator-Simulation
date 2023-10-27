@@ -1004,8 +1004,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1490382817}
-  - component: {fileID: 1490382816}
-  - component: {fileID: 1490382815}
   - component: {fileID: 1490382818}
   m_Layer: 0
   m_Name: SynchroscopeManager
@@ -1014,50 +1012,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1490382815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490382814}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778712af7af83f44fa2e094d3c413f20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emissiveMaterial: {fileID: 2100000, guid: 00a1ef75b0f9c804f876ca252277af7f, type: 2}
-  objCube: {fileID: 109799799}
-  color: {r: 0, g: 0.9019608, b: 1, a: 0}
-  startIntensity: 0
-  endIntensity: 5
-  savedStartIntensity: 0
-  savedEndIntensity: 0
-  lerpTime: 0
-  lerpDuration: 2
-  onLight: 0
---- !u!114 &1490382816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490382814}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d05e17f3e66aed4e8ff76abf356eb1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emissiveMaterial: {fileID: 2100000, guid: 00a1ef75b0f9c804f876ca252277af7f, type: 2}
-  objCube: {fileID: 109799799}
-  color: {r: 0, g: 0.89950013, b: 1, a: 0}
-  startIntensity: 5
-  endIntensity: 0
-  savedStartIntensity: 0
-  savedEndIntensity: 0
-  lerpTime: 0
-  lerpDuration: 2
-  offLight: 0
 --- !u!4 &1490382817
 Transform:
   m_ObjectHideFlags: 0
@@ -1471,11 +1425,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec000066d975094393fbd2fc3ba47f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToRotate: {fileID: 6359862584623993442}
+  needle: {fileID: 6359862584623993442}
+  startRotation: {x: 0, y: 0, z: 0}
+  endRotation: {x: 0, y: 0, z: 0}
+  lerpTime: 0
   lerpDuration: 3.7
   synchromanager: {fileID: 1490382818}
   pauseSwitch: 0
   startSwitch: 0
+  reverseSwitch: 0
+  rotation: 360
 --- !u!4 &6861258104429070433
 Transform:
   m_ObjectHideFlags: 0

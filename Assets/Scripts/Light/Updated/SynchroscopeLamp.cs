@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fusion : MonoBehaviour
+public class SynchroscopeLamp: MonoBehaviour
 {
     //Represent the "Emissive Material" & "Gameobject Model".
     public Material emissiveMaterial;
@@ -88,7 +88,7 @@ public class Fusion : MonoBehaviour
         while (onLight == true)
         {
             //"pauseSwitch" is used to check whether the player has switch on the Isolator.
-            //If switched the fading in of "emissiveMaterial" of stop and it will not affect the entire game.
+            //If switched, the fading in of "emissiveMaterial" will stop and it will not affect the entire game.
             if (pauseSwitch == false)
             {
                 lerpTime += Time.deltaTime;

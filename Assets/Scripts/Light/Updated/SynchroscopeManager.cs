@@ -5,9 +5,9 @@ using UnityEngine;
 public class SynchroscopeManager : MonoBehaviour
 {
     //Represent the "Secondary Script to access variables.
-    public Fusion lamp0Script;
-    public Fusion lamp1Script;
-    public Fusion lamp2Script;
+    public SynchroscopeLamp lamp0Script;
+    public SynchroscopeLamp lamp1Script;
+    public SynchroscopeLamp lamp2Script;
 
     //Represent the bool used for if else statement to check which gameobject turn is to fade in.
     public bool nextLamp0 = false;
@@ -18,7 +18,7 @@ public class SynchroscopeManager : MonoBehaviour
     public bool synActive = true;
 
     //Represent the bool to reverse the rotation of fade in and out after a certain critia is made.
-    public bool reverseLoop = true;
+    public bool reverseLoop;
 
     //Represent the value of the check the variables of the lamps.
     public float speedValue;
@@ -49,16 +49,19 @@ public class SynchroscopeManager : MonoBehaviour
         //Code use to increase or decrease the duration of fading in and out of the lamps.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            lamp0Script.lerpDuration = lamp0Script.lerpDuration + 0.1f;
-            lamp1Script.lerpDuration = lamp1Script.lerpDuration + 0.1f;
-            lamp2Script.lerpDuration = lamp2Script.lerpDuration + 0.1f;
+            //lamp0Script.lerpDuration = lamp0Script.lerpDuration + 0.1f;
+            //lamp1Script.lerpDuration = lamp1Script.lerpDuration + 0.1f;
+            //lamp2Script.lerpDuration = lamp2Script.lerpDuration + 0.1f;
+            reverseLoop = true;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            lamp0Script.lerpDuration = lamp0Script.lerpDuration - 0.1f;
-            lamp1Script.lerpDuration = lamp1Script.lerpDuration - 0.1f;
-            lamp2Script.lerpDuration = lamp2Script.lerpDuration - 0.1f;
+            //lamp0Script.lerpDuration = lamp0Script.lerpDuration - 0.1f;
+            //lamp1Script.lerpDuration = lamp1Script.lerpDuration - 0.1f;
+            //lamp2Script.lerpDuration = lamp2Script.lerpDuration - 0.1f;
+            reverseLoop = false;
         }
+
     }
     public void ActiveSync()
     {
