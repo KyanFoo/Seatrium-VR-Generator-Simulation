@@ -19,17 +19,17 @@ public class SynchroscopeManager : MonoBehaviour
     public float duration;
     public bool isolatorSwitch;
 
-    public GameObject needle;
-    public float startRotation = 0.0f; // Starting rotation
-    public float endRotation = 360.0f; // Ending rotation
-    public float rotationDuration = 5.0f; // Duration of the rotation in seconds
+    //public GameObject needle;
+    //public float startRotation = 0.0f; // Starting rotation
+    //public float endRotation = 360.0f; // Ending rotation
+    //public float rotationDuration = 5.0f; // Duration of the rotation in seconds
 
-    private float currentRotation = 0.0f;
-    private float lerpTime = 0.0f;
+    //private float currentRotation = 0.0f;
+    //private float lerpTime = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LampCoroutine());
+        //StartCoroutine(LampCoroutine());
     }
 
     // Update is called once per frame
@@ -117,23 +117,23 @@ public class SynchroscopeManager : MonoBehaviour
         nextLamp1 = false;
         nextLamp2 = false;
     }
-    IEnumerator LampCoroutine()
-    {
-        while (isolatorSwitch == false)
-        {
-            lerpTime += Time.deltaTime;
-            // Calculate the rotation angle using Mathf.Lerp
-            currentRotation = Mathf.Lerp(startRotation, endRotation, lerpTime / rotationDuration);
+    //IEnumerator LampCoroutine()
+    //{
+    //    while (isolatorSwitch == false)
+    //    {
+    //        lerpTime += Time.deltaTime;
+    //        // Calculate the rotation angle using Mathf.Lerp
+    //        currentRotation = Mathf.Lerp(startRotation, endRotation, lerpTime / rotationDuration);
 
-            // Apply the rotation to the GameObject's Z-axis
-            needle.transform.rotation = Quaternion.Euler(0, 0, currentRotation);
+    //        // Apply the rotation to the GameObject's Z-axis
+    //        needle.transform.rotation = Quaternion.Euler(0, 0, currentRotation);
 
-            // Reset the time elapsed and repeat the rotation
-            if (lerpTime >= rotationDuration)
-            {
-                lerpTime = 0.0f;
-            }
-            yield return null;
-        }
-    }
+    //        // Reset the time elapsed and repeat the rotation
+    //        if (lerpTime >= rotationDuration)
+    //        {
+    //            lerpTime = 0.0f;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 }
