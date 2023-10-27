@@ -4,44 +4,49 @@ using UnityEngine;
 
 public class SynchroscopeManager : MonoBehaviour
 {
+    //Represent the "Secondary Script to access variables.
     public Fusion lamp0Script;
     public Fusion lamp1Script;
     public Fusion lamp2Script;
 
+    //Represent the bool used for if else statement to check which gameobject turn is to fade in.
     public bool nextLamp0 = false;
     public bool nextLamp1 = false;
     public bool nextLamp2 = false;
 
+    //Represent bool to "on" the synchroscope.
     public bool synActive = true;
+
+    //Represent the bool to reverse the rotation of fade in and out after a certain critia is made.
     public bool reverseLoop = true;
 
+    //Represent the value of the check the variables of the lamps.
     public float speedValue;
     public float duration;
+
+    //Represent the bool to check when the isolator has been switched on.
     public bool isolatorSwitch;
 
-    //public GameObject needle;
-    //public float startRotation = 0.0f; // Starting rotation
-    //public float endRotation = 360.0f; // Ending rotation
-    //public float rotationDuration = 5.0f; // Duration of the rotation in seconds
-
-    //private float currentRotation = 0.0f;
-    //private float lerpTime = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(LampCoroutine());
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Update variables to see in "Inspector".
         speedValue = lamp0Script.lerpDuration;
         duration = lamp0Script.lerpTime;
+
+        //Activate the "Synchroscope".
         if (synActive == true)
         {
             ActiveSync();
         }
 
+        //Code use to increase or decrease the duration of fading in and out of the lamps.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             lamp0Script.lerpDuration = lamp0Script.lerpDuration + 0.1f;
@@ -57,6 +62,7 @@ public class SynchroscopeManager : MonoBehaviour
     }
     public void ActiveSync()
     {
+        //The order of the lamps fading in and out oridinal order
         if (reverseLoop == false)
         {
             if (!nextLamp0)
@@ -76,6 +82,7 @@ public class SynchroscopeManager : MonoBehaviour
                 ResetBool();
             }
         }
+        //The order of the lamps fading in and out reverse order
         if (reverseLoop == true)
         {
             if (!nextLamp0 && reverseLoop == true)
@@ -96,6 +103,7 @@ public class SynchroscopeManager : MonoBehaviour
             }
         }
     }
+    //After calling their function to light up their lamps, bool is check "true" to tell the code that it has been light up already and await for the next one.
     public void CallLamp0Script()
     {
         lamp0Script.CallOnCoroutine();
@@ -111,29 +119,11 @@ public class SynchroscopeManager : MonoBehaviour
         lamp2Script.CallOnCoroutine();
         nextLamp2 = true;
     }
+    //After a cycle has been complete, reset is needed to repeat the process again.
     public void ResetBool()
     {
         nextLamp0 = false;
         nextLamp1 = false;
         nextLamp2 = false;
     }
-    //IEnumerator LampCoroutine()
-    //{
-    //    while (isolatorSwitch == false)
-    //    {
-    //        lerpTime += Time.deltaTime;
-    //        // Calculate the rotation angle using Mathf.Lerp
-    //        currentRotation = Mathf.Lerp(startRotation, endRotation, lerpTime / rotationDuration);
-
-    //        // Apply the rotation to the GameObject's Z-axis
-    //        needle.transform.rotation = Quaternion.Euler(0, 0, currentRotation);
-
-    //        // Reset the time elapsed and repeat the rotation
-    //        if (lerpTime >= rotationDuration)
-    //        {
-    //            lerpTime = 0.0f;
-    //        }
-    //        yield return null;
-    //    }
-    //}
 }
