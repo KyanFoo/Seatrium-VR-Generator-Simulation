@@ -12638,9 +12638,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingPart: {fileID: 1104065794}
-  localMoveDistance: {x: 0, y: 0, z: -0.2}
-  engageAtPercent: 0.95
-  disengageAtPercent: 0.9
+  localMoveDistance: {x: 0, y: 0, z: -0.5}
+  engageAtPercent: 0.2
+  disengageAtPercent: 0.5
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
@@ -24812,6 +24812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1564545114}
+  - component: {fileID: 1564545115}
   m_Layer: 0
   m_Name: TutorialUI
   m_TagString: Untagged
@@ -24826,8 +24827,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564545113}
-  m_LocalRotation: {x: -0, y: -0.43421066, z: -0, w: 0.9008114}
-  m_LocalPosition: {x: -1.384, y: 1.406, z: 1.935}
+  m_LocalRotation: {x: -0, y: -0.50246876, z: -0, w: 0.8645954}
+  m_LocalPosition: {x: -1.281, y: 1.574, z: 1.9662485}
   m_LocalScale: {x: 0.56876165, y: 0.57934123, z: 0.57934123}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24840,7 +24841,27 @@ Transform:
   - {fileID: 947026689}
   m_Father: {fileID: 976713698}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -51.47, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -60.327, z: 0}
+--- !u!95 &1564545115
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564545113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba914be35c8cdd44a8e2196ac2461e5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!64 &1564872743
 MeshCollider:
   m_ObjectHideFlags: 0
