@@ -15,7 +15,7 @@ public class SynchroNeedle : MonoBehaviour
     //Make sure that the needle value is "0.3" lesser than the lamps.
     //The needle movement is just right that is not too slow and fast and can have two lamps light up when it hit 12 o' clock.
     public float lerpTime;
-    public float lerpDuration = 3.7f;
+    public float lerpDuration;
 
     //Represent the "Secondary Script to access variables.
     public SynchroscopeManager synchromanager;
@@ -37,6 +37,9 @@ public class SynchroNeedle : MonoBehaviour
         pauseSwitch = synchromanager.isolatorSwitch;
         startSwitch = synchromanager.synActive;
         reverseSwitch = synchromanager.reverseLoop;
+
+        //Get the lerpDuration from the Manager script
+        lerpDuration = synchromanager.lerpDuration + 1;
 
         if (startSwitch == true)
         {
