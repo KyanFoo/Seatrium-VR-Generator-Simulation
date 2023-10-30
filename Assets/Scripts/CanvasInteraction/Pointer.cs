@@ -16,11 +16,30 @@ public class Pointer : MonoBehaviour
     {
         //referencing line renderer in inspector
         lineRenderer = GetComponent<LineRenderer>();
+        //lineRenderer.enabled = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        /**
+        Ray theRay = new Ray(transform.position, transform.forward);
+
+        if (Physics.Raycast(theRay, out RaycastHit hit, defaultLength))
+        {
+            if (hit.collider.tag == "canvas")
+            {
+                lineRenderer.enabled = true;
+                UpdateLine();
+            }
+            else
+            {
+                lineRenderer.enabled = false;
+            }
+
+        }
+        **/
+
         UpdateLine();
     }
 
@@ -43,6 +62,7 @@ public class Pointer : MonoBehaviour
             if(hit.collider != null )
             {
                 endPosition= hit.point;
+                
             }
         }
 
