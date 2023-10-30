@@ -23,7 +23,7 @@ public class SynchroscopeLamp: MonoBehaviour
     //Represent the Duration of "Emissive Material" fading in and out.
     private float lerpStartTime;
     public float lerpTime;
-    public float lerpDuration = 2.0f;
+    public float lerpDuration;
 
     //Represent the bool to check when each Gameobject is fading in or fading out.
     public bool onLight;
@@ -69,6 +69,9 @@ public class SynchroscopeLamp: MonoBehaviour
     {
         //Retrieve variable bool vlaue to check whether isolator has been switch on.
         pauseSwitch = synchromanager.isolatorSwitch;
+
+        //Retrieve variable lerp duration from Manager.
+        lerpDuration = synchromanager.lerpDuration;
 
         //Check the duration left whether the  gameobject is fading in or out is also complete.
         if (lerpTime / lerpDuration >= 1.0f && onLight == true)

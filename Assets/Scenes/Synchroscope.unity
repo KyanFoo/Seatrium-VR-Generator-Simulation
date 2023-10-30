@@ -617,7 +617,7 @@ MonoBehaviour:
   savedStartIntensity: 0
   savedEndIntensity: 0
   lerpTime: 0
-  lerpDuration: 1
+  lerpDuration: 0
   onLight: 0
   offLight: 0
   synchromanager: {fileID: 1490382818}
@@ -789,7 +789,7 @@ MonoBehaviour:
   savedStartIntensity: 0
   savedEndIntensity: 0
   lerpTime: 0
-  lerpDuration: 1
+  lerpDuration: 0
   onLight: 0
   offLight: 0
   synchromanager: {fileID: 1490382818}
@@ -990,7 +990,7 @@ MonoBehaviour:
   savedStartIntensity: 0
   savedEndIntensity: 0
   lerpTime: 0
-  lerpDuration: 1
+  lerpDuration: 0
   onLight: 0
   offLight: 0
   synchromanager: {fileID: 1490382818}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
   nextLamp2: 0
   synActive: 1
   reverseLoop: 0
-  speedValue: 0
+  lerpDuration: 1
   duration: 0
   isolatorSwitch: 0
 --- !u!1 &74935655338493966

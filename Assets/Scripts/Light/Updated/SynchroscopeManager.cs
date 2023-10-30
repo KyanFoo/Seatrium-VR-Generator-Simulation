@@ -21,7 +21,7 @@ public class SynchroscopeManager : MonoBehaviour
     public bool reverseLoop;
 
     //Represent the value of the check the variables of the lamps.
-    public float speedValue;
+    public float lerpDuration;
     public float duration;
 
     //Represent the bool to check when the isolator has been switched on.
@@ -37,7 +37,6 @@ public class SynchroscopeManager : MonoBehaviour
     void Update()
     {
         //Update variables to see in "Inspector".
-        speedValue = lamp0Script.lerpDuration;
         duration = lamp0Script.lerpTime;
 
         //Activate the "Synchroscope".
@@ -49,17 +48,11 @@ public class SynchroscopeManager : MonoBehaviour
         //Code use to increase or decrease the duration of fading in and out of the lamps.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            //lamp0Script.lerpDuration = lamp0Script.lerpDuration + 0.1f;
-            //lamp1Script.lerpDuration = lamp1Script.lerpDuration + 0.1f;
-            //lamp2Script.lerpDuration = lamp2Script.lerpDuration + 0.1f;
-            reverseLoop = true;
+            lerpDuration = lerpDuration + 0.1f;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            //lamp0Script.lerpDuration = lamp0Script.lerpDuration - 0.1f;
-            //lamp1Script.lerpDuration = lamp1Script.lerpDuration - 0.1f;
-            //lamp2Script.lerpDuration = lamp2Script.lerpDuration - 0.1f;
-            reverseLoop = false;
+            lerpDuration = lerpDuration - 0.1f;
         }
 
     }
