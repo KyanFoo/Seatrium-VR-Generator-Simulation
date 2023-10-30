@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Windows;
 
 public class Pointer : MonoBehaviour
 {
@@ -25,7 +27,8 @@ public class Pointer : MonoBehaviour
     private void UpdateLine()
     {
         //Use default length for length of line
-        float targetLength = defaultLength;
+        PointerEventData data = inputModule.GetData();
+        float targetLength = data.pointerCurrentRaycast.distance == 0 ? defaultLength : data.pointerCurrentRaycast.distance;
 
         //call raycast
         RaycastHit raycast = CreateRaycast(targetLength);
@@ -35,7 +38,7 @@ public class Pointer : MonoBehaviour
 
         //Check for any collider hit
         Ray ray = new Ray (transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit) )
+        if (Physics.Raycast(ray, out RaycastHit hit, defaultLength) )
         {
             if(hit.collider != null )
             {
