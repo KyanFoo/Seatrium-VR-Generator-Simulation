@@ -15,7 +15,7 @@ public class Pointer : MonoBehaviour
     private void Awake()
     {
         //referencing line renderer in inspector
-        lineRenderer= GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
