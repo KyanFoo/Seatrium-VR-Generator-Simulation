@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 46032696}
   m_Layer: 5
   m_Name: Back
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5527,7 +5527,7 @@ GameObject:
   - component: {fileID: 359323233}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8748,7 +8748,7 @@ GameObject:
   - component: {fileID: 548112139}
   m_Layer: 5
   m_Name: Icon
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9888,7 +9888,7 @@ GameObject:
   - component: {fileID: 613926150}
   m_Layer: 5
   m_Name: Next
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11687,7 +11687,7 @@ GameObject:
   - component: {fileID: 708775371}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15686,7 +15686,7 @@ GameObject:
   - component: {fileID: 962235729}
   m_Layer: 5
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17481,7 +17481,7 @@ GameObject:
   - component: {fileID: 1068855783}
   m_Layer: 5
   m_Name: Next
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19267,7 +19267,7 @@ GameObject:
   - component: {fileID: 1173870447}
   m_Layer: 5
   m_Name: Next
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20808,7 +20808,7 @@ GameObject:
   - component: {fileID: 1252216933}
   m_Layer: 5
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21017,7 +21017,7 @@ GameObject:
   - component: {fileID: 1269760404}
   m_Layer: 5
   m_Name: Title
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21660,7 +21660,7 @@ GameObject:
   - component: {fileID: 1290720052}
   m_Layer: 5
   m_Name: Icon
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22334,7 +22334,7 @@ GameObject:
   - component: {fileID: 1330774617}
   m_Layer: 5
   m_Name: Title
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22698,7 +22698,7 @@ GameObject:
   - component: {fileID: 1337813766}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25173,7 +25173,7 @@ GameObject:
   - component: {fileID: 1493850133}
   m_Layer: 5
   m_Name: Icon
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25720,7 +25720,7 @@ GameObject:
   - component: {fileID: 1543268354}
   m_Layer: 5
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28745,7 +28745,7 @@ GameObject:
   - component: {fileID: 1764413539}
   m_Layer: 5
   m_Name: Title
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34456,7 +34456,7 @@ GameObject:
   - component: {fileID: 2143391989}
   m_Layer: 5
   m_Name: Back
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -33,7 +33,7 @@ public class Pointer : MonoBehaviour
             else
             {
                 Debug.Log("not a canvas");
-                //StopLine();
+                StopLine();
             }
         }
         //lineRenderer.enabled = false;
@@ -45,6 +45,9 @@ public class Pointer : MonoBehaviour
 
     private void UpdateLine()
     {
+
+        lineRenderer.enabled = true;
+        Dot.SetActive(true);
 
         //Use default length for length of line
         PointerEventData data = inputModule.GetData();
