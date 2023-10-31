@@ -21,6 +21,7 @@ public class Pointer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        /**
         Ray theRay = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(theRay, out RaycastHit hit, defaultLength))
         {
@@ -36,6 +37,8 @@ public class Pointer : MonoBehaviour
                 lineRenderer.enabled = false;
             }
         }
+        **/
+        UpdateLine();
 
     }
 
