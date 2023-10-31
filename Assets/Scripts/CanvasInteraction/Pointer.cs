@@ -61,24 +61,26 @@ public class Pointer : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, defaultLength))
         {
-            if (hit.collider.tag == "canvas")
+            if (hit.collider != null)
             {
                 endPosition = hit.point;
             }
-            else
-            {
-                lineRenderer.enabled= false;
-                Dot.SetActive(false);
-            }
         }
+        
+        if (hit.collider.tag == "canvas")
+        {
+            //Set position of dot
+            Dot.transform.position = endPosition;
 
-        //Set position of dot
-        Dot.transform.position = endPosition;
-
-        //Set position for line renderer
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, endPosition);
-
+            //Set position for line renderer
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, endPosition);
+        }
+        else
+        {
+            lineRenderer.enabled = false;
+            Dot.SetActive(false);
+        }
 
 
     }
