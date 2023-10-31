@@ -28,6 +28,7 @@ public class Pointer : MonoBehaviour
             if (hit.collider.tag == "canvas")
             {
                 Debug.Log("Its a canvas");
+                lineRenderer.enabled = !lineRenderer.enabled;
                 UpdateLine();
             }
         }
@@ -55,7 +56,7 @@ public class Pointer : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, defaultLength))
         {
-            if (hit.collider.tag == "canvas")
+            if (hit.collider != null)
             {
                 endPosition = hit.point;
             }
