@@ -16,7 +16,6 @@ public class Pointer : MonoBehaviour
     {
         //referencing line renderer in inspector
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -28,7 +27,6 @@ public class Pointer : MonoBehaviour
     private void UpdateLine()
     {
         Ray theRay = new Ray(transform.position, transform.forward);
-
         if (Physics.Raycast(theRay, out RaycastHit hit, defaultLength))
         {
             if (hit.collider.tag == "canvas")
