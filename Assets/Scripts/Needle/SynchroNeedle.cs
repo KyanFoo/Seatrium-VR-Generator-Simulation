@@ -26,6 +26,10 @@ public class SynchroNeedle : MonoBehaviour
     public bool reverseSwitch;
 
     public float rotation;
+
+    public Vector3 currentRotation;
+    public float currentRotationZ;
+    public Vector3 centerRotation;
     private void Start()
     {
         startRotation = needle.rotation.eulerAngles;
@@ -35,7 +39,7 @@ public class SynchroNeedle : MonoBehaviour
     private void Update()
     {
         pauseSwitch = synchromanager.isolatorSwitch;
-        startSwitch = synchromanager.synActive;
+        startSwitch = synchromanager.isNeedlePause;
         reverseSwitch = synchromanager.reverseLoop;
 
         //Get the lerpDuration from the Manager script
@@ -55,12 +59,33 @@ public class SynchroNeedle : MonoBehaviour
         }
         //Apply new rotation.
         endRotation = startRotation + new Vector3(0, 0, rotation);
+
+        if (pauseSwitch == true)
+        {
+            currentRotation = needle.rotation.eulerAngles;
+            if (currentRotation.z > 180)
+            {
+                currentRotationZ = currentRotation.z;
+                //currentRotationZ = currentRotation.z - 360;
+            }
+            else
+            {
+                currentRotationZ = currentRotation.z;
+            }
+
+            if (currentRotationZ >= -50)//&& currentRotationZ <= 50//
+            {
+                Debug.Log("Within 20");
+                //lerpTime = 0;
+                //StartCoroutine(CenterNeedleCoroutine());
+            }
+        }
     }
     IEnumerator NeedleCoroutine()
     {
         //"pauseSwitch" is used to check whether the player has switch on the Isolator.
         //If switched, the rotation out of "needle" will stop and it will not affect the entire game.
-        if (pauseSwitch== false)
+        if (pauseSwitch == false)
         {
             lerpTime += Time.deltaTime;
         }
@@ -70,6 +95,13 @@ public class SynchroNeedle : MonoBehaviour
         {
             lerpTime = 0.0f;
         }
+        yield return null;
+    }
+    IEnumerator CenterNeedleCoroutine()
+    {
+        Debug.Log("Center Needle");
+        lerpTime += Time.deltaTime;
+        needle.rotation = Quaternion.Euler(Vector3.Lerp(currentRotation, centerRotation, lerpTime / 1));
         yield return null;
     }
 }

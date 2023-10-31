@@ -103,7 +103,7 @@ public class SynchroscopeLamp: MonoBehaviour
             emissiveMaterial.SetColor("_EmissionColor", color * intensity);
             yield return null;
         }
-        Debug.Log("Finish Lighting Up");
+        //Debug.Log("Finish Lighting Up");
     }
     private void StopOnCoroutineAndExitLoop()
     {
@@ -130,7 +130,7 @@ public class SynchroscopeLamp: MonoBehaviour
             emissiveMaterial.SetColor("_EmissionColor", color * intensity);
             yield return null;
         }
-        Debug.Log("Finish Lighting Down");
+        //Debug.Log("Finish Lighting Down");
     }
     private void StopOffCoroutineAndExitLoop()
     {

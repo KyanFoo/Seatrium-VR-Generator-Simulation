@@ -1231,6 +1231,7 @@ MonoBehaviour:
   reverseLoop: 0
   lerpDuration: 1
   duration: 0
+  isNeedlePause: 0
   isolatorSwitch: 0
 --- !u!1 &1606114365
 GameObject:
@@ -1693,7 +1694,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4808529881201343241}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0.18027098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1740,6 +1741,9 @@ MonoBehaviour:
   startSwitch: 0
   reverseSwitch: 0
   rotation: 360
+  currentRotation: {x: 0, y: 0, z: 0}
+  currentRotationZ: 0
+  centerRotation: {x: 0, y: 0, z: 360}
 --- !u!4 &6861258104429070433
 Transform:
   m_ObjectHideFlags: 0

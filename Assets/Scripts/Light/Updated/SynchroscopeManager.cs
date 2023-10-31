@@ -24,6 +24,9 @@ public class SynchroscopeManager : MonoBehaviour
     public float lerpDuration;
     public float duration;
 
+    //Represne the special variabel that pauses the needle rotation constant updates when the isolator switch has been switched.
+    public bool isNeedlePause;
+
     //Represent the bool to check when the isolator has been switched on.
     public bool isolatorSwitch;
 
@@ -42,17 +45,25 @@ public class SynchroscopeManager : MonoBehaviour
         //Activate the "Synchroscope".
         if (synActive == true)
         {
+            isNeedlePause = true;
             ActiveSync();
+        }
+
+        if (isolatorSwitch == true)
+        {
+            isNeedlePause = false;
         }
 
         //Code use to increase or decrease the duration of fading in and out of the lamps.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            lerpDuration = lerpDuration + 0.1f;
+            //lerpDuration = lerpDuration + 0.1f;
+            isolatorSwitch = true;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            lerpDuration = lerpDuration - 0.1f;
+            //lerpDuration = lerpDuration - 0.1f;
+            isolatorSwitch = false;
         }
 
     }
