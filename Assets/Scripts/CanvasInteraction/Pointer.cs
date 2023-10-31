@@ -21,43 +21,13 @@ public class Pointer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        UpdateLine();
-    }
-
-    private void UpdateLine()
-    {
         Ray theRay = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(theRay, out RaycastHit hit, defaultLength))
         {
             if (hit.collider.tag == "canvas")
             {
-                //Use default length for length of line
-                PointerEventData data = inputModule.GetData();
-                float targetLength = data.pointerCurrentRaycast.distance == 0 ? defaultLength : data.pointerCurrentRaycast.distance;
-
-                //call raycast
-                RaycastHit raycast = CreateRaycast(targetLength);
-
-                //default end, if our raycast doesnt hit anything, the location of the dot will be at the end
-                Vector3 endPosition = transform.position + (transform.forward * targetLength);
-
-                //Check for any collider hit
-                Ray ray = new Ray(transform.position, transform.forward);
-                if (Physics.Raycast(ray, out RaycastHit hitt, defaultLength))
-                {
-                    if (hitt.collider != null)
-                    {
-                        endPosition = hitt.point;
-
-                    }
-                }
-
-                //Set position of dot
-                Dot.transform.position = endPosition;
-
-                //Set position for line renderer
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, endPosition);
+                UpdateLine();
+                lineRenderer.enabled = true;
             }
 
             else
@@ -65,6 +35,38 @@ public class Pointer : MonoBehaviour
                 lineRenderer.enabled = false;
             }
         }
+
+    }
+
+    private void UpdateLine()
+    {
+        //Use default length for length of line
+        PointerEventData data = inputModule.GetData();
+        float targetLength = data.pointerCurrentRaycast.distance == 0 ? defaultLength : data.pointerCurrentRaycast.distance;
+
+        //call raycast
+        RaycastHit raycast = CreateRaycast(targetLength);
+
+        //default end, if our raycast doesnt hit anything, the location of the dot will be at the end
+        Vector3 endPosition = transform.position + (transform.forward * targetLength);
+
+        //Check for any collider hit
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hitt, defaultLength))
+        {
+            if (hitt.collider != null)
+            {
+                endPosition = hitt.point;
+
+            }
+        }
+
+        //Set position of dot
+        Dot.transform.position = endPosition;
+
+        //Set position for line renderer
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, endPosition);
 
     }
 
