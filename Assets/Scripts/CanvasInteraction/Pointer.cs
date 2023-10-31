@@ -21,11 +21,11 @@ public class Pointer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        Ray theRay = new Ray(transform.position, transform.forward);
+        RaycastHit hitt;
+        if (Physics.Raycast(transform.position, transform.forward, out hitt))
         {
-            if (hit.collider.tag == "canvas")
+            if (hitt.collider.tag == "canvas")
             {
                 Debug.Log("Its a canvas");
                 UpdateLine();
