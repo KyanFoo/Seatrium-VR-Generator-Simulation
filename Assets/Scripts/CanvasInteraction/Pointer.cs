@@ -30,10 +30,11 @@ public class Pointer : MonoBehaviour
                 Debug.Log("Its a canvas");
                 UpdateLine();
             }
-            //else
-            //{
+            else
+            {
+                Debug.Log("not a canvas");
                 //StopLine();
-            //}
+            }
         }
         //lineRenderer.enabled = false;
         //Dot.SetActive(false);
