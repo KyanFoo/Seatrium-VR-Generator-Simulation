@@ -25,12 +25,9 @@ public class Pointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-            Debug.Log("Raycast Hit!");
             if (hit.collider.CompareTag("canvas"))
             {
                 Debug.Log("Its a canvas");
-                lineRenderer.enabled = true;
-                Dot.SetActive(true);
                 UpdateLine();
             }
 
@@ -49,6 +46,9 @@ public class Pointer : MonoBehaviour
 
     private void UpdateLine()
     {
+        lineRenderer.enabled = true;
+        Dot.SetActive(true);
+
         //Use default length for length of line
         PointerEventData data = inputModule.GetData();
         float targetLength = data.pointerCurrentRaycast.distance == 0 ? defaultLength : data.pointerCurrentRaycast.distance;
