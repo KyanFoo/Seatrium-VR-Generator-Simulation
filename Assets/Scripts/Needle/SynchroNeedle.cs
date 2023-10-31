@@ -43,7 +43,7 @@ public class SynchroNeedle : MonoBehaviour
         reverseSwitch = synchromanager.reverseLoop;
 
         //Get the lerpDuration from the Manager script
-        lerpDuration = synchromanager.lerpDuration + 1;
+        lerpDuration = synchromanager.lerpDuration + 1.3f;
 
         if (startSwitch == true)
         {

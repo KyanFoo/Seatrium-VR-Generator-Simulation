@@ -57,13 +57,13 @@ public class SynchroscopeManager : MonoBehaviour
         //Code use to increase or decrease the duration of fading in and out of the lamps.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            lerpDuration = lerpDuration + 0.1f;
-            //isolatorSwitch = true;
+            //lerpDuration = lerpDuration + 0.1f;
+            isolatorSwitch = true;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            lerpDuration = lerpDuration - 0.1f;
-            //isolatorSwitch = false;
+            //lerpDuration = lerpDuration - 0.1f;
+            isolatorSwitch = false;
         }
 
     }

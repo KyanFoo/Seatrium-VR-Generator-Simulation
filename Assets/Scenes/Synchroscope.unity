@@ -1735,7 +1735,7 @@ MonoBehaviour:
   startRotation: {x: 0, y: 0, z: 0}
   endRotation: {x: 0, y: 0, z: 0}
   lerpTime: 0
-  lerpDuration: 3.7
+  lerpDuration: 0
   synchromanager: {fileID: 1490382818}
   pauseSwitch: 0
   startSwitch: 0
