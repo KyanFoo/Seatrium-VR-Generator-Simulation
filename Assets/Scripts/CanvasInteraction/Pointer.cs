@@ -28,16 +28,19 @@ public class Pointer : MonoBehaviour
             if (hit.collider.CompareTag("canvas"))
             {
                 Debug.Log("Its a canvas");
-                UpdateLine();
                 lineRenderer.enabled = true;
+                Dot.SetActive(true);
+                UpdateLine();
             }
 
             else
             {
                 lineRenderer.enabled = false;
+                Dot.SetActive(false);
             }
         }
         lineRenderer.enabled = false;
+        Dot.SetActive(false);
 
         //UpdateLine();
 
