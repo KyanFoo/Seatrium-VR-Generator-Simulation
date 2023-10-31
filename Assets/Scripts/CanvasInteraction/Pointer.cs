@@ -38,7 +38,7 @@ public class Pointer : MonoBehaviour
 
         }
 
-        UpdateLine();
+        //UpdateLine();
     }
 
     private void UpdateLine()
