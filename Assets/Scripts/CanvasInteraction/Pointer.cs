@@ -25,6 +25,7 @@ public class Pointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
+            Debug.Log("Raycast Hit!");
             if (hit.collider.CompareTag("canvas"))
             {
                 Debug.Log("Its a canvas");
