@@ -28,8 +28,11 @@ public class Pointer : MonoBehaviour
             if (hit.collider.tag == "canvas")
             {
                 Debug.Log("Its a canvas");
-                lineRenderer.enabled = !lineRenderer.enabled;
                 UpdateLine();
+            }
+            else
+            {
+                StopLine();
             }
         }
         //lineRenderer.enabled = false;
@@ -69,13 +72,6 @@ public class Pointer : MonoBehaviour
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, endPosition);
 
-
-        if (hit.collider.tag != "canvas")
-        {
-            lineRenderer.enabled = false;
-            Dot.SetActive(false);
-        }
-
     }
 
     //Create Raycast to detect if pointer hits something
@@ -86,5 +82,11 @@ public class Pointer : MonoBehaviour
         Physics.Raycast (ray, out hit, defaultLength);
 
         return hit;
+    }
+
+    private void StopLine()
+    {
+        lineRenderer.enabled = false;
+        Dot.SetActive(false);
     }
 }
