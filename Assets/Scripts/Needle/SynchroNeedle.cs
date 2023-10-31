@@ -66,18 +66,20 @@ public class SynchroNeedle : MonoBehaviour
             if (currentRotation.z > 180)
             {
                 currentRotationZ = currentRotation.z;
-                //currentRotationZ = currentRotation.z - 360;
+                centerRotation.z = 360;
+                currentRotationZ = currentRotation.z - 360;
             }
             else
             {
                 currentRotationZ = currentRotation.z;
+                centerRotation.z = 0;
             }
 
-            if (currentRotationZ >= -50)//&& currentRotationZ <= 50//
+            if (currentRotationZ >= -25 && currentRotationZ <= 25)
             {
                 Debug.Log("Within 20");
-                //lerpTime = 0;
-                //StartCoroutine(CenterNeedleCoroutine());
+                lerpTime = 0;
+                StartCoroutine(CenterNeedleCoroutine());
             }
         }
     }

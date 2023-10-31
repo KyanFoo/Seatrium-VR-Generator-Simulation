@@ -610,7 +610,7 @@ MonoBehaviour:
   objCube: {fileID: 741551010}
   color: {r: 0.66946316, g: 0, b: 1, a: 1}
   startIntensity: 0
-  endIntensity: 5
+  endIntensity: 6
   savedStartIntensity: 0
   savedEndIntensity: 0
   lerpTime: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   objCube: {fileID: 951428962}
   color: {r: 0.66946316, g: 0, b: 1, a: 1}
   startIntensity: 0
-  endIntensity: 5
+  endIntensity: 6
   savedStartIntensity: 0
   savedEndIntensity: 0
   lerpTime: 0
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   objCube: {fileID: 1236247291}
   color: {r: 0.66946316, g: 0, b: 1, a: 1}
   startIntensity: 0
-  endIntensity: 5
+  endIntensity: 6
   savedStartIntensity: 0
   savedEndIntensity: 0
   lerpTime: 0
