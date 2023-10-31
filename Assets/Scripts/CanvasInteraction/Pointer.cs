@@ -33,8 +33,8 @@ public class Pointer : MonoBehaviour
 
             else
             {
-                //lineRenderer.enabled = false;
-                //Dot.SetActive(false);
+                lineRenderer.enabled = false;
+                Dot.SetActive(false);
             }
         }
         //lineRenderer.enabled = false;
