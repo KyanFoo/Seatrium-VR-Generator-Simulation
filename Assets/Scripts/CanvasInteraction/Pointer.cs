@@ -65,21 +65,15 @@ public class Pointer : MonoBehaviour
             {
                 endPosition = hit.point;
             }
-            else
-            {
-                Dot.SetActive(false);
-            }
         }
-        
-        if (hit.collider.tag == "canvas")
-        {
-            //Set position of dot
-            Dot.transform.position = endPosition;
+       
+        //Set position of dot
+        Dot.transform.position = endPosition;
 
-            //Set position for line renderer
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, endPosition);
-        }
+        //Set position for line renderer
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, endPosition);
+
 
         if (hit.collider.tag != "canvas")
         {
