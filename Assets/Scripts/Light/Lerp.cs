@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Lerp : MonoBehaviour
 {
+    private Renderer _renderCube;
+    public GameObject objCube;
+    public Color color;
+
     public Material targetMaterial;
     public float startIntensity = 0.0f;
     public float targetIntensity = 1.0f;
@@ -11,24 +15,43 @@ public class Lerp : MonoBehaviour
 
     private float currentIntensity;
     private float lerpStartTime;
+    public float lerpTime;
+
+    public bool isOn;
 
     private void Start()
     {
+        _renderCube = objCube.GetComponent<Renderer>();
+        _renderCube.material = targetMaterial;
+        targetMaterial.EnableKeyword("_EMISSION");
+        targetMaterial.SetColor("_EmissionColor", color * targetIntensity);
         // Initialize the current intensity and lerp start time.
         currentIntensity = startIntensity;
-        lerpStartTime = Time.time;
+        lerpTime = 0;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isOn = true;
+        }
+
+        if (isOn == true)
+        {
+            LightUp();
+        }
+    }
+    public void LightUp()
+    {
         // Calculate the current time in the lerp.
-        float lerpTime = Time.time - lerpStartTime;
+        lerpTime += Time.deltaTime;
 
         // Calculate the new intensity using Mathf.Lerp.
         currentIntensity = Mathf.Lerp(startIntensity, targetIntensity, lerpTime / lerpDuration);
 
         // Apply the new emission intensity to the material.
-        targetMaterial.SetColor("_EmissionColor", Color.white * currentIntensity);
+        targetMaterial.SetColor("_EmissionColor", color * currentIntensity);
 
         // You may need to enable emission if it's not already.
         targetMaterial.EnableKeyword("_EMISSION");
@@ -36,8 +59,7 @@ public class Lerp : MonoBehaviour
         // Optionally, you can stop lerping when the target intensity is reached.
         if (lerpTime >= lerpDuration)
         {
-            currentIntensity = targetIntensity;
-            enabled = false; // Disable this script.
+            enabled = false;
         }
     }
 }
