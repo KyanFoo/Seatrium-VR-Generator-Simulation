@@ -14,7 +14,8 @@ public class RotaryCallFunction : MonoBehaviour
     public AudioSource off;
     public AudioSource gen1;
     public AudioSource gen2;
-    public AudioSource gen3;   
+    public AudioSource gen3;
+    public SynchroscopeManager synchroManager;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class RotaryCallFunction : MonoBehaviour
     {
         gen1.Play();
         gen1.pitch = Random.Range(0.5f, 1.5f);
+        synchroManager.synActive= true;
         Debug.Log("Called Function1");
     }
 
