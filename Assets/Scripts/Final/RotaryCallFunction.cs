@@ -11,8 +11,10 @@ public class RotaryCallFunction : MonoBehaviour
     //All variables' data are retreive from this script//
     public RotaryKnobBehaviour rotaryknobbehaviour;
     public int numInterval;
-    public AudioSource audioSource;
-    public AudioClip clip1, clip2, clip3;
+    public AudioSource off;
+    public AudioSource gen1;
+    public AudioSource gen2;
+    public AudioSource gen3;   
 
     // Start is called before the first frame update
     void Start()
@@ -42,28 +44,27 @@ public class RotaryCallFunction : MonoBehaviour
     }
     public void Function0()
     {
+        off.Play();
+        off.pitch = Random.Range(0.5f, 1.5f);
         Debug.Log("Called Function0");
     }
     public void Function1()
     {
-        audioSource.clip = clip1;
-        audioSource.Play();
-        audioSource.pitch = Random.Range(0.5f, 1.5f);
+        gen1.Play();
+        gen1.pitch = Random.Range(0.5f, 1.5f);
         Debug.Log("Called Function1");
     }
 
     public void Function2()
     {
-        audioSource.clip = clip2;  
-        audioSource.Play();
-        audioSource.pitch = Random.Range(0.5f, 1.5f);
+        gen2.Play();
+        gen2.pitch = Random.Range(0.5f, 1.5f);
         Debug.Log("Called Function2");
     }
     public void Function3()
     {
-        audioSource.clip = clip3;
-        audioSource.Play();
-        audioSource.pitch = Random.Range(0.5f, 1.5f);
+        gen3.Play();
+        gen3.pitch = Random.Range(0.5f, 1.5f);
         Debug.Log("Called Function3");
     }
     // Add more functions as needed.
