@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class SynchroscopeLamp: MonoBehaviour
 {
-    //Represent the "Emissive Material" & "Gameobject Model".
+    [Header("Emissive Material & GameObject")]
+    //Represent the "EmissiveMaterial" & "GameObject Model".
     public Material emissiveMaterial;
     private Renderer _renderCube;
     public GameObject objCube;
 
+    [Header("Emissive Color Material")]
     //Represent Color of "EmissiveMaterial".
     public Color color;
 
+    [Header("Input Intensity & LerpTime Settings")]
     //Represent the level of intensity of "EmissiveMaterial".
     public float startIntensity;
     public float endIntensity;
     private float intensity;
 
-    public float savedStartIntensity;
-    public float savedEndIntensity;
-
-    //Represent the Duration of "Emissive Material" fading in and out.
+    //Represent the Duration of "EmissiveMaterial" fading in and out.
     private float lerpStartTime;
-    public float lerpTime;
-    public float lerpDuration;
+    public float lerpTime; //**DO NOT WRITE ANYTHING INTO THIS INPUT**//
+    private float lerpDuration;
 
-    //Represent the bool to check when each Gameobject is fading in or fading out.
+    [Header("ON/OFF Boolean")]
+    //Represent the bool to check when each GameObject is fading in or fading out.
     public bool onLight;
     public bool offLight;
 
+    [Header("Secondary Scripts")]
     //Represent the "Secondary Script to access variables.
     public SynchroscopeManager synchromanager;
     public bool pauseSwitch;
@@ -36,9 +38,9 @@ public class SynchroscopeLamp: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Retrieve access of Gameobject renderer,
-        //Apply "emissiveMaterial" onto Gameobject,
-        //Set the color of the "emissiveMaterial".
+        //Retrieve access of GameObject renderer,
+        //Apply "EmissiveMaterial" onto GameObject,
+        //Set the color of the "EmissiveMaterial".
         _renderCube = objCube.GetComponent<Renderer>();
         _renderCube.material = emissiveMaterial;
         emissiveMaterial.EnableKeyword("_EMISSION");
@@ -67,13 +69,13 @@ public class SynchroscopeLamp: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Retrieve variable bool vlaue to check whether isolator has been switch on.
+        //Retrieve variable bool vlaue to check whether isolator has been switched.
         pauseSwitch = synchromanager.isolatorSwitch;
 
-        //Retrieve variable lerp duration from Manager.
+        //Retrieve variable lerp duration from Manager Script.
         lerpDuration = synchromanager.lerpDuration;
 
-        //Check the duration left whether the  gameobject is fading in or out is also complete.
+        //Check the duration left whether the  GameObject is fading in or out is also complete.
         if (lerpTime / lerpDuration >= 1.0f && onLight == true)
         {
             // Disable "LightOnCoroutine" Coroutine.//
@@ -91,23 +93,23 @@ public class SynchroscopeLamp: MonoBehaviour
         while (onLight == true)
         {
             //"pauseSwitch" is used to check whether the player has switch on the Isolator.
-            //If switched, the fading in of "emissiveMaterial" will stop and it will not affect the entire game.
+            //If switched, the fading in of "EmissiveMaterial" will stop and it will not affect the entire game.
             if (pauseSwitch == false)
             {
                 lerpTime += Time.deltaTime;
             }
-            //Enable Emission is "emissiveMaterial".
+            //Enable Emission is "EmissiveMaterial".
             emissiveMaterial.EnableKeyword("_EMISSION");
 
             intensity = Mathf.Lerp(startIntensity, endIntensity, lerpTime / lerpDuration);
             emissiveMaterial.SetColor("_EmissionColor", color * intensity);
             yield return null;
         }
-        Debug.Log("Finish Lighting Up");
+        //Debug.Log("Finish Lighting Up");
     }
     private void StopOnCoroutineAndExitLoop()
     {
-        //When the gameobject is fading in is almost complete it stop the fade in function and call a function to fade out.
+        //When the GameObject is fading in is almost complete it stop the fade in function and call a function to fade out.
         onLight = false;
         StopCoroutine(OnCoroutine());
         CallOffCoroutine();
@@ -118,23 +120,23 @@ public class SynchroscopeLamp: MonoBehaviour
         while (offLight == true)
         {
             //"pauseSwitch" is used to check whether the player has switch on the Isolator.
-            //If switched, the fading out of "emissiveMaterial" will stop and it will not affect the entire game.
+            //If switched, the fading out of "EmissiveMaterial" will stop and it will not affect the entire game.
             if (pauseSwitch == false)
             {
                 lerpTime += Time.deltaTime;
             }
-            //Enable Emission is "emissiveMaterial".
+            //Enable Emission is "EmissiveMaterial".
             emissiveMaterial.EnableKeyword("_EMISSION");
 
             intensity = Mathf.Lerp(endIntensity, startIntensity, lerpTime / lerpDuration);
             emissiveMaterial.SetColor("_EmissionColor", color * intensity);
             yield return null;
         }
-        Debug.Log("Finish Lighting Down");
+        //Debug.Log("Finish Lighting Down");
     }
     private void StopOffCoroutineAndExitLoop()
     {
-        //When the gameobject is fading in is almost complete it stop the fade in function.
+        //When the GameObject is fading in is almost complete it stop the fade in function.
         offLight = false;
         StopCoroutine(OffCoroutine());
     }
