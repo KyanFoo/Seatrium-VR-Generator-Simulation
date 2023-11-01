@@ -72,7 +72,14 @@ public class SynchroscopeManager : MonoBehaviour
             //lerpDuration = lerpDuration - 0.1f;
             isolatorSwitch = false;
         }
-
+    }
+    public void ActiveSynchro()
+    {
+        isolatorSwitch = true;
+    }
+    public void DectiveSynchro()
+    {
+        isolatorSwitch = false;
     }
     public void ActiveSync()
     {
