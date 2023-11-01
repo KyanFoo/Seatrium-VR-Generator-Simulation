@@ -9,13 +9,12 @@ public class Lerp : MonoBehaviour
     public Color color;
 
     public Material targetMaterial;
-    public float startIntensity = 0.0f;
-    public float targetIntensity = 1.0f;
-    public float lerpDuration = 2.0f;
+    private float startIntensity = 0.0f;
+    private float targetIntensity = 2.0f;
+    private float lerpDuration = 0.5f;
 
     private float currentIntensity;
-    private float lerpStartTime;
-    public float lerpTime;
+    private float lerpTime;
 
     public bool isOn;
 
@@ -26,21 +25,27 @@ public class Lerp : MonoBehaviour
         targetMaterial.EnableKeyword("_EMISSION");
         targetMaterial.SetColor("_EmissionColor", color * targetIntensity);
         // Initialize the current intensity and lerp start time.
-        currentIntensity = startIntensity;
+        //currentIntensity = startIntensity;
         lerpTime = 0;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isOn = true;
-        }
+        isButtonPressed();
+    }
 
+    public void isButtonPressed()
+    {
         if (isOn == true)
         {
             LightUp();
         }
+        
+    }
+
+    public void isOnChecker()
+    {
+        isOn = true;
     }
     public void LightUp()
     {
