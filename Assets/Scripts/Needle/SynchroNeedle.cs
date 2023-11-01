@@ -53,13 +53,14 @@ public class SynchroNeedle : MonoBehaviour
         if (startSwitch == true)
         {
             //Rotate the Synchroscope Needle Clockwise.
-            rotation = 360.0f;
+            //The reason why the supposed rotation is clockwise is -360 is because our game scene, everything is in reverse.
+            rotation = -360.0f;
             StartCoroutine(NeedleCoroutine());
         }
         if (startSwitch == true && reverseSwitch == true)
         {
             //Rotate the Synchroscope Needle Anti-Clockwise.
-            rotation = -360.0f;
+            rotation = 360.0f;
             StartCoroutine(NeedleCoroutine());
             startRotation = needle.rotation.eulerAngles;
             lerpTime = 0;
