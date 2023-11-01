@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class ValueMeter : MonoBehaviour
 {
+    [Header("Input Value Settings")]
     //Represent the value of what the pivot point is at for further coding.
     public float inputValue;
 
-    //Represent the pivot point of the gameobject that is being rotated.
+    [Header("Pivot Transform GameObject")]
+    //Represent the pivot point of the GameObject that is being rotated.
     public Transform pivotPoint;
 
-    //Represent the minimum and maximum of the gameobject rotation.
-    [Header("ValueMeter Settings")]
-    public float minValueMeter = -68f;
-    public float maxValueMeter = 68f;
+    //Represent the Maximum and Minimum of the GameObject rotation.
+    //Write in Maximum & Minimum value of the GameObject rotation.
+    //Manually rotate the "Needle_Pivot" to the Maximum and Minimum point of the meters' image.
+    [Header("Value Meter Settings")]
+    public float minValueMeter;
+    public float maxValueMeter;
 
-    //Represent the minimum and maximum value of the valuemeter.
+    //Represent the minimum and maximum values of the "ValueMeter".
+    //Write in Maximum & Minimum value of the "ValueMeter"'s image canvas.
+    //Current(A) = 0 - 1000, Power(Kw) = 300 - 600.
+    //Frequency(Hz) = 55 - 65, Voltage(V) 0 - 600.
     [Header("Game Object Settings")]
     public float minValue;
     public float maxValue;
@@ -26,7 +33,7 @@ public class ValueMeter : MonoBehaviour
         //Ensure that the value is within range.
         value = Mathf.Clamp(value, minValueMeter, maxValueMeter);
 
-        //Calculate the rotation of the pivot based on the valuemeter's value.
+        //Calculate the rotation of the pivot based on the "ValueMeter"'s value.
         float normalizedValue = (value - minValueMeter) / (maxValueMeter - minValueMeter);
         float targetRotation = Mathf.Lerp(minValue, maxValue, normalizedValue);
 

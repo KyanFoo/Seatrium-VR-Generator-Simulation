@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SynchroscopeManager : MonoBehaviour
 {
+    [Header("Lamp GameObject")]
     //Represent the "Secondary Script to access variables.
     public SynchroscopeLamp lamp0Script;
     public SynchroscopeLamp lamp1Script;
@@ -14,21 +15,23 @@ public class SynchroscopeManager : MonoBehaviour
     public bool nextLamp1 = false;
     public bool nextLamp2 = false;
 
+    [Header("Input Bool Settings")]
     //Represent bool to "on" the synchroscope.
     public bool synActive = true;
 
     //Represent the bool to reverse the rotation of fade in and out after a certain critia is made.
     public bool reverseLoop;
 
+    //Represent the bool to check when the isolator has been switched on.
+    public bool isolatorSwitch;
+
+    [Header("Input Emissive Duration Setting")]
     //Represent the value of the check the variables of the lamps.
     public float lerpDuration;
     public float duration;
 
     //Represne the special variabel that pauses the needle rotation constant updates when the isolator switch has been switched.
     public bool isNeedlePause;
-
-    //Represent the bool to check when the isolator has been switched on.
-    public bool isolatorSwitch;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +57,7 @@ public class SynchroscopeManager : MonoBehaviour
             isNeedlePause = false;
         }
 
-        //Code use to increase or decrease the duration of fading in and out of the lamps.
+        //Codes use to increase or decrease the duration of fading in and out of the lamps.
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             //lerpDuration = lerpDuration + 0.1f;
