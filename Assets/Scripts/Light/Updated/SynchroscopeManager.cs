@@ -51,6 +51,10 @@ public class SynchroscopeManager : MonoBehaviour
             isNeedlePause = true;
             ActiveSync();
         }
+        else
+        {
+            isNeedlePause= false;
+        }
 
         if (isolatorSwitch == true)
         {
@@ -58,12 +62,12 @@ public class SynchroscopeManager : MonoBehaviour
         }
 
         //Codes use to increase or decrease the duration of fading in and out of the lamps.
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown("1"))
         {
             //lerpDuration = lerpDuration + 0.1f;
             isolatorSwitch = true;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown("2"))
         {
             //lerpDuration = lerpDuration - 0.1f;
             isolatorSwitch = false;
