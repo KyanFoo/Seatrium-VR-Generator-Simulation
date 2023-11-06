@@ -30,6 +30,10 @@ public class SynchroscopeManager : MonoBehaviour
     public float lerpDuration;
     public float duration;
 
+    [Header("Input Intensity & LerpTime Settings")]
+    public float startIntensity;
+    public float endIntensity;
+
     //Represne the special variabel that pauses the needle rotation constant updates when the isolator switch has been switched.
     public bool isNeedlePause;
 

@@ -14,10 +14,10 @@ public class SynchroscopeLamp: MonoBehaviour
     //Represent Color of "EmissiveMaterial".
     public Color color;
 
-    [Header("Input Intensity & LerpTime Settings")]
+    [Header("Intensity & LerpTime Settings")]
     //Represent the level of intensity of "EmissiveMaterial".
-    public float startIntensity;
-    public float endIntensity;
+    public float startIntensity; //**DO NOT WRITE ANYTHING INTO THIS INPUT**//
+    public float endIntensity; //**DO NOT WRITE ANYTHING INTO THIS INPUT**//
     private float intensity;
 
     //Represent the Duration of "EmissiveMaterial" fading in and out.
@@ -74,6 +74,10 @@ public class SynchroscopeLamp: MonoBehaviour
 
         //Retrieve variable lerp duration from Manager Script.
         lerpDuration = synchromanager.lerpDuration;
+
+        //Retrieve variable of Start and End Intensity from Manager Script.
+        startIntensity = synchromanager.startIntensity;
+        endIntensity = synchromanager.endIntensity;
 
         //Check the duration left whether the  GameObject is fading in or out is also complete.
         if (lerpTime / lerpDuration >= 1.0f && onLight == true)
