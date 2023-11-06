@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -778,10 +778,6 @@ MonoBehaviour:
   objCube: {fileID: 926736906}
   color: {r: 0.96, g: 0.64896, b: 0.18239999, a: 0}
   targetMaterial: {fileID: 2100000, guid: 51b941f28b5be0e4b99c2984fcc83855, type: 2}
-  startIntensity: 0
-  targetIntensity: 2
-  lerpDuration: 1
-  lerpTime: 0
   isOn: 0
 --- !u!136 &926736908
 CapsuleCollider:
@@ -1193,7 +1189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1404064840
 Transform:
   m_ObjectHideFlags: 0
@@ -1373,6 +1369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputValue: 0
+  flipValue: 0
+  lerpSpeed: 5
   pivotPoint: {fileID: 656239471}
   minValueMeter: 0
   maxValueMeter: 1000

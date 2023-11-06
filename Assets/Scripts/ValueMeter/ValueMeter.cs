@@ -7,6 +7,10 @@ public class ValueMeter : MonoBehaviour
     [Header("Input Value Settings")]
     //Represent the value of what the pivot point is at for further coding.
     public float inputValue;
+    public float flipValue;
+
+    [Header("Lerp Speed Settings")]
+    public float lerpSpeed = 5.0f;
 
     [Header("Pivot Transform GameObject")]
     //Represent the pivot point of the GameObject that is being rotated.
@@ -27,6 +31,8 @@ public class ValueMeter : MonoBehaviour
     public float minValue;
     public float maxValue;
 
+    private float currentRotation;
+
     // Update the pointer rotation based on the input value
     public void SetPointerRotation(float value)
     {
@@ -37,13 +43,24 @@ public class ValueMeter : MonoBehaviour
         float normalizedValue = (value - minValueMeter) / (maxValueMeter - minValueMeter);
         float targetRotation = Mathf.Lerp(minValue, maxValue, normalizedValue);
 
+        // Smoothly interpolate rotation when inputValue changes.
+        currentRotation = Mathf.Lerp(currentRotation, targetRotation, Time.deltaTime * lerpSpeed);
+
         // Rotate the needle of the valuemeter to targeted rotation.
-        pivotPoint.localRotation = Quaternion.Euler(0f, 0f, targetRotation);
+        pivotPoint.localRotation = Quaternion.Euler(0f, 0f, currentRotation);
     }
 
     // Example usage in Update or wherever you need to update the pointer:
     void Update()
     {
         SetPointerRotation(inputValue);
+    }
+    public void FlipIncrease()
+    {
+        inputValue = inputValue + flipValue;
+    }
+    public void FlipDecrease()
+    {
+        inputValue = inputValue - flipValue;
     }
 }
