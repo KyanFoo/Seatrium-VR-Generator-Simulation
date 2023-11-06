@@ -3142,7 +3142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &277196288
 Transform:
   m_ObjectHideFlags: 0
@@ -6122,6 +6122,7 @@ GameObject:
   - component: {fileID: 536861601}
   - component: {fileID: 536861603}
   - component: {fileID: 536861602}
+  - component: {fileID: 536861604}
   m_Layer: 0
   m_Name: move_location_icon
   m_TagString: Untagged
@@ -6137,7 +6138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536861600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.021597074, y: 1.4210854e-16, z: 0}
+  m_LocalPosition: {x: -0.02159707, y: 1.4210854e-16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6194,6 +6195,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536861600}
   m_Mesh: {fileID: 4300010, guid: 0e96081d793e1994086123e2505bcc0e, type: 3}
+--- !u!95 &536861604
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536861600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7378a063dea713842b15658452617a8a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!64 &538414348
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10625,7 +10646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &885309721
 Transform:
   m_ObjectHideFlags: 0
@@ -10642,6 +10663,8 @@ Transform:
   - {fileID: 2122862050}
   - {fileID: 1005887661}
   - {fileID: 1807214941}
+  - {fileID: 1180092835}
+  - {fileID: 1662293643}
   m_Father: {fileID: 1181332502}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14554,12 +14577,12 @@ RectTransform:
   m_GameObject: {fileID: 1180092834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.027150635}
-  m_LocalScale: {x: 0.0024307845, y: 0.0025199929, z: 0.0028219097}
+  m_LocalScale: {x: 0.0024307847, y: 0.0025199929, z: 0.0028219097}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1187903238}
-  m_Father: {fileID: 1181332502}
-  m_RootOrder: 1
+  m_Father: {fileID: 885309721}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14827,7 +14850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1181332502
 Transform:
   m_ObjectHideFlags: 0
@@ -14841,7 +14864,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 885309721}
-  - {fileID: 1180092835}
   m_Father: {fileID: 1564545114}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16560,7 +16582,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1181332501}
+      - m_Target: {fileID: 885309720}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -21044,15 +21066,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662293642}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86251, y: 1.559, z: 2.454}
-  m_LocalScale: {x: 0.3282265, y: 0.3282265, z: 0.3282265}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.883, y: 0.348, z: 0.100104816}
+  m_LocalScale: {x: 0.32822654, y: 0.3282265, z: 0.3282265}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1684407720}
   - {fileID: 536861601}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 885309721}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1662642427
 MeshCollider:
