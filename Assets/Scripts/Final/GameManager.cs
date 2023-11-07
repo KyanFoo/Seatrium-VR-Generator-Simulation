@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         //ValueMeter1Current.inputValue = ;
         //ValueMeter1Voltage.inputValue = ;
         //ValueMeter1Frequency.inputValue = ;
+        Invoke("StartScene", 2f);
     }
 
     // Update is called once per frame
@@ -35,5 +36,17 @@ public class GameManager : MonoBehaviour
         Gen1Frequency = ValueMeter1Frequency.inputValue;
 
         IsolatorToggle = SynchroManage.isolatorSwitch;
+
+        if (IsolatorToggle == true)
+        {
+            ValueMeter1Frequency.enabled = false;
+            ValueMeter1Power.enabled = true;
+            ValueMeter1Current.enabled = true;
+        }
+    }
+    public void StartScene()
+    {
+        ValueMeter1Power.enabled = false;
+        ValueMeter1Current.enabled = false;
     }
 }

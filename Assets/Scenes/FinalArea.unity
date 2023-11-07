@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2496,8 +2496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798063c3dc5328f438b51ea5f42fb3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputValue: 0
-  flipValue: 10
+  inputValue: 55
+  flipValue: 1
   lerpSpeed: 5
   pivotPoint: {fileID: 1555042886}
   minValueMeter: 55
@@ -4276,7 +4276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798063c3dc5328f438b51ea5f42fb3a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputValue: 0
+  inputValue: 300
   flipValue: 10
   lerpSpeed: 5
   pivotPoint: {fileID: 1104049678}
@@ -4335,7 +4335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputValue: 0
-  flipValue: 10
+  flipValue: 20
   lerpSpeed: 5
   pivotPoint: {fileID: 729405460}
   minValueMeter: 0
@@ -11355,7 +11355,7 @@ MonoBehaviour:
   lerpDuration: 1
   duration: 0
   startIntensity: 0
-  endIntensity: 0
+  endIntensity: 5
   isNeedlePause: 0
 --- !u!4 &863661567
 Transform:
@@ -13467,7 +13467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputValue: 0
-  flipValue: 10
+  flipValue: 50
   lerpSpeed: 5
   pivotPoint: {fileID: 344376804}
   minValueMeter: 0
@@ -17327,6 +17327,8 @@ MonoBehaviour:
   ValueMeter1Current: {fileID: 1030671413}
   ValueMeter1Voltage: {fileID: 348124717}
   ValueMeter1Frequency: {fileID: 181884627}
+  SynchroManage: {fileID: 863661566}
+  IsolatorToggle: 0
 --- !u!4 &1274453896
 Transform:
   m_ObjectHideFlags: 0
@@ -40274,7 +40276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2063445197958821690, guid: 23472a8b674cfdd4f89b4176565a434a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23472a8b674cfdd4f89b4176565a434a, type: 3}
@@ -48899,7 +48901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1356314275617480563, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1607111254011122002, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
       propertyPath: m_LocalScale.y
@@ -62707,6 +62709,158 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 181884627}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 326185323}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1030671413}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 181884627}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 326185323}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1030671413}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FlipIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: FlipIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: FlipIncrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FlipDecrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: FlipDecrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: FlipDecrease
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ValueMeter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ValueMeter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: ValueMeter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ValueMeter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ValueMeter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: ValueMeter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 379745884, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 600912358, guid: 8fa0ca983e9f8454b8a53f2699c13480, type: 3}
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.size
       value: 1
