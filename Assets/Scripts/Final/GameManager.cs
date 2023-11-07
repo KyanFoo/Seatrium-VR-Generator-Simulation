@@ -14,17 +14,26 @@ public class GameManager : MonoBehaviour
     public ValueMeter ValueMeter1Voltage;
     public ValueMeter ValueMeter1Frequency;
 
+    [Header("Generator 2 Variables")]
+    public float Gen2Power;
+    public float Gen2Current;
+    public float Gen2Voltage;
+    public float Gen2Frequency;
+    public ValueMeter ValueMeter2Power;
+    public ValueMeter ValueMeter2Current;
+    public ValueMeter ValueMeter2Voltage;
+    public ValueMeter ValueMeter2Frequency;
+
     public SynchroscopeManager SynchroManage;
     public bool IsolatorToggle;
 
     // Start is called before the first frame update
     void Start()
     {
-        //ValueMeter1Power.inputValue = ;
-        //ValueMeter1Current.inputValue = ;
-        //ValueMeter1Voltage.inputValue = ;
-        //ValueMeter1Frequency.inputValue = ;
-        Invoke("StartScene", 2f);
+        ValueMeter1Power.inputValue = 350f;
+        ValueMeter1Current.inputValue = 400f;
+        ValueMeter1Voltage.inputValue = 500f;
+        ValueMeter1Frequency.inputValue = 57f;
     }
 
     // Update is called once per frame
@@ -35,18 +44,15 @@ public class GameManager : MonoBehaviour
         Gen1Voltage = ValueMeter1Voltage.inputValue;
         Gen1Frequency = ValueMeter1Frequency.inputValue;
 
-        IsolatorToggle = SynchroManage.isolatorSwitch;
+        Gen2Power = ValueMeter2Power.inputValue;
+        Gen2Current = ValueMeter2Current.inputValue;
+        Gen2Voltage = ValueMeter2Voltage.inputValue;
+        Gen2Frequency = ValueMeter2Frequency.inputValue;
 
-        if (IsolatorToggle == true)
-        {
-            ValueMeter1Frequency.enabled = false;
-            ValueMeter1Power.enabled = true;
-            ValueMeter1Current.enabled = true;
-        }
+        IsolatorToggle = SynchroManage.isolatorSwitch;
     }
-    public void StartScene()
+    public void AutoVoltage()
     {
-        ValueMeter1Power.enabled = false;
-        ValueMeter1Current.enabled = false;
+        ValueMeter2Voltage.inputValue = ValueMeter1Voltage.inputValue;
     }
 }
