@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3511,6 +3511,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8760609334822207751, guid: 621946dccecbeb64c86f48877e2416b5, type: 3}
+--- !u!114 &221486969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 641061860, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+  m_PrefabInstance: {fileID: 2167341326398191280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798063c3dc5328f438b51ea5f42fb3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &222726192 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -4012,6 +4023,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 590417222091405505, guid: 621946dccecbeb64c86f48877e2416b5, type: 3}
+--- !u!114 &257101581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1759360935, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+  m_PrefabInstance: {fileID: 2167341326398191280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798063c3dc5328f438b51ea5f42fb3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &261185119
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4040,6 +4062,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2999127516529696255, guid: 305ad296f1abad9438a0024f6700449a, type: 3}
+--- !u!114 &263182699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1112589414, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+  m_PrefabInstance: {fileID: 2167341326398191280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798063c3dc5328f438b51ea5f42fb3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &264400414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20855,6 +20888,14 @@ MonoBehaviour:
   ValueMeter1Current: {fileID: 1030671413}
   ValueMeter1Voltage: {fileID: 348124717}
   ValueMeter1Frequency: {fileID: 181884627}
+  Gen2Power: 0
+  Gen2Current: 0
+  Gen2Voltage: 0
+  Gen2Frequency: 0
+  ValueMeter2Power: {fileID: 221486969}
+  ValueMeter2Current: {fileID: 2086472932}
+  ValueMeter2Voltage: {fileID: 263182699}
+  ValueMeter2Frequency: {fileID: 257101581}
   SynchroManage: {fileID: 863661566}
   IsolatorToggle: 0
 --- !u!4 &1274453896
@@ -34348,6 +34389,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083503136}
   m_Mesh: {fileID: 4300008, guid: 0e96081d793e1994086123e2505bcc0e, type: 3}
+--- !u!114 &2086472932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 576190779, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+  m_PrefabInstance: {fileID: 2167341326398191280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798063c3dc5328f438b51ea5f42fb3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &2086577917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55117,6 +55169,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1274453895}
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: AutoVoltage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378610325, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1356314275617480563, guid: 0c7f08186245a7d4782ce8baac468b67, type: 3}
       propertyPath: m_Name
       value: Generator2
