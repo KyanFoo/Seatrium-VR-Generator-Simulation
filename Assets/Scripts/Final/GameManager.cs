@@ -14,10 +14,16 @@ public class GameManager : MonoBehaviour
     public ValueMeter ValueMeter1Voltage;
     public ValueMeter ValueMeter1Frequency;
 
+    public SynchroscopeManager SynchroManage;
+    public bool IsolatorToggle;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //ValueMeter1Power.inputValue = ;
+        //ValueMeter1Current.inputValue = ;
+        //ValueMeter1Voltage.inputValue = ;
+        //ValueMeter1Frequency.inputValue = ;
     }
 
     // Update is called once per frame
@@ -27,5 +33,7 @@ public class GameManager : MonoBehaviour
         Gen1Current = ValueMeter1Current.inputValue;
         Gen1Voltage = ValueMeter1Voltage.inputValue;
         Gen1Frequency = ValueMeter1Frequency.inputValue;
+
+        IsolatorToggle = SynchroManage.isolatorSwitch;
     }
 }
