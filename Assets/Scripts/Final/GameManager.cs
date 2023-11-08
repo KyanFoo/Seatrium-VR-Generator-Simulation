@@ -30,10 +30,14 @@ public class GameManager : MonoBehaviour
     public bool setting1;
     public bool setting2;
 
+    [Header("Generator Toggle On/Off")]
+    public bool Generator1Toggle;
+    public bool Generator2Toggle;
     // Start is called before the first frame update
     void Start()
     {
         //Invoke("RunningGeneratorPrset", 1f);
+        Generator1SwitchOn();
     }
 
     // Update is called once per frame
@@ -60,6 +64,14 @@ public class GameManager : MonoBehaviour
             //Debug.Log("Setting1");
             GovernorSwitchSetting1();
         }
+    }
+    public void Generator1SwitchOn()
+    {
+        Generator1Toggle = true;
+    }
+    public void Generator2SwitchOn()
+    {
+        Generator2Toggle = true;
     }
     public void RunningGeneratorPrset()
     {

@@ -40,6 +40,13 @@ public class ValueMeter : MonoBehaviour
     public bool areYouSetting1;
     public bool areYouSetting2;
 
+    [Header("Generator Toggle Settings")]
+    public bool isGenerator1On;
+    public bool isGenerator2On;
+
+    public bool areYouGenerator1;
+    public bool areYouGenerator2;
+
     // Update the pointer rotation based on the input value
     public void SetPointerRotation(float value)
     {
@@ -60,10 +67,15 @@ public class ValueMeter : MonoBehaviour
     // Example usage in Update or wherever you need to update the pointer:
     void Update()
     {
-        nowSetting1Toggle = GameManager.setting1;
-        nowSetting2Toggle = GameManager.setting2;
-        
-        SetPointerRotation(inputValue);
+        isGenerator1On = GameManager.Generator1Toggle;
+        isGenerator2On = GameManager.Generator2Toggle;
+        if (isGenerator1On == true && areYouGenerator1 == true || isGenerator2On == true && areYouGenerator2 == true)
+        {
+            nowSetting1Toggle = GameManager.setting1;
+            nowSetting2Toggle = GameManager.setting2;
+
+            SetPointerRotation(inputValue);
+        }
     }
     public void FlipIncrease()
     {
