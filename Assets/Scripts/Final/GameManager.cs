@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("RunningGeneratorPrset", 1f);
-        Invoke("GovernorSwitchSetting1", 2f);
+        //Invoke("RunningGeneratorPrset", 1f);
     }
 
     // Update is called once per frame
@@ -50,23 +49,6 @@ public class GameManager : MonoBehaviour
         Gen2Frequency = ValueMeter2Frequency.inputValue;
 
         IsolatorToggle = SynchroManage.isolatorSwitch;
-
-        if (IsolatorToggle == true && checker == 0)
-        {
-            GovernorSwitchSetting2();
-            //ValueMeter1Power.enabled = true;
-            //ValueMeter1Current.enabled = true;
-            //ValueMeter1Frequency.enabled = false;
-            //checker = 1;
-        }
-        if (IsolatorToggle == false && checker == 1)
-        {
-            GovernorSwitchSetting1();
-            //ValueMeter1Power.enabled = false;
-            //ValueMeter1Current.enabled = false;
-            //ValueMeter1Frequency.enabled = true;
-            //checker = 0;
-        }
     }
     public void RunningGeneratorPrset()
     {
@@ -74,30 +56,6 @@ public class GameManager : MonoBehaviour
         ValueMeter1Current.inputValue = 400f;
         ValueMeter1Voltage.inputValue = 500f;
         ValueMeter1Frequency.inputValue = 57f;
-    }
-    public void GovernorSwitchSetting1()
-    {
-        ValueMeter1Power.enabled = false;
-        ValueMeter1Current.enabled = false;
-        ValueMeter1Frequency.enabled = true;
-
-        ValueMeter2Power.enabled = false;
-        ValueMeter2Current.enabled = false;
-        ValueMeter2Frequency.enabled = true;
-
-        checker = 0;
-    }
-    public void GovernorSwitchSetting2()
-    {
-        ValueMeter1Power.enabled = true;
-        ValueMeter1Current.enabled = true;
-        ValueMeter1Frequency.enabled = false;
-
-        ValueMeter2Power.enabled = true;
-        ValueMeter2Current.enabled = true;
-        ValueMeter2Frequency.enabled = false;
-
-        checker = 1;
     }
     public void AutoVoltage()
     {
