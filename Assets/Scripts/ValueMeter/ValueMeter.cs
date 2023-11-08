@@ -33,6 +33,13 @@ public class ValueMeter : MonoBehaviour
 
     private float currentRotation;
 
+    public GameManager GameManager;
+    public bool nowSetting1Toggle;
+    public bool nowSetting2Toggle;
+
+    public bool areYouSetting1;
+    public bool areYouSetting2;
+
     // Update the pointer rotation based on the input value
     public void SetPointerRotation(float value)
     {
@@ -53,14 +60,25 @@ public class ValueMeter : MonoBehaviour
     // Example usage in Update or wherever you need to update the pointer:
     void Update()
     {
+        nowSetting1Toggle = GameManager.setting1;
+        nowSetting2Toggle = GameManager.setting2;
+        
         SetPointerRotation(inputValue);
     }
     public void FlipIncrease()
     {
-        inputValue = inputValue + flipValue;
+        if (areYouSetting1 == true && nowSetting1Toggle == true || areYouSetting2 == true && nowSetting2Toggle == true)
+        {
+            Debug.Log("Hello1");
+            inputValue = inputValue + flipValue;
+        }
     }
     public void FlipDecrease()
     {
-        inputValue = inputValue - flipValue;
+        if (areYouSetting1 == true && nowSetting1Toggle == true || areYouSetting2 == true && nowSetting2Toggle == true)
+        {
+            Debug.Log("Hello2");
+            inputValue = inputValue - flipValue;
+        }
     }
 }

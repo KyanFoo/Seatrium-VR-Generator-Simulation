@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
     [Header("Others Variables")]
     public SynchroscopeManager SynchroManage;
     public bool IsolatorToggle;
-    public int checker = 1;
+    public bool setting1;
+    public bool setting2;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,16 @@ public class GameManager : MonoBehaviour
         Gen2Frequency = ValueMeter2Frequency.inputValue;
 
         IsolatorToggle = SynchroManage.isolatorSwitch;
+        if (IsolatorToggle == true)
+        {
+            //Debug.Log("Setting2");
+            GovernorSwitchSetting2();
+        }
+        else
+        {
+            //Debug.Log("Setting1");
+            GovernorSwitchSetting1();
+        }
     }
     public void RunningGeneratorPrset()
     {
@@ -61,4 +72,15 @@ public class GameManager : MonoBehaviour
     {
         ValueMeter2Voltage.inputValue = ValueMeter1Voltage.inputValue;
     }
+    public void GovernorSwitchSetting1()
+    {
+        setting1 = true;
+        setting2 = false;
+    }
+    public void GovernorSwitchSetting2()
+    {
+        setting1 = false;
+        setting2 = true;
+    }
 }
+
