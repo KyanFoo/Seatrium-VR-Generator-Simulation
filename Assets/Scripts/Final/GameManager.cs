@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,10 +48,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Auto switch "On" the Generator 1.
-        Generator1SwitchOn();
+        //Generator1SwitchOn();
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
-        Invoke("RunningGeneratorPrset", 1f);
+        //Invoke("RunningGeneratorPrset", 1f);
     }
 
     // Update is called once per frame
@@ -119,6 +120,24 @@ public class GameManager : MonoBehaviour
         //Function called to, Generator is on Setting 1, allowing the operaters to adjust the value of Power & Current.//
         setting1 = false;
         setting2 = true;
+    }
+    public void StartScene()
+    {
+        //Auto switch "On" the Generator 1.
+        Generator1SwitchOn();
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("RunningGeneratorPrset", 1f);
+    }
+    public void ResetScene()
+    {
+        //Function is called, to reset the scene when the "Restart" button is pushed.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void QuitScene()
+    {
+        Debug.Log("Quit Game");
+        Application.Quit();
     }
 }
 
