@@ -15,12 +15,18 @@ public class RotaryCallFunction : MonoBehaviour
     public AudioSource gen1;
     public AudioSource gen2;
     public AudioSource gen3;
+    public GameObject UIPage;
+    public GameObject oldPage;
+    public GameObject arrow;
     public SynchroscopeManager synchroManager;
+    private Renderer objectRenderer;
+    public Material newMaterial;
+    public AudioSource dingSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        objectRenderer = arrow.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -48,14 +54,15 @@ public class RotaryCallFunction : MonoBehaviour
         off.Play();
         off.pitch = Random.Range(0.5f, 1.5f);
         synchroManager.synActive = false;
-        Debug.Log("Called Function0");
+        //Debug.Log("Called Function0");
     }
     public void Function1()
     {
         gen1.Play();
+        dingSource.Play();
         gen1.pitch = Random.Range(0.5f, 1.5f);
         synchroManager.synActive = false;
-        Debug.Log("Called Function1");
+        //Debug.Log("Called Function1");
     }
 
     public void Function2()
@@ -63,14 +70,25 @@ public class RotaryCallFunction : MonoBehaviour
         gen2.Play();
         gen2.pitch = Random.Range(0.5f, 1.5f);
         synchroManager.synActive = true;
-        Debug.Log("Called Function2");
+        StartCoroutine(UIon());
+        //Debug.Log("Called Function2");
     }
     public void Function3()
     {
         gen3.Play();
         gen3.pitch = Random.Range(0.5f, 1.5f);
         synchroManager.synActive = false;
-        Debug.Log("Called Function3");
+        //Debug.Log("Called Function3");
     }
     // Add more functions as needed.
+
+    IEnumerator UIon()
+    {
+
+        objectRenderer.material = newMaterial;
+        yield return new WaitForSeconds(3);
+
+        UIPage.SetActive(true);
+        oldPage.SetActive(false);
+    }
 }
