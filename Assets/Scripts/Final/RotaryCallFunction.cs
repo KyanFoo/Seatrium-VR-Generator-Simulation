@@ -47,12 +47,14 @@ public class RotaryCallFunction : MonoBehaviour
     {
         off.Play();
         off.pitch = Random.Range(0.5f, 1.5f);
+        synchroManager.synActive = false;
         Debug.Log("Called Function0");
     }
     public void Function1()
     {
         gen1.Play();
         gen1.pitch = Random.Range(0.5f, 1.5f);
+        synchroManager.synActive = false;
         Debug.Log("Called Function1");
     }
 
@@ -67,6 +69,7 @@ public class RotaryCallFunction : MonoBehaviour
     {
         gen3.Play();
         gen3.pitch = Random.Range(0.5f, 1.5f);
+        synchroManager.synActive = false;
         Debug.Log("Called Function3");
     }
     // Add more functions as needed.
