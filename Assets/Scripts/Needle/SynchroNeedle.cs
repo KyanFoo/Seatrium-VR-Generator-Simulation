@@ -37,6 +37,11 @@ public class SynchroNeedle : MonoBehaviour
     public ValueMeter valueMeterFrequency2;
     public float frequencyValue1;
     public float frequencyValue2;
+
+    //reference to blackout canvas
+    public GameObject blackOut;
+
+
     private void Start()
     {
         startRotation = needle.rotation.eulerAngles;
@@ -94,6 +99,10 @@ public class SynchroNeedle : MonoBehaviour
                 Debug.Log("Within 20");
                 lerpTime = 0;
                 StartCoroutine(CenterNeedleCoroutine());
+            }
+            else
+            {
+                blackOut.SetActive(true);
             }
         }
         frequencyValue1 = valueMeterFrequency1.inputValue;
