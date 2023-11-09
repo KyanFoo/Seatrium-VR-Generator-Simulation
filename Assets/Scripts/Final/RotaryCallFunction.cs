@@ -15,14 +15,11 @@ public class RotaryCallFunction : MonoBehaviour
     public AudioSource gen1;
     public AudioSource gen2;
     public AudioSource gen3;
-    public GameObject UIPage;
-    public GameObject oldPage;
     public GameObject arrow;
     public SynchroscopeManager synchroManager;
     private Renderer objectRenderer;
     public Material newMaterial;
     public AudioSource dingSource;
-    public bool oneTime;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +68,7 @@ public class RotaryCallFunction : MonoBehaviour
         gen2.Play();
         gen2.pitch = Random.Range(0.5f, 1.5f);
         synchroManager.synActive = true;
-        StartCoroutine(UIon());
+        objectRenderer.material = newMaterial;
         //Debug.Log("Called Function2");
     }
     public void Function3()
@@ -82,17 +79,4 @@ public class RotaryCallFunction : MonoBehaviour
         //Debug.Log("Called Function3");
     }
     // Add more functions as needed.
-
-    IEnumerator UIon()
-    {
-
-        objectRenderer.material = newMaterial;
-        yield return new WaitForSeconds(3);
-        if (oneTime == false)
-        {
-            UIPage.SetActive(true);
-            oldPage.SetActive(false);
-        }
-        oneTime= true;
-    }
 }
