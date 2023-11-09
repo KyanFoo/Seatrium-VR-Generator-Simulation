@@ -5,36 +5,38 @@ using UnityEngine;
 public class SynchroscopeManager : MonoBehaviour
 {
     [Header("Lamp GameObject")]
-    //Represent the "Secondary Script to access variables.
+    //Represent the "Secondary Script" to access variables.//
+    //Drag & Drop the Synchroscope Lamp's script to the respective slots.//
     public SynchroscopeLamp lamp0Script;
     public SynchroscopeLamp lamp1Script;
     public SynchroscopeLamp lamp2Script;
 
-    //Represent the bool used for if else statement to check which gameobject turn is to fade in.
+    //Represent the Bool used for if else statement to check which GameObject turn is to Fade In.//
     public bool nextLamp0 = false;
     public bool nextLamp1 = false;
     public bool nextLamp2 = false;
 
     [Header("Input Bool Settings")]
-    //Represent bool to "on" the synchroscope.
+    //Represent Bool to "ON" the synchroscope.//
     public bool synActive = true;
 
-    //Represent the bool to reverse the rotation of fade in and out after a certain critia is made.
+    //Represent the Bool to reverse the rotation of Fade In and Out.//
     public bool reverseLoop;
 
-    //Represent the bool to check when the isolator has been switched on.
+    //Represent the Bool to check when the Isolator has been switched "ON".//
     public bool isolatorSwitch;
 
     [Header("Input Emissive Duration Setting")]
-    //Represent the value of the check the variables of the lamps.
+    //Represent the value of the check the variables of the lamps.//
     public float lerpDuration;
     public float duration;
 
     [Header("Input Intensity & LerpTime Settings")]
+    //Represent the value of intensity of the lamps.//
     public float startIntensity;
     public float endIntensity;
 
-    //Represne the special variabel that pauses the needle rotation constant updates when the isolator switch has been switched.
+    //Represne the special variable that pauses the needle rotation constant updates when the isolator switch has been switched.//
     public bool isNeedlePause;
 
     // Start is called before the first frame update
@@ -46,10 +48,10 @@ public class SynchroscopeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Update variables to see in "Inspector".
+        //Constantly update to check variable duration value to be seen in "Inspector".//
         duration = lamp0Script.lerpTime;
 
-        //Activate the "Synchroscope".
+        //When the Synchroscope has been switched "ON".//
         if (synActive == true)
         {
             isNeedlePause = true;
@@ -64,18 +66,6 @@ public class SynchroscopeManager : MonoBehaviour
         {
             isNeedlePause = false;
         }
-
-        //Codes use to increase or decrease the duration of fading in and out of the lamps.
-        if (Input.GetKeyDown("1"))
-        {
-            //lerpDuration = lerpDuration + 0.1f;
-            //isolatorSwitch = true;
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            //lerpDuration = lerpDuration - 0.1f;
-            //isolatorSwitch = false;
-        }
     }
     public void ActiveSynchro()
     {
@@ -87,7 +77,10 @@ public class SynchroscopeManager : MonoBehaviour
     }
     public void ActiveSync()
     {
-        //The order of the lamps fading in and out oridinal order
+        //Function is called to, call other fucntion to allow the lamps to Fade In & Out in a speific order.//
+        //It also check whether the lamps' speific order has to be Clockwise or Anti-Clockwise.//
+
+        //Clockwise Motion.//
         if (reverseLoop == false)
         {
             if (!nextLamp0)
@@ -107,7 +100,7 @@ public class SynchroscopeManager : MonoBehaviour
                 ResetBool();
             }
         }
-        //The order of the lamps fading in and out reverse order
+        //Anti-Clockwise Motion.//
         if (reverseLoop == true)
         {
             if (!nextLamp0 && reverseLoop == true)
@@ -128,7 +121,8 @@ public class SynchroscopeManager : MonoBehaviour
             }
         }
     }
-    //After calling their function to light up their lamps, bool is check "true" to tell the code that it has been light up already and await for the next one.
+    //Functions below are called to, call their lamp function to Fade In & also Bool is check "True".
+    //It is to tell the code that it has been Fade In and await for the next lamp's turn.
     public void CallLamp0Script()
     {
         lamp0Script.CallOnCoroutine();
@@ -144,19 +138,23 @@ public class SynchroscopeManager : MonoBehaviour
         lamp2Script.CallOnCoroutine();
         nextLamp2 = true;
     }
-    //After a cycle has been complete, reset is needed to repeat the process again.
     public void ResetBool()
     {
+        //Function is called to, after a cycle has been complete, reset is needed to repear the process again.//
         nextLamp0 = false;
         nextLamp1 = false;
         nextLamp2 = false;
     }
     public void FlipIncrease()
     {
+        //Function is called to, when the Governor Knob has been flipped.//
+        //It would increase the speed of the Lamps Fade In and Out sequence and Synchroscope Needle.//
         lerpDuration = lerpDuration + 0.1f;
     }
     public void FlipDecrease()
     {
+        //Function is called to, when the Governor Knob has been flipped.//
+        //It would decrease the speed of the Lamps Fade In and Out sequence and Synchroscope Needle.//
         lerpDuration = lerpDuration - 0.1f;
     }
 }

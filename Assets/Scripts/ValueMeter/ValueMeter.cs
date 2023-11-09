@@ -5,15 +5,17 @@ using UnityEngine;
 public class ValueMeter : MonoBehaviour
 {
     [Header("Input Value Settings")]
-    //Represent the value of what the pivot point is at for further coding.
+    //Represent the value of the inputValue.//
     public float inputValue;
+    //Represent the value that will increase the inputValue.//
     public float flipValue;
 
     [Header("Lerp Speed Settings")]
+    //Represent the speed in which the Synchroscope Needle would move.//
     public float lerpSpeed = 5.0f;
 
     [Header("Pivot Transform GameObject")]
-    //Represent the pivot point of the GameObject that is being rotated.
+    //Represent the pivot point of the GameObject that is being rotated.//
     public Transform pivotPoint;
 
     //Represent the Maximum and Minimum of the GameObject rotation.
@@ -31,19 +33,26 @@ public class ValueMeter : MonoBehaviour
     public float minValue;
     public float maxValue;
 
+    //Represent the variable of the Synchroscope Needle's current Rotation.//
     private float currentRotation;
 
+    [Header("Secondary Script")]
     public GameManager GameManager;
     public bool nowSetting1Toggle;
     public bool nowSetting2Toggle;
 
+    //Represent the Bools to check ValueMeter to see if they are Setting 1 or 2.//
+    //Setting 1 is Frequency.//
+    //Setting 2 is Power & Current.//
     public bool areYouSetting1;
     public bool areYouSetting2;
 
     [Header("Generator Toggle Settings")]
+    //Represent the Bools to check whether Generator 1 and 2 is switch "ON".//
     public bool isGenerator1On;
     public bool isGenerator2On;
 
+    //Represent the Bools to check ValueMeter is on Generator 1 or 2.//
     public bool areYouGenerator1;
     public bool areYouGenerator2;
 
@@ -70,10 +79,15 @@ public class ValueMeter : MonoBehaviour
     // Example usage in Update or wherever you need to update the pointer:
     void Update()
     {
+        //Constantly update to check whether Generator 1 or 2 has been switched "ON" respectively.//
         isGenerator1On = GameManager.Generator1Toggle;
         isGenerator2On = GameManager.Generator2Toggle;
+
+        //If Else Statement to check if the Generator the ValueMeter is build in, is the same as Generator itself has been switched "ON".//
+        //e.g. ValueMeter on Generator 1 is checking whether Generator 1 is switched "ON".//
         if (isGenerator1On == true && areYouGenerator1 == true || isGenerator2On == true && areYouGenerator2 == true)
         {
+            //Constantly update to check whether Generators is on Setting 1 or 2.//
             nowSetting1Toggle = GameManager.setting1;
             nowSetting2Toggle = GameManager.setting2;
 
@@ -82,25 +96,33 @@ public class ValueMeter : MonoBehaviour
     }
     public void FlipIncrease()
     {
+        //Function called to, first check whether Generator and the ValueMeter is on the same setting.//
+        //Frequency ValueMeter is in Setting 1 & Power and Current ValueMeter is in Setting 2.//
+        //They must check if the Generators is on the same setting so that they can increase its respective ValueMeter's output.//
         if (areYouSetting1 == true && nowSetting1Toggle == true || areYouSetting2 == true && nowSetting2Toggle == true)
         {
+            //Check whether the ValueMeter is a Frequency ValueMeter in Generator 2.//
             if (areYouFrequency2 == true)
             {
+                //If Yes, allow to call a function in Synchroscope Manager.//
                 SynchroscopeManager.FlipIncrease();
             }
-            Debug.Log("Hello1");
             inputValue = inputValue + flipValue;
         }
     }
     public void FlipDecrease()
     {
+        //Function called to, first check whether Generator and the ValueMeter is on the same setting.//
+        //Frequency ValueMeter is in Setting 1 & Power and Current ValueMeter is in Setting 2.//
+        //They must check if the Generators is on the same setting so that they can decrease its respective ValueMeter's output.//
         if (areYouSetting1 == true && nowSetting1Toggle == true || areYouSetting2 == true && nowSetting2Toggle == true)
         {
+            //Check whether the ValueMeter is a Frequency ValueMeter in Generator 2.//
             if (areYouFrequency2 == true)
             {
+                //If Yes, allow to call a function in Synchroscope Manager.//
                 SynchroscopeManager.FlipDecrease();
             }
-            Debug.Log("Hello2");
             inputValue = inputValue - flipValue;
         }
     }
