@@ -22,6 +22,7 @@ public class RotaryCallFunction : MonoBehaviour
     private Renderer objectRenderer;
     public Material newMaterial;
     public AudioSource dingSource;
+    public bool oneTime;
 
     // Start is called before the first frame update
     void Start()
@@ -87,8 +88,11 @@ public class RotaryCallFunction : MonoBehaviour
 
         objectRenderer.material = newMaterial;
         yield return new WaitForSeconds(3);
-
-        UIPage.SetActive(true);
-        oldPage.SetActive(false);
+        if (oneTime == false)
+        {
+            UIPage.SetActive(true);
+            oldPage.SetActive(false);
+        }
+        oneTime= true;
     }
 }
