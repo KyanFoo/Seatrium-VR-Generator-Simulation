@@ -69,12 +69,12 @@ public class SynchroscopeManager : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             //lerpDuration = lerpDuration + 0.1f;
-            isolatorSwitch = true;
+            //isolatorSwitch = true;
         }
         if (Input.GetKeyDown("2"))
         {
             //lerpDuration = lerpDuration - 0.1f;
-            isolatorSwitch = false;
+            //isolatorSwitch = false;
         }
     }
     public void ActiveSynchro()
@@ -150,5 +150,13 @@ public class SynchroscopeManager : MonoBehaviour
         nextLamp0 = false;
         nextLamp1 = false;
         nextLamp2 = false;
+    }
+    public void FlipIncrease()
+    {
+        lerpDuration = lerpDuration + 0.1f;
+    }
+    public void FlipDecrease()
+    {
+        lerpDuration = lerpDuration - 0.1f;
     }
 }

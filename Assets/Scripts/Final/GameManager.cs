@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Invoke("RunningGeneratorPrset", 1f);
+        Invoke("RunningGeneratorPrset", 1f);
         Generator1SwitchOn();
     }
 

@@ -47,6 +47,9 @@ public class ValueMeter : MonoBehaviour
     public bool areYouGenerator1;
     public bool areYouGenerator2;
 
+    public SynchroscopeManager SynchroscopeManager;
+    public bool areYouFrequency2;
+
     // Update the pointer rotation based on the input value
     public void SetPointerRotation(float value)
     {
@@ -81,6 +84,10 @@ public class ValueMeter : MonoBehaviour
     {
         if (areYouSetting1 == true && nowSetting1Toggle == true || areYouSetting2 == true && nowSetting2Toggle == true)
         {
+            if (areYouFrequency2 == true)
+            {
+                SynchroscopeManager.FlipIncrease();
+            }
             Debug.Log("Hello1");
             inputValue = inputValue + flipValue;
         }
@@ -89,6 +96,10 @@ public class ValueMeter : MonoBehaviour
     {
         if (areYouSetting1 == true && nowSetting1Toggle == true || areYouSetting2 == true && nowSetting2Toggle == true)
         {
+            if (areYouFrequency2 == true)
+            {
+                SynchroscopeManager.FlipDecrease();
+            }
             Debug.Log("Hello2");
             inputValue = inputValue - flipValue;
         }

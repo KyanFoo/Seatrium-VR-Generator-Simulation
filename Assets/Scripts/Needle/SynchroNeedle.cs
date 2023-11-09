@@ -32,6 +32,11 @@ public class SynchroNeedle : MonoBehaviour
     private Vector3 currentRotation;
     private float currentRotationZ;
     private Vector3 centerRotation;
+
+    public ValueMeter valueMeterFrequency1;
+    public ValueMeter valueMeterFrequency2;
+    public float frequencyValue1;
+    public float frequencyValue2;
     private void Start()
     {
         startRotation = needle.rotation.eulerAngles;
@@ -90,6 +95,17 @@ public class SynchroNeedle : MonoBehaviour
                 lerpTime = 0;
                 StartCoroutine(CenterNeedleCoroutine());
             }
+        }
+        frequencyValue1 = valueMeterFrequency1.inputValue;
+        frequencyValue2 = valueMeterFrequency2.inputValue;
+        if (frequencyValue2 < frequencyValue1)
+        {
+            //Debug.Log("Anti");
+            synchromanager.reverseLoop = true;
+        }
+        else
+        {
+            synchromanager.reverseLoop = false;
         }
     }
     IEnumerator NeedleCoroutine()
