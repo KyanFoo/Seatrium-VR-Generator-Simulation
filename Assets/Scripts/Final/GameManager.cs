@@ -30,13 +30,13 @@ public class GameManager : MonoBehaviour
     public ValueMeter ValueMeter2Frequency;
 
     [Header("Secondary Script Variables")]
-    //Represent the "Secondary Script" to access variables.
+    //Represent the "Secondary Script" to access variables.//
     public SynchroscopeManager SynchroManage;
 
     //Represent the Bools to check whether the Generator 1 & 2 are switched "ON" or "OFF".//
     public bool IsolatorToggle;
 
-    //Represent the Bools to check whether the Generator 1 or 2 is at which setting.
+    //Represent the Bools to check whether the Generator 1 or 2 is at which setting.//
     public bool setting1;
     public bool setting2;
 
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Auto switch "On" the Generator 1.
+        //Auto switch "On" the Generator 1.//
         //Generator1SwitchOn();
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
@@ -57,19 +57,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Constantly update to check variables value of ValueMeters in Generator 1.
+        //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
         Gen1Current = ValueMeter1Current.inputValue;
         Gen1Voltage = ValueMeter1Voltage.inputValue;
         Gen1Frequency = ValueMeter1Frequency.inputValue;
 
-        //Constantly update to check variables value of ValueMeters in Generator 2.
+        //Constantly update to check variables value of ValueMeters in Generator 2.//
         Gen2Power = ValueMeter2Power.inputValue;
         Gen2Current = ValueMeter2Current.inputValue;
         Gen2Voltage = ValueMeter2Voltage.inputValue;
         Gen2Frequency = ValueMeter2Frequency.inputValue;
 
-        //Check to see if the Isolator Switch has been switched "ON" or "OFF".
+        //Check to see if the Isolator Switch has been switched "ON" or "OFF".//
         IsolatorToggle = SynchroManage.isolatorSwitch;
 
         //Since the Governor Switch is quite speical.//
@@ -88,12 +88,12 @@ public class GameManager : MonoBehaviour
     }
     public void Generator1SwitchOn()
     {
-        //Function is called to, "ON" the Generator 1.
+        //Function is called to, "ON" the Generator 1.//
         Generator1Toggle = true;
     }
     public void Generator2SwitchOn()
     {
-        //Function is called to, "ON" the Generator 2.
+        //Function is called to, "ON" the Generator 2.//
         Generator2Toggle = true;
     }
     public void RunningGeneratorPrset()
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartScene()
     {
-        //Auto switch "On" the Generator 1.
+        //Auto switch "On" the Generator 1.//
         Generator1SwitchOn();
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
@@ -131,11 +131,12 @@ public class GameManager : MonoBehaviour
     }
     public void ResetScene()
     {
-        //Function is called, to reset the scene when the "Restart" button is pushed.
+        //Function is called, to reset the scene when the "Restart" button is pushed.//
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void QuitScene()
     {
+        //Function is called, to quit the scene.//
         Debug.Log("Quit Game");
         Application.Quit();
     }

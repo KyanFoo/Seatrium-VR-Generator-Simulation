@@ -11,7 +11,7 @@ public class SynchroscopeManager : MonoBehaviour
     public SynchroscopeLamp lamp1Script;
     public SynchroscopeLamp lamp2Script;
 
-    //Represent the Bool used for if else statement to check which GameObject turn is to Fade In.//
+    //Represent the Bool used for if else statement to check which GameObject turn is to fade "In".//
     public bool nextLamp0 = false;
     public bool nextLamp1 = false;
     public bool nextLamp2 = false;
@@ -20,7 +20,7 @@ public class SynchroscopeManager : MonoBehaviour
     //Represent Bool to "ON" the synchroscope.//
     public bool synActive = true;
 
-    //Represent the Bool to reverse the rotation of Fade In and Out.//
+    //Represent the Bool to reverse the rotation of fade "In" and "Out".//
     public bool reverseLoop;
 
     //Represent the Bool to check when the Isolator has been switched "ON".//
@@ -77,7 +77,7 @@ public class SynchroscopeManager : MonoBehaviour
     }
     public void ActiveSync()
     {
-        //Function is called to, call other fucntion to allow the lamps to Fade In & Out in a speific order.//
+        //Function is called to, call other fucntion to allow the lamps to fade "In" & "Out" in a speific order.//
         //It also check whether the lamps' speific order has to be Clockwise or Anti-Clockwise.//
 
         //Clockwise Motion.//
@@ -121,8 +121,8 @@ public class SynchroscopeManager : MonoBehaviour
             }
         }
     }
-    //Functions below are called to, call their lamp function to Fade In & also Bool is check "True".
-    //It is to tell the code that it has been Fade In and await for the next lamp's turn.
+    //Functions below are called to, call their lamp function to fade "In" & also Bool is check "True".
+    //It is to tell the code that it has been fade "In" and await for the next lamp's turn.
     public void CallLamp0Script()
     {
         lamp0Script.CallOnCoroutine();
@@ -148,13 +148,13 @@ public class SynchroscopeManager : MonoBehaviour
     public void FlipIncrease()
     {
         //Function is called to, when the Governor Knob has been flipped.//
-        //It would increase the speed of the Lamps Fade In and Out sequence and Synchroscope Needle.//
+        //It would increase the speed of the Lamps fade "In" and "Out" sequence and Synchroscope Needle.//
         lerpDuration = lerpDuration + 0.1f;
     }
     public void FlipDecrease()
     {
         //Function is called to, when the Governor Knob has been flipped.//
-        //It would decrease the speed of the Lamps Fade In and Out sequence and Synchroscope Needle.//
+        //It would decrease the speed of the Lamps fade "In" and "Out" sequence and Synchroscope Needle.//
         lerpDuration = lerpDuration - 0.1f;
     }
 }
