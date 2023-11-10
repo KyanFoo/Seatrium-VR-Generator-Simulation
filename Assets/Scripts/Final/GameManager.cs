@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
         setting1 = false;
         setting2 = true;
     }
-    public void StartScene()
+    public void StartTrainingScene()
     {
         //Auto switch "On" the Generator 1.//
         Generator1SwitchOn();
