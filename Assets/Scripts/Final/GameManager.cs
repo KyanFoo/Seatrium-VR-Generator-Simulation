@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
     public bool Generator1Toggle;
     public bool Generator2Toggle;
 
+    public bool requirePower;
+    public bool requireCurrent;
+    public bool requireFrequency;
+    public bool requireVoltage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +90,51 @@ public class GameManager : MonoBehaviour
             //Debug.Log("Setting1");
             GovernorSwitchSetting1();
         }
+
+        if (IsolatorToggle == true)
+        {
+            //Debug.Log("Isolator has been switched");
+            if (Gen1Frequency == Gen2Frequency)
+            {
+                //Debug.Log("Pass");
+                requireFrequency = true;
+            }
+            else
+            {
+                //Debug.Log("Fail");
+                requireFrequency = false;
+            }
+            if (Gen1Power == Gen2Power)
+            {
+                //Debug.Log("Pass");
+                requirePower = true;
+            }
+            else
+            {
+                //Debug.Log("Fail");
+                requirePower = false;
+            }
+            if (Gen1Current == Gen2Current)
+            {
+                //Debug.Log("Pass");
+                requireCurrent = true;
+            }
+            else
+            {
+                //Debug.Log("Fail");
+                requireCurrent = false;
+            }
+            if (requireFrequency == true && requirePower == true && requireCurrent == true && requireVoltage == true)
+            {
+                Debug.Log("Scynchronized");
+                RequirementCheck();
+            }
+            else
+            {
+                Debug.Log("Scynchronization Fail");
+                RequirementCheck();
+            }
+        }
     }
     public void Generator1SwitchOn()
     {
@@ -108,6 +158,7 @@ public class GameManager : MonoBehaviour
     {
         //Function called to, allowing the Incoming Generator to automatically set its voltage to be same as Running Generator.//
         ValueMeter2Voltage.inputValue = ValueMeter1Voltage.inputValue;
+        requireVoltage = true;
     }
     public void GovernorSwitchSetting1()
     {
@@ -139,6 +190,41 @@ public class GameManager : MonoBehaviour
         //Function is called, to quit the scene.//
         Debug.Log("Quit Game");
         Application.Quit();
+    }
+    public void RequirementCheck()
+    {
+        if (requirePower == true)
+        {
+
+        }
+        else
+        {
+
+        }
+        if (requireCurrent == true)
+        {
+
+        }
+        else
+        {
+
+        }
+        if (requireVoltage == true)
+        {
+
+        }
+        else
+        {
+
+        }
+        if (requireFrequency == true)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }
 
