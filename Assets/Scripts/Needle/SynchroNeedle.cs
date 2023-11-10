@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class SynchroNeedle : MonoBehaviour
@@ -45,6 +46,8 @@ public class SynchroNeedle : MonoBehaviour
     [Header("Blackout GameObject")]
     //reference to blackout canvas.//
     public GameObject blackOut;
+    public GameObject failedSync;
+    public GameObject tutorialUI;
 
 
     private void Start()
@@ -123,6 +126,8 @@ public class SynchroNeedle : MonoBehaviour
             else
             {
                 blackOut.SetActive(true);
+                failedSync.SetActive(true);
+                tutorialUI.SetActive(false);
             }
         }
 
