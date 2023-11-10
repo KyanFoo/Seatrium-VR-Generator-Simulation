@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Header("Secondary Script Variables")]
     //Represent the "Secondary Script" to access variables.//
     public SynchroscopeManager SynchroManage;
+    public SynchroNeedle SynchroNeedle;
 
     //Represent the Bools to check whether the Generator 1 & 2 are switched "ON" or "OFF".//
     public bool IsolatorToggle;
@@ -44,10 +45,9 @@ public class GameManager : MonoBehaviour
     public bool Generator1Toggle;
     public bool Generator2Toggle;
 
-    public bool requirePower;
-    public bool requireCurrent;
     public bool requireFrequency;
     public bool requireVoltage;
+    public bool requiredPhaseSequence;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         //Check to see if the Isolator Switch has been switched "ON" or "OFF".//
         IsolatorToggle = SynchroManage.isolatorSwitch;
 
+        requiredPhaseSequence = SynchroNeedle.requiredPhaseSequence;
         //Since the Governor Switch is quite speical.//
         //In the first phase, It can regulate the frequency output.//
         //However, after switching "ON" the isolator switch, it will regulate the output of Power and Current output.//
@@ -104,27 +105,8 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("Fail");
                 requireFrequency = false;
             }
-            if (Gen1Power == Gen2Power)
-            {
-                //Debug.Log("Pass");
-                requirePower = true;
-            }
-            else
-            {
-                //Debug.Log("Fail");
-                requirePower = false;
-            }
-            if (Gen1Current == Gen2Current)
-            {
-                //Debug.Log("Pass");
-                requireCurrent = true;
-            }
-            else
-            {
-                //Debug.Log("Fail");
-                requireCurrent = false;
-            }
-            if (requireFrequency == true && requirePower == true && requireCurrent == true && requireVoltage == true)
+        
+            if (requireFrequency == true && requireVoltage == true)
             {
                 Debug.Log("Scynchronized");
                 RequirementCheck();
@@ -193,22 +175,6 @@ public class GameManager : MonoBehaviour
     }
     public void RequirementCheck()
     {
-        if (requirePower == true)
-        {
-
-        }
-        else
-        {
-
-        }
-        if (requireCurrent == true)
-        {
-
-        }
-        else
-        {
-
-        }
         if (requireVoltage == true)
         {
 
@@ -218,6 +184,14 @@ public class GameManager : MonoBehaviour
 
         }
         if (requireFrequency == true)
+        {
+
+        }
+        else
+        {
+
+        }
+        if (requiredPhaseSequence == true)
         {
 
         }
