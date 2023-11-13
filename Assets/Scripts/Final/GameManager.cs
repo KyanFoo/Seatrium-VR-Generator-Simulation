@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     public bool requireVoltage;
     public bool requiredPhaseSequence;
 
+    private int randomizeVariable;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,13 +130,31 @@ public class GameManager : MonoBehaviour
         //Function is called to, "ON" the Generator 2.//
         Generator2Toggle = true;
     }
-    public void RunningGeneratorPrset()
+    public void TrainingRunningGeneratorPreset()
     {
         //Function called to, preset ValueMeter's variables of Generator 1 also known as "Running Generators".//
         ValueMeter1Power.inputValue = 350f;
         ValueMeter1Current.inputValue = 400f;
         ValueMeter1Voltage.inputValue = 500f;
         ValueMeter1Frequency.inputValue = 57f;
+    }
+    public void PracticeRunningGeneratorPreset()
+    {
+        randomizeVariable = Random.Range(55, 65);
+        //Debug.Log(randomizeVariable + " Frequency");
+        ValueMeter1Frequency.inputValue = randomizeVariable;
+
+        randomizeVariable = Random.Range(0, 600);
+        //Debug.Log(randomizeVariable + " Voltage");
+        ValueMeter1Voltage.inputValue = randomizeVariable;
+
+        randomizeVariable = Random.Range(300, 600);
+        //Debug.Log(randomizeVariable + " Power");
+        ValueMeter1Power.inputValue = randomizeVariable;
+
+        randomizeVariable = Random.Range(0, 1000);
+        //Debug.Log(randomizeVariable + " Current");
+        ValueMeter1Current.inputValue = randomizeVariable;
     }
     public void AutoVoltage()
     {
@@ -160,7 +180,15 @@ public class GameManager : MonoBehaviour
         Generator1SwitchOn();
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
-        Invoke("RunningGeneratorPrset", 1f);
+        Invoke("TrainingRunningGeneratorPreset", 1f);
+    }
+    public void StartPracticeScene()
+    {
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("PracticeRunningGeneratorPreset", 1f);
     }
     public void ResetScene()
     {
