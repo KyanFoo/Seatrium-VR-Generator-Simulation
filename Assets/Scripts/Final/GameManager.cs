@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     //Check if all variable in the generator is in sync in order to show synchronised
     public GameObject synchronisedPage;
+    public AudioSource syncedSound;
     public GameObject mainMenu;
 
     private int randomizeVariable;
@@ -205,6 +206,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartPracticeScene()
     {
+
         //Auto switch "On" the Generator 1.//
         Generator1SwitchOn();
 
@@ -224,6 +226,7 @@ public class GameManager : MonoBehaviour
         if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
         {
             synchronisedPage.SetActive(true);
+            syncedSound.Play();
         }
 
     }
