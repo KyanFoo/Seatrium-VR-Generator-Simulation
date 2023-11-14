@@ -115,6 +115,15 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("Fail");
                 FrequencyMatch = false;
             }
+
+            if (Gen1Voltage == Gen2Voltage)
+            {
+                VoltageMatch = true;
+            }
+            else
+            {
+                VoltageMatch = false;
+            }
         
             if (FrequencyMatch == true && VoltageMatch == true)
             {
@@ -218,17 +227,11 @@ public class GameManager : MonoBehaviour
         }
         if (FrequencyMatch == true)
         {
-            if(ValueMeter2Frequency.inputValue == ValueMeter1Frequency.inputValue)
-            {
-                fullSync++;
-            }
+            fullSync++;
         }
         if (VoltageMatch == true)
         {
-            if(ValueMeter2Voltage.inputValue == ValueMeter1Voltage.inputValue)
-            {
-                fullSync++;
-            }
+            fullSync++;
         }
 
         if (fullSync == 3)
