@@ -48,6 +48,10 @@ public class SynchroNeedle : MonoBehaviour
     public GameObject blackOut;
     public GameObject failedSync;
     public GameObject tutorialUI;
+    public GameObject light1;
+    public GameObject light2;
+    public GameObject light3;
+    public GameObject light4;
 
     public bool PhaseSeqMatch;
 
@@ -132,6 +136,10 @@ public class SynchroNeedle : MonoBehaviour
                 blackOut.SetActive(true);
                 failedSync.SetActive(true);
                 tutorialUI.SetActive(false);
+                light1.SetActive(false);
+                light2.SetActive(false);
+                light3.SetActive(false);
+                light4.SetActive(false);
             }
         }
 

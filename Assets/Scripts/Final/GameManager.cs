@@ -230,17 +230,17 @@ public class GameManager : MonoBehaviour
 
     public void ErrorChecker()
     {
-        if (FrequencyMatch == false)
+        if (PhaseSeqMatch == false)
+        {
+            failPhase.SetActive(true);
+        }
+        else if (VoltageMatch == false)
         {
             failFreq.SetActive(true);
         }
         else if (VoltageMatch == false)
-        {
-            failVolt.SetActive(true);
-        }
-        else
         {                
-            failPhase.SetActive(true);
+            failVolt.SetActive(true);
         }
     }
     public void LoadScene(string sceneName)
