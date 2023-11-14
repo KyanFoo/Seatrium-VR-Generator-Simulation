@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     public GameObject failVolt;
     public GameObject failPhase;
 
+    public bool isPracticeScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,11 +69,20 @@ public class GameManager : MonoBehaviour
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
         //Invoke("RunningGeneratorPrset", 1f);
+        if (isPracticeScene == true)
+        {
+            //StartPracticeScene();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            StartPracticeScene();
+        }
+
         //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
         Gen1Current = ValueMeter1Current.inputValue;
@@ -160,11 +170,11 @@ public class GameManager : MonoBehaviour
     }
     public void PracticeRunningGeneratorPreset()
     {
-        randomizeVariable = Random.Range(55, 65);
+        randomizeVariable = Random.Range(57, 65);
         //Debug.Log(randomizeVariable + " Frequency");
         ValueMeter1Frequency.inputValue = randomizeVariable;
 
-        randomizeVariable = Random.Range(0, 600);
+        randomizeVariable = Random.Range(50, 600);
         //Debug.Log(randomizeVariable + " Voltage");
         ValueMeter1Voltage.inputValue = randomizeVariable;
 
