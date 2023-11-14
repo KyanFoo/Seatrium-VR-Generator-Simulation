@@ -42,11 +42,13 @@ namespace Valve.VR.InteractionSystem
 
 		public bool allowToggleTo2D = true;
 
+		public bool activateOnce = false;
 
-		//-------------------------------------------------
-		// Singleton instance of the Player. Only one can exist at a time.
-		//-------------------------------------------------
-		private static Player _instance;
+
+        //-------------------------------------------------
+        // Singleton instance of the Player. Only one can exist at a time.
+        //-------------------------------------------------
+        private static Player _instance;
 		public static Player instance
 		{
 			get
@@ -278,7 +280,7 @@ namespace Valve.VR.InteractionSystem
             while (SteamVR.initializedState == SteamVR.InitializedStates.None || SteamVR.initializedState == SteamVR.InitializedStates.Initializing)
                 yield return null;
 
-			if ( SteamVR.instance != null )
+			if ( SteamVR.instance != null  && activateOnce == false)
 			{
 				ActivateRig( rigSteamVR );
 			}
@@ -288,6 +290,7 @@ namespace Valve.VR.InteractionSystem
 				ActivateRig( rig2DFallback );
 #endif
 			}
+            activateOnce = true;
         }
 
         protected virtual void Update()
