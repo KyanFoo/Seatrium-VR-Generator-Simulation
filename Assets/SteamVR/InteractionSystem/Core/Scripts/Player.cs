@@ -255,13 +255,9 @@ namespace Valve.VR.InteractionSystem
 		private void Awake()
 		{
 			 if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+			{
+				DontDestroyOnLoad(gameObject);
+			}
 
 			if ( trackingOriginTransform == null )
 			{
