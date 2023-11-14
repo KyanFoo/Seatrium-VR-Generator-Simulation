@@ -254,12 +254,17 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void Awake()
 		{
-			 if (instance == null)
-			{
-				DontDestroyOnLoad(gameObject);
-			}
+            if (_instance == null || _instance == this)
+            {
+                _instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 
-			if ( trackingOriginTransform == null )
+            if ( trackingOriginTransform == null )
 			{
 				trackingOriginTransform = this.transform;
 			}
@@ -281,7 +286,6 @@ namespace Valve.VR.InteractionSystem
 		private IEnumerator Start()
 		{
 			_instance = this;
-            DontDestroyOnLoad(gameObject);
 
             while (SteamVR.initializedState == SteamVR.InitializedStates.None || SteamVR.initializedState == SteamVR.InitializedStates.Initializing)
                 yield return null;
