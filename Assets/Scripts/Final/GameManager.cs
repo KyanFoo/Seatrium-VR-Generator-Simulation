@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     public bool PhaseSeqMatch;
 
     //Check if all variable in the generator is in sync in order to show synchronised
-    private int fullSync;
     public GameObject synchronisedPage;
     public GameObject mainMenu;
 
@@ -58,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject failFreq;
     public GameObject failVolt;
+    public GameObject failPhase;
 
     // Start is called before the first frame update
     void Start()
@@ -221,24 +221,27 @@ public class GameManager : MonoBehaviour
     }
     public void RequirementCheck()
     {
-        if (PhaseSeqMatch == true)
-        {
-            fullSync++;
-        }
-        if (FrequencyMatch == true)
-        {
-            fullSync++;
-        }
-        if (VoltageMatch == true)
-        {
-            fullSync++;
-        }
-
-        if (fullSync == 3)
+        if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
         {
             synchronisedPage.SetActive(true);
         }
 
+    }
+
+    public void ErrorChecker()
+    {
+        if (FrequencyMatch == false)
+        {
+            failFreq.SetActive(true);
+        }
+        else if (VoltageMatch == false)
+        {
+            failVolt.SetActive(true);
+        }
+        else
+        {                
+            failPhase.SetActive(true);
+        }
     }
 }
 
