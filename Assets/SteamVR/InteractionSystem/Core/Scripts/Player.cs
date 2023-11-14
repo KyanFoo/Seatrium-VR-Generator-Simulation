@@ -276,20 +276,19 @@ namespace Valve.VR.InteractionSystem
 		private IEnumerator Start()
 		{
 			_instance = this;
+            DontDestroyOnLoad(gameObject);
 
             while (SteamVR.initializedState == SteamVR.InitializedStates.None || SteamVR.initializedState == SteamVR.InitializedStates.Initializing)
                 yield return null;
 
-			if ( SteamVR.instance != null && activateOnce == false)
+			if ( SteamVR.instance != null)
 			{
 				ActivateRig( rigSteamVR );
-				activateOnce= true;
 			}
 			else
 			{
 #if !HIDE_DEBUG_UI
 				ActivateRig( rig2DFallback );
-                activateOnce = true;
 #endif
             }
         }
@@ -410,19 +409,16 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void ActivateRig( GameObject rig )
 		{
-			if (activateOnce == true)
-			{
-				rigSteamVR.SetActive( rig == rigSteamVR );
-				rig2DFallback.SetActive( rig == rig2DFallback );
+            rigSteamVR.SetActive(rig == rigSteamVR);
+            rig2DFallback.SetActive(rig == rig2DFallback);
 
-				if ( audioListener )
-				{
-					audioListener.transform.parent = hmdTransform;
-					audioListener.transform.localPosition = Vector3.zero;
-					audioListener.transform.localRotation = Quaternion.identity;
-				}
-			}
-		}
+            if (audioListener)
+            {
+                audioListener.transform.parent = hmdTransform;
+                audioListener.transform.localPosition = Vector3.zero;
+                audioListener.transform.localRotation = Quaternion.identity;
+            }
+        }
 
 
 		//-------------------------------------------------
