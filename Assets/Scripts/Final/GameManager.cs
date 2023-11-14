@@ -243,5 +243,9 @@ public class GameManager : MonoBehaviour
             failPhase.SetActive(true);
         }
     }
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
 
