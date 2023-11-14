@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
 
     private int randomizeVariable;
 
+    public GameObject failFreq;
+    public GameObject failVolt;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            ResetScene();
+        }
+
         //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
         Gen1Current = ValueMeter1Current.inputValue;
@@ -111,13 +119,15 @@ public class GameManager : MonoBehaviour
             if (requireFrequency == true && requireVoltage == true)
             {
                 Debug.Log("Scynchronized");
-                RequirementCheck();
             }
             else
             {
                 Debug.Log("Scynchronization Fail");
-                RequirementCheck();
             }
+        }
+        if (Gen1Power == Gen2Power)
+        {
+            RequirementCheck();
         }
     }
     public void Generator1SwitchOn()
