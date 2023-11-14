@@ -280,17 +280,18 @@ namespace Valve.VR.InteractionSystem
             while (SteamVR.initializedState == SteamVR.InitializedStates.None || SteamVR.initializedState == SteamVR.InitializedStates.Initializing)
                 yield return null;
 
-			if ( SteamVR.instance != null  && activateOnce == false)
+			if ( SteamVR.instance != null && activateOnce == false)
 			{
 				ActivateRig( rigSteamVR );
+				activateOnce= true;
 			}
 			else
 			{
 #if !HIDE_DEBUG_UI
 				ActivateRig( rig2DFallback );
+                activateOnce = true;
 #endif
-			}
-            activateOnce = true;
+            }
         }
 
         protected virtual void Update()
