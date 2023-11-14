@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         //Invoke("RunningGeneratorPrset", 1f);
         if (isPracticeScene == true)
         {
-            //StartPracticeScene();
+            StartPracticeScene();
         }
     }
 
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            StartPracticeScene();
+            //StartPracticeScene();
         }
 
         //Constantly update to check variables value of ValueMeters in Generator 1.//
