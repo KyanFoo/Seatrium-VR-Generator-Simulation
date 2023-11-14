@@ -235,8 +235,8 @@ public class GameManager : MonoBehaviour
     {
         if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
         {
-            synchronisedPage.SetActive(true);
             syncedSound.Play();
+            synchronisedPage.SetActive(true);
         }
 
     }
