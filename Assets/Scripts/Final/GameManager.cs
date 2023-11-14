@@ -45,9 +45,14 @@ public class GameManager : MonoBehaviour
     public bool Generator1Toggle;
     public bool Generator2Toggle;
 
-    public bool requireFrequency;
-    public bool requireVoltage;
-    public bool requiredPhaseSequence;
+    public bool FrequencyMatch;
+    public bool VoltageMatch;
+    public bool PhaseSeqMatch;
+
+    //Check if all variable in the generator is in sync in order to show synchronised
+    private int fullSync;
+    public GameObject synchronisedPage;
+    public GameObject mainMenu;
 
     private int randomizeVariable;
 
@@ -87,7 +92,7 @@ public class GameManager : MonoBehaviour
         //Check to see if the Isolator Switch has been switched "ON" or "OFF".//
         IsolatorToggle = SynchroManage.isolatorSwitch;
 
-        requiredPhaseSequence = SynchroNeedle.requiredPhaseSequence;
+        PhaseSeqMatch = SynchroNeedle.PhaseSeqMatch;
         //Since the Governor Switch is quite speical.//
         //In the first phase, It can regulate the frequency output.//
         //However, after switching "ON" the isolator switch, it will regulate the output of Power and Current output.//
@@ -108,15 +113,15 @@ public class GameManager : MonoBehaviour
             if (Gen1Frequency == Gen2Frequency)
             {
                 //Debug.Log("Pass");
-                requireFrequency = true;
+                FrequencyMatch = true;
             }
             else
             {
                 //Debug.Log("Fail");
-                requireFrequency = false;
+                FrequencyMatch = false;
             }
         
-            if (requireFrequency == true && requireVoltage == true)
+            if (FrequencyMatch == true && VoltageMatch == true)
             {
                 Debug.Log("Scynchronized");
             }
@@ -170,7 +175,7 @@ public class GameManager : MonoBehaviour
     {
         //Function called to, allowing the Incoming Generator to automatically set its voltage to be same as Running Generator.//
         ValueMeter2Voltage.inputValue = ValueMeter1Voltage.inputValue;
-        requireVoltage = true;
+        VoltageMatch = true;
     }
     public void GovernorSwitchSetting1()
     {
@@ -189,6 +194,8 @@ public class GameManager : MonoBehaviour
         //Auto switch "On" the Generator 1.//
         Generator1SwitchOn();
 
+        mainMenu.SetActive(false);
+
         //Preset Generator 1's variable values since it is also a "Running Generator".//
         Invoke("TrainingRunningGeneratorPreset", 1f);
     }
@@ -196,6 +203,8 @@ public class GameManager : MonoBehaviour
     {
         //Auto switch "On" the Generator 1.//
         Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
         Invoke("PracticeRunningGeneratorPreset", 1f);
@@ -213,30 +222,30 @@ public class GameManager : MonoBehaviour
     }
     public void RequirementCheck()
     {
-        if (requireVoltage == true)
+        if (PhaseSeqMatch == true)
         {
-
+            fullSync++;
         }
-        else
+        if (FrequencyMatch == true)
         {
-
+            if(ValueMeter2Frequency.inputValue == ValueMeter1Frequency.inputValue)
+            {
+                fullSync++;
+            }
         }
-        if (requireFrequency == true)
+        if (VoltageMatch == true)
         {
-
+            if(ValueMeter2Voltage.inputValue == ValueMeter1Voltage.inputValue)
+            {
+                fullSync++;
+            }
         }
-        else
+
+        if (fullSync == 3)
         {
-
+            synchronisedPage.SetActive(true);
         }
-        if (requiredPhaseSequence == true)
-        {
 
-        }
-        else
-        {
-
-        }
     }
 }
 

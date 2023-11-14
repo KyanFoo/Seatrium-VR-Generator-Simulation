@@ -49,7 +49,7 @@ public class SynchroNeedle : MonoBehaviour
     public GameObject failedSync;
     public GameObject tutorialUI;
 
-    public bool requiredPhaseSequence;
+    public bool PhaseSeqMatch;
 
 
     private void Start()
@@ -123,12 +123,12 @@ public class SynchroNeedle : MonoBehaviour
             {
                 Debug.Log("Within 20");
                 lerpTime = 0;
-                requiredPhaseSequence = true;
+                PhaseSeqMatch = true;
                 StartCoroutine(CenterNeedleCoroutine());
             }
             else
             {
-                requiredPhaseSequence = false;
+                PhaseSeqMatch = false;
                 blackOut.SetActive(true);
                 failedSync.SetActive(true);
                 tutorialUI.SetActive(false);
