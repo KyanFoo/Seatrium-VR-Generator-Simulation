@@ -410,14 +410,17 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void ActivateRig( GameObject rig )
 		{
-			rigSteamVR.SetActive( rig == rigSteamVR );
-			rig2DFallback.SetActive( rig == rig2DFallback );
-
-			if ( audioListener )
+			if (activateOnce == true)
 			{
-				audioListener.transform.parent = hmdTransform;
-				audioListener.transform.localPosition = Vector3.zero;
-				audioListener.transform.localRotation = Quaternion.identity;
+				rigSteamVR.SetActive( rig == rigSteamVR );
+				rig2DFallback.SetActive( rig == rig2DFallback );
+
+				if ( audioListener )
+				{
+					audioListener.transform.parent = hmdTransform;
+					audioListener.transform.localPosition = Vector3.zero;
+					audioListener.transform.localRotation = Quaternion.identity;
+				}
 			}
 		}
 
