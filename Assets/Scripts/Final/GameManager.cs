@@ -67,11 +67,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            ResetScene();
-        }
-
         //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
         Gen1Current = ValueMeter1Current.inputValue;
@@ -199,11 +194,6 @@ public class GameManager : MonoBehaviour
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
         Invoke("PracticeRunningGeneratorPreset", 1f);
-    }
-    public void ResetScene()
-    {
-        //Function is called, to reset the scene when the "Restart" button is pushed.//
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void QuitScene()
     {
