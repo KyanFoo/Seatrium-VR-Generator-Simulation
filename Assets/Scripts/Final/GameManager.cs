@@ -145,10 +145,12 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Scynchronization Fail");
             }
-        }
-        if (Gen1Power == Gen2Power)
-        {
-            RequirementCheck();
+            
+            
+            if (Gen1Power == Gen2Power)
+            {
+                RequirementCheck();
+            }
         }
     }
     public void Generator1SwitchOn()

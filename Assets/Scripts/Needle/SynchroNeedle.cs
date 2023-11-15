@@ -129,7 +129,7 @@ public class SynchroNeedle : MonoBehaviour
                 Debug.Log("Within 20");
                 lerpTime = 0;
                 PhaseSeqMatch = true;
-                gameManager.ErrorChecker();
+                //gameManager.ErrorChecker();
                 StartCoroutine(CenterNeedleCoroutine());
             }
             else
