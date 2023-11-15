@@ -54,12 +54,13 @@ public class GameManager : MonoBehaviour
     public AudioSource syncedSound;
     public AudioClip passedSound;
     public GameObject mainMenu;
+    public GameObject failedSync;
 
     private int randomizeVariable;
 
-    public GameObject failFreq;
-    public GameObject failVolt;
-    public GameObject failPhase;
+    public GameObject passFreq;
+    public GameObject passVolt;
+    public GameObject passPhase;
 
     public bool isPracticeScene;
     // Start is called before the first frame update
@@ -116,37 +117,6 @@ public class GameManager : MonoBehaviour
 
         if (IsolatorToggle == true)
         {
-            //Debug.Log("Isolator has been switched");
-            if (Gen1Frequency == Gen2Frequency)
-            {
-                //Debug.Log("Pass");
-                FrequencyMatch = true;
-            }
-            else
-            {
-                //Debug.Log("Fail");
-                FrequencyMatch = false;
-            }
-
-            if (Gen1Voltage == Gen2Voltage)
-            {
-                VoltageMatch = true;
-            }
-            else
-            {
-                VoltageMatch = false;
-            }
-        
-            if (FrequencyMatch == true && VoltageMatch == true)
-            {
-                Debug.Log("Scynchronized");
-            }
-            else
-            {
-                Debug.Log("Scynchronization Fail");
-            }
-            
-            
             if (Gen1Power == Gen2Power)
             {
                 RequirementCheck();
@@ -246,20 +216,38 @@ public class GameManager : MonoBehaviour
 
     public void ErrorChecker()
     {
-        if (VoltageMatch == false)
+        //Debug.Log("Isolator has been switched");
+        if (Gen1Frequency == Gen2Frequency)
         {
-            SynchroNeedle.BreakerTrip();
-            failPhase.SetActive(true);
+            //Debug.Log("Pass");
+            FrequencyMatch = true;
+            passFreq.SetActive(true);
         }
-        else if (FrequencyMatch == false)
+        else
         {
+            //Debug.Log("Fail");
+            FrequencyMatch = false;
             SynchroNeedle.BreakerTrip();
-            failFreq.SetActive(true);
         }
-        else if (PhaseSeqMatch == false)
+
+        if (Gen1Voltage == Gen2Voltage)
+        {
+            VoltageMatch = true;
+            passVolt.SetActive(true);
+        }
+        else
+        {
+            VoltageMatch = false;
+            SynchroNeedle.BreakerTrip();
+        }
+        
+        if (!SynchroNeedle.PhaseSeqMatch)
         {
             SynchroNeedle.BreakerTrip();
-            failVolt.SetActive(true);
+        }
+        else
+        {
+            passPhase.SetActive(true);
         }
     }
     public void LoadScene(string sceneName)

@@ -129,15 +129,15 @@ public class SynchroNeedle : MonoBehaviour
                 Debug.Log("Within 20");
                 lerpTime = 0;
                 PhaseSeqMatch = true;
-                //gameManager.ErrorChecker();
+                gameManager.ErrorChecker();
                 StartCoroutine(CenterNeedleCoroutine());
             }
             else
             {
                 PhaseSeqMatch = false;
+                //Breaker tripping actions will be carried out in this function.
+                gameManager.ErrorChecker();
                 tutorialUI.SetActive(false);
-                BreakerTrip();
-
             }
         }
 
