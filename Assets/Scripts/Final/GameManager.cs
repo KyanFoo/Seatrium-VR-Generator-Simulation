@@ -246,14 +246,17 @@ public class GameManager : MonoBehaviour
     {
         if (VoltageMatch == false)
         {
+            SynchroNeedle.BreakerTrip();
             failVolt.SetActive(true);
         }
         else if (FrequencyMatch == false)
         {
+            SynchroNeedle.BreakerTrip();
             failFreq.SetActive(true);
         }
         else if (PhaseSeqMatch == false)
-        {                
+        {
+            SynchroNeedle.BreakerTrip();
             failPhase.SetActive(true);
         }
     }

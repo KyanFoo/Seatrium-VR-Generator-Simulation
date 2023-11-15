@@ -129,18 +129,15 @@ public class SynchroNeedle : MonoBehaviour
                 Debug.Log("Within 20");
                 lerpTime = 0;
                 PhaseSeqMatch = true;
+                gameManager.ErrorChecker();
                 StartCoroutine(CenterNeedleCoroutine());
             }
             else
             {
                 PhaseSeqMatch = false;
-                blackOut.SetActive(true);
-                failedSync.SetActive(true);
                 tutorialUI.SetActive(false);
-                light1.SetActive(false);
-                light2.SetActive(false);
-                light3.SetActive(false);
-                light4.SetActive(false);
+                BreakerTrip();
+
             }
         }
 
@@ -182,5 +179,13 @@ public class SynchroNeedle : MonoBehaviour
         yield return null;
     }
 
-
+    public void BreakerTrip()
+    {
+        blackOut.SetActive(true);
+        failedSync.SetActive(true);
+        light1.SetActive(false);
+        light2.SetActive(false);
+        light3.SetActive(false);
+        light4.SetActive(false);
+    }
 }
