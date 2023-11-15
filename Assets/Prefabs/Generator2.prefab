@@ -348,6 +348,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Generator2SwitchOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onButtonUp:
     m_PersistentCalls:
       m_Calls: []
@@ -3377,6 +3389,17 @@ MonoBehaviour:
   maxValueMeter: 65
   minValue: -48
   maxValue: 48
+  GameManager: {fileID: 0}
+  nowSetting1Toggle: 0
+  nowSetting2Toggle: 0
+  areYouSetting1: 1
+  areYouSetting2: 0
+  isGenerator1On: 0
+  isGenerator2On: 0
+  areYouGenerator1: 0
+  areYouGenerator2: 1
+  SynchroscopeManager: {fileID: 0}
+  areYouFrequency2: 1
 --- !u!1 &1356314275225615522
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,6 +3450,19 @@ MonoBehaviour:
   needle: {fileID: 1588096683262210071}
   lerpDuration: 0
   synchromanager: {fileID: 0}
+  gameManager: {fileID: 0}
+  valueMeterFrequency1: {fileID: 0}
+  valueMeterFrequency2: {fileID: 1759360935}
+  frequencyValue1: 0
+  frequencyValue2: 0
+  blackOut: {fileID: 0}
+  failedSync: {fileID: 0}
+  tutorialUI: {fileID: 0}
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  light3: {fileID: 0}
+  light4: {fileID: 0}
+  PhaseSeqMatch: 0
 --- !u!1 &1356314275617480563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,6 +3661,17 @@ MonoBehaviour:
   maxValueMeter: 1000
   minValue: -56
   maxValue: 56
+  GameManager: {fileID: 0}
+  nowSetting1Toggle: 0
+  nowSetting2Toggle: 0
+  areYouSetting1: 0
+  areYouSetting2: 1
+  isGenerator1On: 0
+  isGenerator2On: 0
+  areYouGenerator1: 0
+  areYouGenerator2: 1
+  SynchroscopeManager: {fileID: 0}
+  areYouFrequency2: 0
 --- !u!1 &1878646218883230712
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,7 +4937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9716981, g: 0.87863886, b: 0.8204432, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5452,7 +5499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9716981, g: 0.87863886, b: 0.8204432, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6984,7 +7031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9716981, g: 0.87863886, b: 0.8204432, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7158,7 +7205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7646,6 +7693,7 @@ GameObject:
   - component: {fileID: 2167341326398191283}
   - component: {fileID: 2167341326398191284}
   - component: {fileID: 2167341326398191285}
+  - component: {fileID: 378898290}
   m_Layer: 0
   m_Name: SynchroscopeS_Switch
   m_TagString: Untagged
@@ -7878,7 +7926,10 @@ MonoBehaviour:
   gen1: {fileID: 2167341326398191285}
   gen2: {fileID: 2167341326398191284}
   gen3: {fileID: 2167341326398191283}
+  arrow: {fileID: 0}
   synchroManager: {fileID: 0}
+  newMaterial: {fileID: 2100000, guid: f71819766ca687246a2150260bcfc1c5, type: 2}
+  dingSource: {fileID: 378898290}
 --- !u!82 &3680668551178988205
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8180,6 +8231,102 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ba7faed4ee07f69458878d8b12e0739a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &378898290
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680668551178988199}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1c02d3c7dbe32af4ab2d2d1a15b0de8c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8965,7 +9112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9716981, g: 0.87863886, b: 0.8204432, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9577,7 +9724,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3f7a897cff3c1da49a5f2a321e5909ca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 981106e4df6a5a440a96fd606d3d723a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 1
@@ -9818,6 +9965,17 @@ MonoBehaviour:
   maxValueMeter: 600
   minValue: -53
   maxValue: 53
+  GameManager: {fileID: 0}
+  nowSetting1Toggle: 0
+  nowSetting2Toggle: 0
+  areYouSetting1: 0
+  areYouSetting2: 1
+  isGenerator1On: 0
+  isGenerator2On: 0
+  areYouGenerator1: 0
+  areYouGenerator2: 1
+  SynchroscopeManager: {fileID: 0}
+  areYouFrequency2: 0
 --- !u!1 &3800508025383016167
 GameObject:
   m_ObjectHideFlags: 0
@@ -10624,6 +10782,17 @@ MonoBehaviour:
   maxValueMeter: 600
   minValue: -52
   maxValue: 52
+  GameManager: {fileID: 0}
+  nowSetting1Toggle: 0
+  nowSetting2Toggle: 0
+  areYouSetting1: 0
+  areYouSetting2: 0
+  isGenerator1On: 0
+  isGenerator2On: 0
+  areYouGenerator1: 0
+  areYouGenerator2: 1
+  SynchroscopeManager: {fileID: 0}
+  areYouFrequency2: 0
 --- !u!1 &5154093929782631292
 GameObject:
   m_ObjectHideFlags: 0
@@ -11662,7 +11831,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1454374930670424998
 Canvas:

@@ -20,6 +20,7 @@ public class SynchroNeedle : MonoBehaviour
     [Header("Secondary Scripts")]
     //Represent the "Secondary Script to access variables.//
     public SynchroscopeManager synchromanager;
+    public GameManager gameManager;
 
     //Represent the bool to check whether the syncroscope has been switched "on" and the isolator has been switched.//
     private bool pauseSwitch;
@@ -180,4 +181,6 @@ public class SynchroNeedle : MonoBehaviour
         needle.rotation = Quaternion.Euler(Vector3.Lerp(currentRotation, centerRotation, lerpTime / 1));
         yield return null;
     }
+
+
 }
