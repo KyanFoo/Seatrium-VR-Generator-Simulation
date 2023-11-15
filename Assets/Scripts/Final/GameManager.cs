@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     //Check if all variable in the generator is in sync in order to show synchronised
     public GameObject synchronisedPage;
     public AudioSource syncedSound;
+    public AudioClip passedSound;
     public GameObject mainMenu;
 
     private int randomizeVariable;
@@ -80,7 +81,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            //StartPracticeScene();
+            StartTrainingScene();
         }
 
         //Constantly update to check variables value of ValueMeters in Generator 1.//
@@ -235,8 +236,8 @@ public class GameManager : MonoBehaviour
     {
         if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
         {
-            syncedSound.Play();
             synchronisedPage.SetActive(true);
+            syncedSound.PlayOneShot(passedSound);
         }
 
     }
