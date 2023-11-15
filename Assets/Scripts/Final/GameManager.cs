@@ -247,7 +247,7 @@ public class GameManager : MonoBehaviour
         if (VoltageMatch == false)
         {
             SynchroNeedle.BreakerTrip();
-            failVolt.SetActive(true);
+            failPhase.SetActive(true);
         }
         else if (FrequencyMatch == false)
         {
@@ -257,7 +257,7 @@ public class GameManager : MonoBehaviour
         else if (PhaseSeqMatch == false)
         {
             SynchroNeedle.BreakerTrip();
-            failPhase.SetActive(true);
+            failVolt.SetActive(true);
         }
     }
     public void LoadScene(string sceneName)
