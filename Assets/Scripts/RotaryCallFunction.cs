@@ -52,6 +52,7 @@ public class RotaryCallFunction : MonoBehaviour
         off.Play();
         off.pitch = Random.Range(0.5f, 1.5f);
         synchroManager.synActive = false;
+        synchroManager.isolatorSwitch = false;
         //Debug.Log("Called Function0");
     }
     public void Function1()
