@@ -23,7 +23,7 @@ public class Lerp : MonoBehaviour
         _renderCube = objCube.GetComponent<Renderer>();
         _renderCube.material = targetMaterial;
         targetMaterial.EnableKeyword("_EMISSION");
-        targetMaterial.SetColor("_EmissionColor", color * targetIntensity);
+        ///targetMaterial.SetColor("_EmissionColor", color * targetIntensity);
         // Initialize the current intensity and lerp start time.
         //currentIntensity = startIntensity;
         lerpTime = 0;
