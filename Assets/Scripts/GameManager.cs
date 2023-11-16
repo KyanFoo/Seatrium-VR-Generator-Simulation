@@ -84,6 +84,10 @@ public class GameManager : MonoBehaviour
         {
             StartTrainingScene();
         }
+        if (Input.GetKeyDown("0"))
+        {
+            StartPracticeScene();
+        }
 
         //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
@@ -118,6 +122,10 @@ public class GameManager : MonoBehaviour
         if (IsolatorToggle == true)
         {
             if (Gen1Power == Gen2Power)
+            {
+                RequirementCheck();
+            }
+            if (Gen2Power >= Gen1Power - 5 && Gen2Power <= Gen1Power + 5)
             {
                 RequirementCheck();
             }
