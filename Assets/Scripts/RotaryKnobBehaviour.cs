@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,6 +39,8 @@ public class RotaryKnobBehaviour : MonoBehaviour
 
     public float lowerValue;
     public float upperValue;
+
+    public bool LoadSharingSceneStartSynchro = false;
 
     // Start is called before the first frame update
     void Start()
@@ -124,10 +127,11 @@ public class RotaryKnobBehaviour : MonoBehaviour
     {
         //Snap the GameObject to the rotation position of the "targetRotaion"//
         transform.rotation = Quaternion.Euler(currentRotationX, currentRotationY, targetRotation);
-        CallFunction();
     }
-    public void CallFunction()
+    public void LoadSharingRotate()
     {
-
+        Debug.Log("Hello");
+        transform.Rotate(0, 0, 180);
+        LoadSharingSceneStartSynchro = true;
     }
 }

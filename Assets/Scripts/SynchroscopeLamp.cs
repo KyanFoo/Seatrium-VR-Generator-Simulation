@@ -18,7 +18,7 @@ public class SynchroscopeLamp: MonoBehaviour
     //Represent the level of intensity of "EmissiveMaterial".//
     public float startIntensity;  //**DO NOT WRITE ANYTHING INTO THIS INPUT**//
     public float endIntensity;  //**DO NOT WRITE ANYTHING INTO THIS INPUT**//
-    private float intensity;
+    public float intensity;
 
     //Represent the Duration of Emissive Material fading IN and OUT.//
     private float lerpStartTime;

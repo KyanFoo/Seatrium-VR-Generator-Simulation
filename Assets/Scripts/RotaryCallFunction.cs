@@ -29,7 +29,7 @@ public class RotaryCallFunction : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         numInterval = rotaryknobbehaviour.numberPlace;
 
         string functionName = "Function" + numInterval;

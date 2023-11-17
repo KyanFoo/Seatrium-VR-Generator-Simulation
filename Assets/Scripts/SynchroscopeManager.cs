@@ -39,6 +39,8 @@ public class SynchroscopeManager : MonoBehaviour
     //Represne the special variable that pauses the needle rotation constant updates when the isolator switch has been switched.//
     public bool isNeedlePause;
 
+    public GameManager GameManager;
+    public RotaryKnobBehaviour RotaryKnob;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,10 @@ public class SynchroscopeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.isStartLoadSharingScene == true && RotaryKnob.LoadSharingSceneStartSynchro == true)
+        {
+            isolatorSwitch = true;
+        }
         //Constantly update to check variable duration value to be seen in "Inspector".//
         duration = lamp0Script.lerpTime;
 

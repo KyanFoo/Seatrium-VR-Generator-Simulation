@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     //Represent the "Secondary Script" to access variables.//
     public SynchroscopeManager SynchroManage;
     public SynchroNeedle SynchroNeedle;
+    public RotaryKnobBehaviour RotaryKnob;
 
     //Represent the Bools to check whether the Generator 1 & 2 are switched "ON" or "OFF".//
     public bool IsolatorToggle;
@@ -63,6 +64,10 @@ public class GameManager : MonoBehaviour
     public GameObject passPhase;
 
     public bool isPracticeScene;
+    [HideInInspector]
+    public bool isStartSynchroscopeScene;
+    [HideInInspector]
+    public bool isStartLoadSharingScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,15 +85,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("1"))
         {
+            Debug.Log("Training");
             StartTrainingScene();
         }
-        if (Input.GetKeyDown("0"))
+        if (Input.GetKeyDown("2"))
         {
+            Debug.Log("Practice");
             StartPracticeScene();
         }
-
+        if (Input.GetKeyDown("3"))
+        {
+            Debug.Log("Synchroscope");
+            StartSynchroscopeScene();
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            Debug.Log("Load Sharing");
+            StartLoadSharingScene();
+        }
         //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
         Gen1Current = ValueMeter1Current.inputValue;
@@ -173,6 +189,15 @@ public class GameManager : MonoBehaviour
         ValueMeter2Voltage.inputValue = ValueMeter1Voltage.inputValue;
         VoltageMatch = true;
     }
+    public void AutoFrequency()
+    {
+        //Function called to, allowing the Incoming Generator to automatically set its voltage to be same as Running Generator.//
+        ValueMeter2Frequency.inputValue = ValueMeter1Frequency.inputValue;
+    }
+    public void AutoSynchroscope()
+    {
+        RotaryKnob.LoadSharingRotate();
+    }
     public void GovernorSwitchSetting1()
     {
         //Function called to, Generator is on Setting 1, allowing the operaters to adjust the value of Frequency.//
@@ -206,7 +231,41 @@ public class GameManager : MonoBehaviour
         //Preset Generator 1's variable values since it is also a "Running Generator".//
         Invoke("PracticeRunningGeneratorPreset", 1f);
     }
-    public void QuitScene()
+    public void StartSynchroscopeScene()
+    {
+        isStartSynchroscopeScene = true;
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("PracticeRunningGeneratorPreset", 1f);
+
+        Generator2SwitchOn();
+
+        Invoke("AutoVoltage", 1f);
+        Invoke("AutoFrequency", 1f);
+    }
+    public void StartLoadSharingScene()
+    {
+        isStartLoadSharingScene = true;
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("PracticeRunningGeneratorPreset", 1f);
+
+        Generator2SwitchOn();
+
+        Invoke("AutoVoltage", 1f);
+        Invoke("AutoFrequency", 1f);
+        Invoke("AutoSynchroscope", 1f);
+    }
+
+        public void QuitScene()
     {
         //Function is called, to quit the scene.//
         Debug.Log("Quit Game");
