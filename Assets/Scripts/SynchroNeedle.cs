@@ -179,13 +179,5 @@ public class SynchroNeedle : MonoBehaviour
         yield return null;
     }
 
-    public void BreakerTrip()
-    {
-        blackOut.SetActive(true);
-        failedSync.SetActive(true);
-        light1.SetActive(false);
-        light2.SetActive(false);
-        light3.SetActive(false);
-        light4.SetActive(false);
-    }
+
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling.Editor;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
     public AudioSource syncedSound;
     public AudioClip passedSound;
     public GameObject mainMenu;
-    public GameObject failedSync;
+    public GameObject modulePassed;
 
     private int randomizeVariable;
 
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour
 
         //Preset Generator 1's variable values since it is also a "Running Generator".//
         //Invoke("RunningGeneratorPrset", 1f);
+
         if (isPracticeScene == true)
         {
             StartPracticeScene();
@@ -104,6 +107,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Load Sharing");
             StartLoadSharingScene();
+        }
+
+        if (Input.GetKeyDown("5"))
+        {
+            Restart();
         }
         //Constantly update to check variables value of ValueMeters in Generator 1.//
         Gen1Power = ValueMeter1Power.inputValue;
@@ -137,6 +145,10 @@ public class GameManager : MonoBehaviour
 
         if (IsolatorToggle == true)
         {
+            if (isStartSynchroscopeScene == true)
+            {
+                RequirementCheck();
+            }
             if (Gen1Power == Gen2Power)
             {
                 RequirementCheck();
@@ -275,9 +287,17 @@ public class GameManager : MonoBehaviour
     {
         if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
         {
-            synchronisedPage.SetActive(true);
+            if(isStartSynchroscopeScene == true)
+            {
+                modulePassed.SetActive(true);
+            }
+            else
+            {
+                synchronisedPage.SetActive(true);
+            }
             syncedSound.PlayOneShot(passedSound);
-        }
+        }   
+
 
     }
 
@@ -294,7 +314,7 @@ public class GameManager : MonoBehaviour
         {
             //Debug.Log("Fail");
             FrequencyMatch = false;
-            SynchroNeedle.BreakerTrip();
+            BreakerTrip();
         }
 
         if (Gen1Voltage == Gen2Voltage)
@@ -305,12 +325,12 @@ public class GameManager : MonoBehaviour
         else
         {
             VoltageMatch = false;
-            SynchroNeedle.BreakerTrip();
+            BreakerTrip();
         }
         
         if (!SynchroNeedle.PhaseSeqMatch)
         {
-            SynchroNeedle.BreakerTrip();
+            BreakerTrip();
         }
         else
         {
@@ -320,6 +340,28 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void BreakerTrip()
+    {
+        SynchroNeedle.blackOut.SetActive(true);
+        SynchroNeedle.failedSync.SetActive(true);
+        SynchroNeedle.light1.SetActive(false);
+        SynchroNeedle.light2.SetActive(false);
+        SynchroNeedle.light3.SetActive(false);
+        SynchroNeedle.light4.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        if (isStartSynchroscopeScene)
+        {
+            StartSynchroscopeScene();
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
 
