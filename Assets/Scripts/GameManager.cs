@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
         //Since the Governor Switch is quite speical.//
         //In the first phase, It can regulate the frequency output.//
         //However, after switching "ON" the isolator switch, it will regulate the output of Power and Current output.//
-        if (IsolatorToggle == true)
+        if (IsolatorToggle == true || VoltageMatch == true && FrequencyMatch == true)
         {
             //Debug.Log("Setting2");
             GovernorSwitchSetting2();
@@ -158,14 +158,14 @@ public class GameManager : MonoBehaviour
             {
                 RequirementCheck();
             }
-            if (Gen1Power == Gen2Power)
-            {
-                RequirementCheck();
-            }
-            if (Gen2Power >= Gen1Power - 5 && Gen2Power <= Gen1Power + 5)
-            {
-                RequirementCheck();
-            }
+        }
+        if (Gen1Power == Gen2Power)
+        {
+            RequirementCheck();
+        }
+        if (Gen2Power >= Gen1Power - 5 && Gen2Power <= Gen1Power + 5)
+        {
+            RequirementCheck();
         }
     }
     public void Generator1SwitchOn()
