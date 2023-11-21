@@ -10,7 +10,13 @@ EditorBuildSettings:
     guid: 5c7e30cc2645023489e4e4fcb54d52e9
   - enabled: 1
     path: Assets/Scenes/Practice.unity
-    guid: 0aaace8878b54b4458f35050c419ed05
+    guid: 0ef064d99c671284f801da4a587936fa
+  - enabled: 1
+    path: Assets/Scenes/LoadSharing.unity
+    guid: 2199226b65e0809468e3607d828b9b38
+  - enabled: 1
+    path: Assets/Scenes/ACB.unity
+    guid: 168ac0b6b8bfac147a16690b77ff687c
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 0c7b8f0f5a60a7c468501935db4fde98, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2efaae3c40b52f541912de0586308029, type: 2}
