@@ -1,5 +1,5 @@
 # Table of contents
-* [Title/Introduction](#Title/Introduction)
+* [Title/Introduction](#Seatrium-VR-Training-OPG-(Synchronization-of-Generators))
 * [Project Background](#Project-Background)
 
 # Seatrium-VR-Training-OPG (Synchronization of Generators)
