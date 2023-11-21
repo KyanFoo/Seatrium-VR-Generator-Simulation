@@ -83,11 +83,13 @@ public class GameManager : MonoBehaviour
 
         if (isStartSynchroscopeScene == true) 
         {
+            modulePassed.SetActive(false);
             StartSynchroscopeScene();
         }
 
         if (isStartLoadSharingScene == true)
         {
+            modulePassed.SetActive(false);
             StartLoadSharingScene();
         }
     }
