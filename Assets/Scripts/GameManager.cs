@@ -65,9 +65,7 @@ public class GameManager : MonoBehaviour
     public GameObject passPhase;
 
     public bool isPracticeScene;
-    [HideInInspector]
     public bool isStartSynchroscopeScene;
-    [HideInInspector]
     public bool isStartLoadSharingScene;
     // Start is called before the first frame update
     void Start()
@@ -81,6 +79,16 @@ public class GameManager : MonoBehaviour
         if (isPracticeScene == true)
         {
             StartPracticeScene();
+        }
+
+        if (isStartSynchroscopeScene == true) 
+        {
+            StartSynchroscopeScene();
+        }
+
+        if (isStartLoadSharingScene == true)
+        {
+            StartLoadSharingScene();
         }
     }
 
@@ -286,7 +294,7 @@ public class GameManager : MonoBehaviour
     {
         if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
         {
-            if(isStartSynchroscopeScene == true)
+            if(isStartSynchroscopeScene == true || isStartLoadSharingScene == true)
             {
                 modulePassed.SetActive(true);
             }
