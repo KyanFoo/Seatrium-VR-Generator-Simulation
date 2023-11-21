@@ -36,3 +36,28 @@ To do this, go to:
 7.	Now, you can fully utilize the play scenes and control your hands in SteamVR's "Interactions_Example."
 If you encounter any confusion in the steps mentioned, refer to this link for a more detailed explanation: How to Setup SteamVR For Unity 2020 | SteamVR Import Steps | Unity VR Tutorial.
 
+## Flip Knob (Interactable)
+The interactable asset is used by the operators to adjust the value of the value meters on the generator’s switchboard. Within this small knob, there is consist of several essential scripts that contribute to its functionality.
+These scripts include "Interactable," "Flip Circular Drive," and "Flip Knob Behaviour."
+
+Interactable Script:
+Without this script, the operator won’t be able to interactive with. You can look through its code to see if their codes could develop the simulation further.
+
+Flip Circular Drive Script:
+It allows the knobs to move in a circular motion, allowing operators to twist and turn the knobs to manage the value meter. In the Inspector, a Unity event allows developers to add functions triggered when the rotation reaches its minimum or maximum.
+
+Flip Knob Behaviour Script:
+Designed to govern interactable knobs, this script establishes rotational limits and functions to verify full interaction with the knob, logging a message accordingly.  
+The following lines of code, executed at the scene's start, instruct the "Flip Circular Drive" to activate limits, setting them at -45 and 45, allowing the knobs to flip to a 45-degree angle on either side.
+```
+void Start()
+    {
+        //Automatic notify the "Circular Drive" Script to enable limited.//
+        flipcirculardrive.limited = true;
+
+        //Set your Maximum & Minium Angle 
+        flipcirculardrive.minAngle = -45.0f;
+        flipcirculardrive.maxAngle = 45.0f;
+    }
+```
+
