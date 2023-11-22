@@ -159,11 +159,7 @@ public class GameManager : MonoBehaviour
                 RequirementCheck();
             }
         }
-        if (Gen1Power == Gen2Power)
-        {
-            RequirementCheck();
-        }
-        if (Gen2Power >= Gen1Power - 5 && Gen2Power <= Gen1Power + 5)
+        if (Gen1Power == Gen2Power || Gen2Power >= Gen1Power - 5 && Gen2Power <= Gen1Power + 5)
         {
             RequirementCheck();
         }
@@ -188,7 +184,7 @@ public class GameManager : MonoBehaviour
     }
     public void PracticeRunningGeneratorPreset()
     {
-        randomizeVariable = Random.Range(57, 65);
+        randomizeVariable = Random.Range(57, 63);
         //Debug.Log(randomizeVariable + " Frequency");
         ValueMeter1Frequency.inputValue = randomizeVariable;
 
@@ -196,11 +192,11 @@ public class GameManager : MonoBehaviour
         //Debug.Log(randomizeVariable + " Voltage");
         ValueMeter1Voltage.inputValue = randomizeVariable;
 
-        randomizeVariable = Random.Range(300, 600);
+        randomizeVariable = Random.Range(350, 550);
         //Debug.Log(randomizeVariable + " Power");
         ValueMeter1Power.inputValue = randomizeVariable;
 
-        randomizeVariable = Random.Range(0, 1000);
+        randomizeVariable = Random.Range(100, 600);
         //Debug.Log(randomizeVariable + " Current");
         ValueMeter1Current.inputValue = randomizeVariable;
     }
@@ -313,7 +309,7 @@ public class GameManager : MonoBehaviour
     public void ErrorChecker()
     {
         //Debug.Log("Isolator has been switched");
-        if (Gen1Frequency == Gen2Frequency)
+        if (Gen1Frequency == Gen2Frequency || Gen2Frequency == Gen1Frequency + 1)
         {
             //Debug.Log("Pass");
             FrequencyMatch = true;
