@@ -5,7 +5,7 @@
   * [Unity](#unity)
   * [Steam VR](#steamvr)
 * [Scope of Functionalities](#scope-of-functionalities)
-  * [Flip Knobs](#flip-knobs)
+  * [Flip Knobs](#flip-knobs-(interactable))
   * [Rotary Knobs](#rotary-knobs)
   * [Value Meters](#value-meters)
   * [Synchroscope Needle](#synchroscope-needle)
