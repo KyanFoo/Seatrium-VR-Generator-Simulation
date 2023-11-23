@@ -27,12 +27,12 @@ public class Pointer : MonoBehaviour
         {
             if (hitt.collider.tag == "canvas")
             {
-                Debug.Log("Its a canvas");
+                //Debug.Log("Its a canvas");
                 UpdateLine();
             }
             else
             {
-                Debug.Log("not a canvas");
+                //Debug.Log("not a canvas");
                 StopLine();
             }
         }
