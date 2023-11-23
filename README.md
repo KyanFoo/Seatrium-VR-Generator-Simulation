@@ -1,7 +1,7 @@
 # Table of contents
 * [Title/Introduction](#introduction)
 * [Project Background](#project-background)
-* [Setup Project](#project-setup)
+* [Project Setup](#project-setup)
   * [Unity](#unity)
   * [Steam VR](#steamvr)
 * [Scope of Functionalities](#scope-of-functionalities)
