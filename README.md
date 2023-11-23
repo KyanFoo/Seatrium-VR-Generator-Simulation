@@ -90,3 +90,13 @@ This pivotal script is essential for the functionality of the simulation, managi
 
 ### Synchroscope Manager Script:  
 The subsequent lines of code empower the interactive knobs of the "Governor Switch" to adjust the lerp duration, enabling the "Synchroscope Needle" to move at a faster or slower pace.
+
+## Game Manager
+The "Simulation Director" holds dominion over the entire game flow in the simulation. Its responsibilities include tasks like loading different module scenes, coordinating restarts, and setting up preset variables within the scene.
+
+The group of functions below defines the various preset values that the value meters will use when entering various modules.
+
+To wrap up the simulation, the Game Manager examines predetermined criteria to determine whether they were met, determining whether the operator passed or failed. It is worth noting that different modules present different criteria that must be met.
+
+## Post Processing Manager Script:
+This script serves solely for post-processing within the scene, allowing the emissive material to bloom and radiate with the intensity of a light source. This gives the simulation a more realistic and immersive feel.
