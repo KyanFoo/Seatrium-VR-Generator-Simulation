@@ -1,7 +1,7 @@
 * [Scope of Functionalities](#scope-of-functionalities)
   * [Flip Knobs](#flip-knob)
   * [Rotary Knobs](#rotary-knob)
-  * [Value Meters](#value-meters)
+  * [Value Meters](#value-meter)
   * [Synchroscope Needle](#synchroscope-needle)
   * [Synchroscope Lamps](#synchroscope-lamp)
   * [Synchroscope Manager](#synchroscope-manager)
