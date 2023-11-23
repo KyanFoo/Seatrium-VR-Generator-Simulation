@@ -3,7 +3,7 @@
 * [Project Background](#project-background)
 * [Setup Project](#project-setup)
   * [Unity](#unity)
-  * [Steam VR](#steam-vr)
+  * [Steam VR](#steamvr)
 * [Scope of Functionalities](#scope-of-functionalities)
   * [Flip Knobs](#flip-knobs)
   * [Rotary Knobs](#rotary-knobs)
