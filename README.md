@@ -1,6 +1,19 @@
 # Table of contents
-* [Title/Introduction](#Seatrium-VR-Training-OPG-(Synchronization-of-Generators))
+* [Seatrium-VR-Training-OPG (Synchronization of Generators)](#Seatrium-VR-Training-OPG-(Synchronization-of-Generators))
 * [Project Background](#Project-Background)
+
+
+
+# Table of contents
+
+
+
+
+
+
+
+
+
 
 # Seatrium-VR-Training-OPG (Synchronization of Generators)
 Welcome to the developer README for “Seatrium-VR-Training-Simulation”. This document serves as a comprehensive guide for developers looking to dive into the codebase of our simulation game. Here you will find all essential information and key insights to help you understand and contribute to the further development of “Seatrium-VR-Training-Simulation”.
