@@ -5,8 +5,8 @@
   * [Unity](#unity)
   * [Steam VR](#steamvr)
 * [Scope of Functionalities](#scope-of-functionalities)
-  * [Flip Knobs](#flip-knob-(Interactable))
-  * [Rotary Knobs](#rotary-knobs)
+  * [Flip Knobs](#flip-knob)
+  * [Rotary Knobs](#rotary-knob)
   * [Value Meters](#value-meters)
   * [Synchroscope Needle](#synchroscope-needle)
   * [Synchroscope Lamps](#synchroscope-lamps)
@@ -54,7 +54,7 @@ To do this, go to:
 7.	Now, you can fully utilize the play scenes and control your hands in SteamVR's "Interactions_Example."
 If you encounter any confusion in the steps mentioned, refer to this link for a more detailed explanation: How to Setup SteamVR For Unity 2020 | SteamVR Import Steps | Unity VR Tutorial.
 
-## Flip Knob (Interactable)  
+## Flip Knob
 The interactable asset is used by the operators to adjust the value of the value meters on the generator’s switchboard. Within this small knob, there is consist of several essential scripts that contribute to its functionality.
 These scripts include "Interactable," "Flip Circular Drive," and "Flip Knob Behaviour."
 
@@ -68,7 +68,7 @@ It allows the knobs to move in a circular motion, allowing operators to twist an
 Designed to govern interactable knobs, this script establishes rotational limits and functions to verify full interaction with the knob, logging a message accordingly.  
 The following lines of code, executed at the scene's start, instruct the "Flip Circular Drive" to activate limits, setting them at -45 and 45, allowing the knobs to flip to a 45-degree angle on either side.
 
-## Rotary Knob (Interactable)  
+## Rotary Knob
 Operators utilize the interactive feature to specify the generator linked to the synchroscope display. This not only alters the visual representation but also impacts the synchronization lamps and needle. The rotary switch has its own script and relies on external elements for functionality.
 
 ### Interactable Script:  
