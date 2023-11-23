@@ -9,7 +9,7 @@
   * [Rotary Knobs](#rotary-knob)
   * [Value Meters](#value-meters)
   * [Synchroscope Needle](#synchroscope-needle)
-  * [Synchroscope Lamps](#synchroscope-lamps)
+  * [Synchroscope Lamps](#synchroscope-lamp)
   * [Synchroscope Manager](#synchroscope-manager)
   * [Game Manager](#game-manager)
   * [Post Processing Manager](#post-processing-manager)
