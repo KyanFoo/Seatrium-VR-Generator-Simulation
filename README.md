@@ -9,11 +9,7 @@
   * [Post Processing Manager](#post-processing-manager)
 
 
-# Introduction
-# Project Background
-# Project Setup
-## Unity
-## SteamVR
+
 # Scope of Functionalities
 # Flip Knob
 # Rotary Knob
