@@ -1,9 +1,3 @@
-# Table of contents
-* [Title/Introduction](#introduction)
-* [Project Background](#project-background)
-* [Project Setup](#project-setup)
-  * [Unity](#unity)
-  * [Steam VR](#steamvr)
 * [Scope of Functionalities](#scope-of-functionalities)
   * [Flip Knobs](#flip-knob)
   * [Rotary Knobs](#rotary-knob)
