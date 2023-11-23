@@ -2,7 +2,7 @@
 * [Title/Introduction](#Seatrium-VR-Training-OPG-(Synchronization-of-Generators))
 * [Project Background](#Project-Background)
 * [Setup Project](#Project-Setup)
-  * [Unity](##Unity)
+  * [Unity](##unity)
   * [Steam VR](##Steam-VR)
 * [Scope of Functionalities](#Scope-of-Functionalities)
   * [Flip Knobs](##Flip-Knobs)
