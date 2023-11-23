@@ -1,13 +1,18 @@
 # Table of contents
-* [Seatrium-VR-Training-OPG (Synchronization of Generators)](#Seatrium-VR-Training-OPG-(Synchronization-of-Generators))
+* [Title/Introduction](#Seatrium-VR-Training-OPG-(Synchronization-of-Generators))
 * [Project Background](#Project-Background)
-
-
-
-# Table of contents
-
-
-
+* [Setup Project](#Setup-Project)
+  * [Unity](#Unity)
+  * [Steam VR](#Steam-VR)
+* [Scope of Functionalities](#Scope-of-Functionalities)
+  * [Flip Knobs](#Flip-Knobs)
+  * [Rotary Knobs](#Rotary-Knobs)
+  * [Value Meters](#Value-Meters)
+  * [Synchroscope Needle](#Synchroscope-Needle)
+  * [Synchroscope Lamps](#Synchroscope-Lamps)
+  * [Synchroscope Manager](#Synchroscope-Manager)
+  * [Game Manager](#Game-Manager)
+  * [Post Processing Manager](#Post-Processing-Manager)
 
 
 
