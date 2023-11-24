@@ -256,7 +256,76 @@ public void FlipIncrease()
 This instrument, which is similar to the 2 Bright 1 Dark Method, is used for generator synchronization by operators using the analogue synchroscope method. The needle pointer denotes the required adjustment direction and speed for achieving generator synchronization.
 
 ### Synchroscope Needle Script:  
-The provided code illustrates the rotation of the synchroscope needle, which can turn clockwise or counterclockwise depending on the frequency of the generator. An additional touch has been added: when the isolator switch closes the circuit and the needle approaches the 12 o'clock position, it smoothly returns to the 12 o'clock position.
+The provided code illustrates the rotation of the synchroscope needle, which can turn clockwise or counterclockwise depending on the frequency of the generator.
+```
+if (startSwitch == true)
+        {
+            //Rotate the Synchroscope Needle Clockwise.//
+            //The reason why the supposed rotation is clockwise is -360 is because our game scene, everything is in reverse.//
+            rotation = -360.0f;
+            StartCoroutine(NeedleCoroutine());
+        }
+        if (startSwitch == true && reverseSwitch == true)
+        {
+            //Rotate the Synchroscope Needle Anti-Clockwise.//
+            //The reason why the supposed rotation is Anti-clockwise is 360 is because our game scene, everything is in reverse.//
+            rotation = 360.0f;
+            StartCoroutine(NeedleCoroutine());
+
+            //Find its current transform rotation.//
+            startRotation = needle.rotation.eulerAngles;
+            lerpTime = 0;
+        }
+        //Apply new rotation.//
+        endRotation = startRotation + new Vector3(0, 0, rotation);
+```
+An additional touch has been added: when the isolator switch closes the circuit and the needle approaches the 12 o'clock position, it smoothly returns to the 12 o'clock position.
+```
+if (pauseSwitch == true)
+        {
+            currentRotation = needle.rotation.eulerAngles;
+            if (currentRotation.z > 180)
+            {
+                //Constantly update to check if needle GameObject had past the 180 rotation.//
+                //If it had when past already, it will rotate forward to the center.//
+                currentRotationZ = currentRotation.z;
+                centerRotation.z = 360;
+                currentRotationZ = currentRotation.z - 360;
+            }
+            else
+            {
+                //Constantly update to check if needle GameObject had past the 180 rotation.//
+                //If it haven't past, it will rotate back its direction to the center.//
+                currentRotationZ = currentRotation.z;
+                centerRotation.z = 0;
+            }
+
+            //Constantly update to check if variable value is within the deviation.//
+            if (currentRotationZ >= -25 && currentRotationZ <= 25)
+            {
+                Debug.Log("Within 20");
+                lerpTime = 0;
+                PhaseSeqMatch = true;
+                gameManager.ErrorChecker();
+                StartCoroutine(CenterNeedleCoroutine());
+            }
+            else
+            {
+                PhaseSeqMatch = false;
+                //Breaker tripping actions will be carried out in this function.
+                gameManager.ErrorChecker();
+                tutorialUI.SetActive(false);
+            }
+        }
+
+IEnumerator CenterNeedleCoroutine()
+    {
+        Debug.Log("Center Needle");
+        lerpTime += Time.deltaTime;
+        needle.rotation = Quaternion.Euler(Vector3.Lerp(currentRotation, centerRotation, lerpTime / 1));
+        yield return null;
+    }
+```
 ## Synchroscope Lamp
 This instrument, which is similar to the analogue synchroscope method, is used for generator synchronization by operators using the 2 Bright 1 Dark Method. This is indicated by identifying the rotation direction of the generator's field, which is typically represented by three bulbs.
 
