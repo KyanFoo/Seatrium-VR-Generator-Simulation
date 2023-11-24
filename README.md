@@ -12,7 +12,7 @@
   * [Synchroscope Lamp](#synchroscope-lamp)
   * [Synchroscope Manager](#synchroscope-manager)
   * [Game Manager](#game-manager)
-  * [Post Processing Manager(#post-processing-manager)
+  * [Post Processing Manager](#post-processing-manager)
 
 
 
