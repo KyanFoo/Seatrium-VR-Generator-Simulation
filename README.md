@@ -631,5 +631,30 @@ public void RequirementCheck()
         }   
     }
 ```
+Upon operators engaging with the isolator switch to initiate load sharing, the "Game Manager" triggers a function to alter the management of the frequency value to the power and current values of the "Governor Switch."
+```
+if (IsolatorToggle == true || VoltageMatch == true && FrequencyMatch == true)
+        {
+            //Debug.Log("Setting2");
+            GovernorSwitchSetting2();
+        }
+        else
+        {
+            //Debug.Log("Setting1");
+            GovernorSwitchSetting1();
+        }
+public void GovernorSwitchSetting1()
+    {
+        //Function called to, Generator is on Setting 1, allowing the operaters to adjust the value of Frequency.//
+        setting1 = true;
+        setting2 = false;
+    }
+    public void GovernorSwitchSetting2()
+    {
+        //Function called to, Generator is on Setting 1, allowing the operaters to adjust the value of Power & Current.//
+        setting1 = false;
+        setting2 = true;
+    }
+```
 ## Post Processing Manager
 This script is solely utilized for scene post-processing, allowing the emissive material to bloom and radiate with the intensity of a light source. This improves the simulation's realism and immersion.
