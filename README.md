@@ -658,3 +658,11 @@ public void GovernorSwitchSetting1()
 ```
 ## Post Processing Manager
 This script is solely utilized for scene post-processing, allowing the emissive material to bloom and radiate with the intensity of a light source. This improves the simulation's realism and immersion.
+Follow thse steps to setup Post Processing in Unity:
+1. Install "Post Processing" into your unity project. To do this, go to: WIndow > Package Manager > Post Processing > Install
+2. Create "Empty" and add "Post-process Volume" component.
+3. Click on "Is Global" and Create a new profile on the scene you want to add post processing.
+4. Click onto your camera add "Post-process Layer" component.
+5. Drag your camera into the "Trigger".
+6. Rememebr to select "USe Graphics Settings" in HDR and MSAA.
+View this YouTube video for a clearer grasp of configuring post-processing: "How to add post processing in unity 3d projects"
