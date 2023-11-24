@@ -498,6 +498,138 @@ public void ActiveSync()
 The "Game Manager" has complete control over the simulation's game flow. It is responsible for tasks such as loading different module scenes, coordinating restarts, and configuring preset variables within the scene.
 
 ### Game Manager Script:  
-The functions listed below define the preset values used by the value meters when accessing various modules. To finish the simulation, the Game Manager evaluates predefined criteria to see if they have been met, determining the operator's success or failure. It should be noted that different modules have different criteria that must be met.
+The functions listed below define the preset values used by the value meters when accessing various modules.
+```
+public void StartTrainingScene()
+    {
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("TrainingRunningGeneratorPreset", 1f);
+    }
+    public void StartPracticeScene()
+    {
+
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("PracticeRunningGeneratorPreset", 1f);
+    }
+    public void StartSynchroscopeScene()
+    {
+        isStartSynchroscopeScene = true;
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("PracticeRunningGeneratorPreset", 1f);
+
+        Generator2SwitchOn();
+
+        Invoke("AutoVoltage", 1f);
+        Invoke("AutoFrequency", 1f);
+    }
+    public void StartLoadSharingScene()
+    {
+        isStartLoadSharingScene = true;
+        //Auto switch "On" the Generator 1.//
+        Generator1SwitchOn();
+
+        mainMenu.SetActive(false);
+
+        //Preset Generator 1's variable values since it is also a "Running Generator".//
+        Invoke("PracticeRunningGeneratorPreset", 1f);
+
+        Generator2SwitchOn();
+
+        Invoke("AutoVoltage", 1f);
+        Invoke("AutoFrequency", 1f);
+        Invoke("AutoSynchroscope", 1f);
+    }
+```
+Preset function that are used for different modules.
+```
+public void TrainingRunningGeneratorPreset()
+    {
+        //Function called to, preset ValueMeter's variables of Generator 1 also known as "Running Generators".//
+        ValueMeter1Power.inputValue = 350f;
+        ValueMeter1Current.inputValue = 400f;
+        ValueMeter1Voltage.inputValue = 500f;
+        ValueMeter1Frequency.inputValue = 57f;
+    }
+    public void PracticeRunningGeneratorPreset()
+    {
+        randomizeVariable = Random.Range(57, 63);
+        //Debug.Log(randomizeVariable + " Frequency");
+        ValueMeter1Frequency.inputValue = randomizeVariable;
+
+        randomizeVariable = Random.Range(50, 600);
+        //Debug.Log(randomizeVariable + " Voltage");
+        ValueMeter1Voltage.inputValue = randomizeVariable;
+
+        randomizeVariable = Random.Range(350, 550);
+        //Debug.Log(randomizeVariable + " Power");
+        ValueMeter1Power.inputValue = randomizeVariable;
+
+        randomizeVariable = Random.Range(100, 600);
+        //Debug.Log(randomizeVariable + " Current");
+        ValueMeter1Current.inputValue = randomizeVariable;
+    }
+```
+To finish the simulation, the Game Manager evaluates predefined criteria to see if they have been met, determining the operator's success or failure. It should be noted that different modules have different criteria that must be met.
+```
+void Update()
+    {
+        if (IsolatorToggle == true)
+        {
+            if (isStartSynchroscopeScene == true)
+            {
+                RequirementCheck();
+            }
+        }
+        if (Gen1Power == Gen2Power || Gen2Power >= Gen1Power - 5 && Gen2Power <= Gen1Power + 5)
+        {
+            RequirementCheck();
+        }
+    }
+public void RequirementCheck()
+    {
+        if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
+        {
+            if(isStartSynchroscopeScene == true || isStartLoadSharingScene == true)
+            {
+                modulePassed.SetActive(true);
+            }
+            else
+            {
+                synchronisedPage.SetActive(true);
+            }
+            syncedSound.PlayOneShot(passedSound);
+        }   
+    }
+public void RequirementCheck()
+    {
+        if (PhaseSeqMatch == true && FrequencyMatch == true && VoltageMatch == true)
+        {
+            if(isStartSynchroscopeScene == true || isStartLoadSharingScene == true)
+            {
+                modulePassed.SetActive(true);
+            }
+            else
+            {
+                synchronisedPage.SetActive(true);
+            }
+            syncedSound.PlayOneShot(passedSound);
+        }   
+    }
+```
 ## Post Processing Manager
 This script is solely utilized for scene post-processing, allowing the emissive material to bloom and radiate with the intensity of a light source. This improves the simulation's realism and immersion.
