@@ -331,13 +331,169 @@ This instrument, which is similar to the analogue synchroscope method, is used f
 
 ### Synchroscope Lamp Script:  
 The provided code illustrates how to properly fade in and out the lamp. Before directing the lamp to fade in, the script must first activate the material's emissive property. Following functions govern the fading in and out of synchroscope bulbs, with their initiation controlled by the "Synchroscope Manager." 
+```
+void Start()
+    {
+        //Apply Renderer on GameObject.//
+        _renderCube = objCube.GetComponent<Renderer>();
 
-Before the function can be executed, Boolean checks must be completed, and as the fade-in duration approaches completion, the automatic fade-out occurs; the process operates vice versa.
+        //Apply Emissive Material onto GameObject.//
+        _renderCube.material = emissiveMaterial;
+
+        //Enable the Emissive Map and set the Color and Intensity of the Emissive Material.//
+        emissiveMaterial.EnableKeyword("_EMISSION");
+        emissiveMaterial.SetColor("_EmissionColor", color * intensity);
+        lerpTime = 0f;
+    }
+```
+The functions stated below assist the synchroscope lamp material transition smoothly between fading in and out states. Boolean checks are performed prior to executing the function, and as the fade-in duration approaches completion, an automatic fade-out occurs; the process operates vice versa.
+```
+IEnumerator OnCoroutine()
+    {
+        //Bool to check to tell the script to "ON" the lamp.//
+        while (onLight == true)
+        {
+            //"PauseSwitch" is used to check whether the player has switch "ON" the Isolator.//
+            //If switched, the fading in of "EmissiveMaterial" will stop and it will not affect the entire game.//
+            if (pauseSwitch == false)
+            {
+                lerpTime += Time.deltaTime;
+            }
+            //Enable Emission is "EmissiveMaterial".//
+            emissiveMaterial.EnableKeyword("_EMISSION");
+
+            intensity = Mathf.Lerp(startIntensity, endIntensity, lerpTime / lerpDuration);
+            emissiveMaterial.SetColor("_EmissionColor", color * intensity);
+            yield return null;
+        }
+        //Debug.Log("Finish Lighting Up");
+    }
+    private void StopOnCoroutineAndExitLoop()
+    {
+        //When the GameObject is fading "IN" is almost complete it stop the fade "IN" function and call a function to fade "OUT".//
+        onLight = false;
+        StopCoroutine(OnCoroutine());
+        CallOffCoroutine();
+    }
+    IEnumerator OffCoroutine()
+    {
+        //Bool to check to tell the script to "OFF" the lamp.//
+        while (offLight == true)
+        {
+            //"PauseSwitch" is used to check whether the player has switch "ON" the Isolator.//
+            //If switched, the fading in of "EmissiveMaterial" will stop and it will not affect the entire game.//
+            if (pauseSwitch == false)
+            {
+                lerpTime += Time.deltaTime;
+            }
+            //Enable Emission is "EmissiveMaterial".
+            emissiveMaterial.EnableKeyword("_EMISSION");
+
+            intensity = Mathf.Lerp(endIntensity, startIntensity, lerpTime / lerpDuration);
+            emissiveMaterial.SetColor("_EmissionColor", color * intensity);
+            yield return null;
+        }
+        //Debug.Log("Finish Lighting Down");
+    }
+    private void StopOffCoroutineAndExitLoop()
+    {
+        //When the GameObject is fading "OUT" is almost complete it stop the fade "OUT" function.
+        offLight = false;
+        StopCoroutine(OffCoroutine());
+    }
+```
 ## Synchroscope Manager
-The provided code is essential for the simulation's functionality, as it manages everything related to the synchroscope. It specifies when functions should be called and stores variables from relevant scripts. While the previous script allows the synchroscope lamps to fade in and out in a single cycle, only the synchroscope manager allows the lamps to fade in after evaluating certain Booleans related to rotation cycles. It also evaluates a specific Boolean to determine whether the lamps should rotate clockwise or counterclockwise motion. 
+The provided code is essential for the simulation's functionality, as it manages everything related to the synchroscope. It specifies when functions should be called and stores variables from relevant scripts.
 
 ### Synchroscope Manager Script:  
 The provided lines of code allow the interactive knobs of the "Governor Switch" to change the duration of the lerp, allowing the "Synchroscope Needle" to move faster or slower.
+```
+public void FlipIncrease()
+    {
+        //Function is called to, when the Governor Knob has been flipped.//
+        //It would increase the speed of the Lamps fade "In" and "Out" sequence and Synchroscope Needle.//
+        lerpDuration = lerpDuration + 0.1f;
+    }
+    public void FlipDecrease()
+    {
+        //Function is called to, when the Governor Knob has been flipped.//
+        //It would decrease the speed of the Lamps fade "In" and "Out" sequence and Synchroscope Needle.//
+        lerpDuration = lerpDuration - 0.1f;
+    }
+```
+While the previous script allows the synchroscope lamps to fade in and out in a single cycle, only the synchroscope manager allows the lamps to fade in after evaluating certain Booleans related to rotation cycles. It also evaluates a specific Boolean to determine whether the lamps should rotate clockwise or counterclockwise motion.  
+```
+public void ActiveSync()
+    {
+        //Function is called to, call other fucntion to allow the lamps to fade "In" & "Out" in a speific order.//
+        //It also check whether the lamps' speific order has to be Clockwise or Anti-Clockwise.//
+
+        //Clockwise Motion.//
+        if (reverseLoop == false)
+        {
+            if (!nextLamp0)
+            {
+                CallLamp0Script();
+            }
+            if (nextLamp0 == true && !nextLamp1 && lamp0Script.onLight == false)
+            {
+                CallLamp1Script();
+            }
+            if (nextLamp0 == true && nextLamp1 == true && !nextLamp2 && lamp1Script.onLight == false)
+            {
+                CallLamp2Script();
+            }
+            if (nextLamp0 == true && nextLamp1 == true && nextLamp2 == true && lamp2Script.onLight == false)
+            {
+                ResetBool();
+            }
+        }
+        //Anti-Clockwise Motion.//
+        if (reverseLoop == true)
+        {
+            if (!nextLamp0 && reverseLoop == true)
+            {
+                CallLamp0Script();
+            }
+            if (nextLamp0 == true && !nextLamp2 && lamp0Script.onLight == false && reverseLoop == true)
+            {
+                CallLamp2Script();
+            }
+            if (nextLamp0 == true && nextLamp2 == true && !nextLamp1 && lamp2Script.onLight == false && reverseLoop == true)
+            {
+                CallLamp1Script();
+            }
+            if (nextLamp0 == true && nextLamp1 == true && nextLamp2 == true && lamp1Script.onLight == false && reverseLoop == true)
+            {
+                ResetBool();
+            }
+        }
+    }
+    //Functions below are called to, call their lamp function to fade "In" & also Bool is check "True".
+    //It is to tell the code that it has been fade "In" and await for the next lamp's turn.
+    public void CallLamp0Script()
+    {
+        lamp0Script.CallOnCoroutine();
+        nextLamp0 = true;
+    }
+    public void CallLamp1Script()
+    {
+        lamp1Script.CallOnCoroutine();
+        nextLamp1 = true;
+    }
+    public void CallLamp2Script()
+    {
+        lamp2Script.CallOnCoroutine();
+        nextLamp2 = true;
+    }
+    public void ResetBool()
+    {
+        //Function is called to, after a cycle has been complete, reset is needed to repear the process again.//
+        nextLamp0 = false;
+        nextLamp1 = false;
+        nextLamp2 = false;
+    }
+```
 ## Game Manager
 The "Game Manager" has complete control over the simulation's game flow. It is responsible for tasks such as loading different module scenes, coordinating restarts, and configuring preset variables within the scene.
 
