@@ -666,3 +666,6 @@ Follow thse steps to setup Post Processing in Unity:
 5. Drag your camera into the "Trigger".
 6. Rememebr to select "USe Graphics Settings" in HDR and MSAA.
 View this YouTube video for a clearer grasp of configuring post-processing: "How to add post processing in unity 3d projects"
+
+## Canvas Pointer
+This script is helps to create the pointer that the learners see when interacting with the canvas. It is a important aspect of the UI interaction as without it, learners had to physically move to to a button to interact with it. With this pointer, learners can now interact with the canvas without moving away from the generator contols. 
