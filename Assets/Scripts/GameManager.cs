@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
     {
         //Function called to, preset ValueMeter's variables of Generator 1 also known as "Running Generators".//
         ValueMeter1Power.inputValue = 350f;
-        ValueMeter1Current.inputValue = 400f;
+        ValueMeter1Current.inputValue = 350f;
         ValueMeter1Voltage.inputValue = 500f;
         ValueMeter1Frequency.inputValue = 57f;
     }
@@ -195,10 +195,11 @@ public class GameManager : MonoBehaviour
         randomizeVariable = Random.Range(350, 550);
         //Debug.Log(randomizeVariable + " Power");
         ValueMeter1Power.inputValue = randomizeVariable;
-
-        randomizeVariable = Random.Range(100, 600);
-        //Debug.Log(randomizeVariable + " Current");
         ValueMeter1Current.inputValue = randomizeVariable;
+
+        //randomizeVariable = Random.Range(100, 600);
+        //Debug.Log(randomizeVariable + " Current");
+        //ValueMeter1Current.inputValue = randomizeVariable;
     }
     public void AutoVoltage()
     {
