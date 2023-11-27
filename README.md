@@ -13,6 +13,9 @@
   * [Synchroscope Manager](#synchroscope-manager)
   * [Game Manager](#game-manager)
   * [Post Processing Manager](#post-processing-manager)
+  * [VR Input Module](#vr-input-module)
+  * [Pointer Script](#pointer-script)
+  * [Button Transitioner](#button-transitioner)
 
 
 
@@ -677,5 +680,5 @@ This script replaces the steamVR input module with the same input controls howev
 This scripts creates the raycast and the functions behind the canvas pointer. There are three variables in the inspector to take note of. Default length which is the length in which the raycast will reach until it detects a collider. The dot is a reference to the gameobject of a dot that indicates to the user what they are pointer towards. The Input module reference will be the VR input module. This scripts help to detect if there is a collider with a tag "canvas" on it and if it does, it will draw the line renderer. Once it hits colliders without a tag, the line renderer will disable. 
 
 ## Button Transitioner
-
+This script allows for better transitions when a button is pressed and hovered. You can change the colours by simply dragging this script in and modifying the colours in the inspector. 
 
